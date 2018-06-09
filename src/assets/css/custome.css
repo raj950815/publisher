@@ -108,3 +108,14 @@ ul[_ngcontent-c14] li[_ngcontent-c14] a[_ngcontent-c14]::before {
     font-weight: 600;
     opacity: 0.7;
 }
+
+/* Home page card image */
+.nb-theme-default nb-card.medium-card {
+    height: 100% !important;
+}
+
+.nb-theme-default .picture {
+    padding-top: 52.50% !important;
+}
+.nb-theme-default [_nghost-c3] .toggle-layout[_ngcontent-c3] a i::after{content: '';display: none;}
+
