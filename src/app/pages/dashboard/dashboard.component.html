@@ -21,13 +21,13 @@
 </div>
 
 <div class="row">
-    <div class="col-xxxl-4 col-xxl-4 col-lg-4 col-md-4">
+    <div *ngFor="let card of values" class="col-xxxl-4 col-xxl-4 col-lg-4 col-md-4">
        
     
-        <ngx-kitten></ngx-kitten>
+        <ngx-kitten [storyCard]='card'></ngx-kitten>
       </div>
 
-      <div class="col-xxxl-4 col-xxl-4 col-lg-4 col-md-4">
+     <!-- <div class="col-xxxl-4 col-xxl-4 col-lg-4 col-md-4">
        
     
           <ngx-kitten></ngx-kitten>
@@ -41,7 +41,7 @@
        
     
               <ngx-kitten></ngx-kitten>
-            </div>
+            </div>-->
 </div>
 
 <div class="row">
@@ -56,7 +56,7 @@
   <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
     <ngx-solar [chartValue]="72"></ngx-solar>
 
-    <ngx-kitten></ngx-kitten>
+    <!--<ngx-kitten></ngx-kitten>-->
   </div>
 
   <div class="col-xxxl-3 col-xxl-4 col-md-5">

@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Input } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
@@ -16,7 +16,7 @@ export class KittenComponent implements OnDestroy {
       this.currentTheme = theme.name;
     });
   }
-
+  @Input() storyCard: any;
   ngOnDestroy() {
     this.themeSubscription.unsubscribe();
   }
