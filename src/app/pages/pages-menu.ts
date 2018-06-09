@@ -48,10 +48,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
       //   title: 'Animated Searches',
       //   link: '/pages/ui-features/search-fields',
       // },
-      // {
-      //   title: 'Tabs',
-      //   link: '/pages/ui-features/tabs',
-      // },
+      {
+        title: 'Tabs',
+        link: '/pages/ui-features/tabs',
+      },
     ],
   },
   {
@@ -64,7 +64,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         title: 'Earning Setting',
-        link: '/pages/forms/layouts',
+        link: 'ui-features/tabs/tab1',
       },
     ],
   },

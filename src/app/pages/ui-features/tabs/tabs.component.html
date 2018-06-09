@@ -1,21 +1,376 @@
 <div class="row">
-  <div class="col-md-12 col-lg-6">
-    <nb-card size="small">
+  <div class="col-md-12 col-lg-12">
+    <nb-card class="earning-summary">
+      <nb-card-body>
+        <nb-actions size="medium" fullWidth>
+          <nb-action>
+            <div class="earning-content text-center">
+              <span>Yesterday's Earnings</span>
+              <span>$0.00</span>
+          </div>
+          </nb-action>
+          <nb-action>
+            <div class="earning-content text-center">
+              <span>Earnings of this month</span>
+              <span>$0.00</span>
+            </div>
+          </nb-action>
+          <nb-action>
+            <div class="earning-content text-center">
+              <span>Total Earnings</span>
+              <span>$0.00</span>
+            </div>
+          </nb-action>
+        </nb-actions>
+      </nb-card-body>
+    </nb-card>
+    <nb-card size="">
       <nb-tabset>
-        <nb-tab tabTitle="Simple Tab #1">
-          <p>In 1975, the first general purpose home automation network technology, <a target="_blank" href="https://en.wikipedia.org/wiki/X10_(industry_standard)" title="X10 (industry standard)">X10</a>, was developed. It is a communication protocol for electronic devices. It primarily uses <a target="_blank" href="https://en.wikipedia.org/wiki/Electric_power_transmission" title="Electric power transmission">electric power transmission</a> wiring for signalling and control, where the signals involve brief <a target="_blank" href="https://en.wikipedia.org/wiki/Radio_frequency" title="Radio frequency">radio frequency</a> bursts of <a target="_blank" href="https://en.wikipedia.org/wiki/Digital_data" title="Digital data">digital data</a>, and remains the most widely available.<sup id="cite_ref-8" class="reference"><a target="_blank" href="https://en.wikipedia.org#cite_note-8">[8]</a></sup> By 1978, X10 products included a 16 channel command console, a lamp module, and an appliance module. Soon after came the wall switch module and the first X10 timer.</p>
+        <nb-tab tabTitle="Earnings">
+          <nb-card class="earning-summary">
+            <nb-card-body class="small-summary">
+              <nb-actions size="medium">
+                <nb-action>
+                  <div class="earning-content">
+                    <span>7 Days</span>
+                  </div>
+                </nb-action>
+                <nb-action>
+                  <div class="earning-content">
+                    <span>14 Days</span>
+                  </div>
+                </nb-action>
+                <nb-action>
+                  <div class="earning-content">
+                    <span>30 Days</span>
+                  </div>
+                </nb-action>
+                <nb-action class="pull-right">
+                  <div class="earning-content">
+                    <span>Calendar</span>
+                  </div>
+                </nb-action>
+              </nb-actions>
+            </nb-card-body>
+          </nb-card>
+          <div class="table-responsive table-earnings">
+            <table class="table table-bordered table-striped table-fixed">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Earnings</th>
+                  <th>Reads</th>
+                  <th>Articale Earnings</th>
+                  <th>Play Count</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>Active</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </nb-tab>
-        <nb-tab tabTitle="Simple Tab #2">
-          <span>Content #2</span>
+        <nb-tab tabTitle="Withdraw Earnings">
+          <div class="table-responsive table-earnings">
+            <table class="table table-bordered table-striped table-fixed">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Earnings</th>
+                  <th>Reads</th>
+                  <th>Articale Earnings</th>
+                  <th>Play Count</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>Active</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>rss</td>
+                  <td></td>
+                  <td>pending</td>
+                  <td>rss</td>
+                  <td>Active</td>
+                  <td>
+                    <i class="nb-compose"></i> |
+                    <i class="nb-trash"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </nb-tab>
-        <nb-tab tabTitle="Simple Tab #3">
-          <span>Content #3</span>
+        <nb-tab tabTitle="Earnings Settings">
+          <div class="container earning-settings">
+            <legend>Agreement Information</legend>
+            <div class="row">
+              <div class="col-lg-3 text-right">
+                <label for="">Signatory:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">WittyFeed</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Term of Agreement:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">09-29-2017 - 09-28-2018</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Article:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">ABC001</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Video:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">ABC002</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Address:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">911 Shekhar Central, A.B. Road, Palasia Square, Indore, Madhya Pradesh India - 452001</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Phone:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">+91 7879215310</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Email:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">addressshruti@wittyfeed.com</label>
+              </div>
+            </div>
+            <legend style="margin-top: 15px;">Payment information</legend>
+            <div class="row">
+              <div class="col-lg-3 text-right">
+                <label for="">Attention:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">1. In order for the payment to be successfully processed, the recipient's name and phone number must match the name and phone
+                number on the bank account.</label>
+                <label for="">2. In order for the payment to be successfully processed, the recipient's name and phone number must match the name and phone
+                  number on the bank account.</label>
+                  <label for="">3. In order for the payment to be successfully processed, the recipient's name and phone number must match the name and phone
+                    number on the bank account.</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Country/Currency:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">US, US Dollar</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Earning settings:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">Bank Settlement</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Beneficiary Type:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">Company</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Signatory/Beneficiary Name:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">CA. RAVI KUMAR PATIDAR</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Beneficiary Bank Name:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">Vatsana Technologies Pte Ltd</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Beneficiary Account No:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">528009905301</label>
+              </div>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary">Edit Details</button>
+            </div>
+          </div>
         </nb-tab>
       </nb-tabset>
     </nb-card>
   </div>
 
-  <div class="col-md-6">
+  <!-- <div class="col-md-6">
     <nb-card size="small">
       <nb-tabset fullWidth>
         <nb-tab tabTitle="Full width tab #1">
@@ -36,5 +391,5 @@
     <nb-card size="small">
       <nb-route-tabset [tabs]="tabs"></nb-route-tabset>
     </nb-card>
-  </div>
+  </div> -->
 </div>
