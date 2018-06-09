@@ -2,105 +2,109 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Dashboard',
+    title: 'Home',
     icon: 'nb-home',
     link: '/pages/dashboard',
     home: true,
   },
+  // {
+  //   title: 'FEATURES',
+  //   group: true,
+  // },
   {
-    title: 'FEATURES',
-    group: true,
-  },
-  {
-    title: 'UI Features',
-    icon: 'nb-keypad',
+    title: 'Content',
+    icon: 'nb-edit',
     link: '/pages/ui-features',
     children: [
       {
-        title: 'Buttons',
+        title: 'RSS Feed',
         link: '/pages/ui-features/buttons',
       },
       {
-        title: 'Grid',
+        title: 'Sync',
         link: '/pages/ui-features/grid',
+      },
+      {
+        title: 'Create Manually',
+        link: '/pages/editors/ckeditor',
       },
       {
         title: 'Icons',
         link: '/pages/ui-features/icons',
       },
-      {
-        title: 'Modals',
-        link: '/pages/ui-features/modals',
-      },
-      {
-        title: 'Popovers',
-        link: '/pages/ui-features/popovers',
-      },
-      {
-        title: 'Typography',
-        link: '/pages/ui-features/typography',
-      },
-      {
-        title: 'Animated Searches',
-        link: '/pages/ui-features/search-fields',
-      },
-      {
-        title: 'Tabs',
-        link: '/pages/ui-features/tabs',
-      },
+      // {
+      //   title: 'Modals',
+      //   link: '/pages/ui-features/modals',
+      // },
+      // {
+      //   title: 'Popovers',
+      //   link: '/pages/ui-features/popovers',
+      // },
+      // {
+      //   title: 'Typography',
+      //   link: '/pages/ui-features/typography',
+      // },
+      // {
+      //   title: 'Animated Searches',
+      //   link: '/pages/ui-features/search-fields',
+      // },
+      // {
+      //   title: 'Tabs',
+      //   link: '/pages/ui-features/tabs',
+      // },
     ],
   },
   {
-    title: 'Forms',
-    icon: 'nb-compose',
+    title: 'Earnings',
+    icon: 'ion-social-usd-outline',
     children: [
       {
-        title: 'Form Inputs',
+        title: 'Withdraws',
         link: '/pages/forms/inputs',
       },
       {
-        title: 'Form Layouts',
+        title: 'Earning Setting',
         link: '/pages/forms/layouts',
       },
     ],
   },
+  // {
+  //   title: 'Analytics',
+  //   icon: 'nb-bar-chart',
+  //   children: [
+  //     {
+  //       title: 'Tree',
+  //       link: '/pages/components/tree',
+  //     }, {
+  //       title: 'Notifications',
+  //       link: '/pages/components/notifications',
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: 'Maps',
+  //   icon: 'nb-location',
+  //   children: [
+  //     {
+  //       title: 'Google Maps',
+  //       link: '/pages/maps/gmaps',
+  //     },
+  //     {
+  //       title: 'Leaflet Maps',
+  //       link: '/pages/maps/leaflet',
+  //     },
+  //     {
+  //       title: 'Bubble Maps',
+  //       link: '/pages/maps/bubble',
+  //     },
+  //     {
+  //       title: 'Search Maps',
+  //       link: '/pages/maps/searchmap',
+  //     },
+  //   ],
+  // },
   {
-    title: 'Components',
-    icon: 'nb-gear',
-    children: [
-      {
-        title: 'Tree',
-        link: '/pages/components/tree',
-      }, {
-        title: 'Notifications',
-        link: '/pages/components/notifications',
-      },
-    ],
-  },
-  {
-    title: 'Maps',
-    icon: 'nb-location',
-    children: [
-      {
-        title: 'Google Maps',
-        link: '/pages/maps/gmaps',
-      },
-      {
-        title: 'Leaflet Maps',
-        link: '/pages/maps/leaflet',
-      },
-      {
-        title: 'Bubble Maps',
-        link: '/pages/maps/bubble',
-      },
-      {
-        title: 'Search Maps',
-        link: '/pages/maps/searchmap',
-      },
-    ],
-  },
-  {
-    title: 'Charts',
+    title: 'Analytics',
     icon: 'nb-bar-chart',
     children: [
       {

@@ -13,7 +13,7 @@ import { Component, Input } from '@angular/core';
 
       <div class="details">
         <div class="title">{{ title }}</div>
-        <div class="status">{{ on ? 'ON' : 'OFF' }}</div>
+        <div class="status">{{ val}}</div>
       </div>
     </nb-card>
   `,
@@ -22,5 +22,5 @@ export class StatusCardComponent {
 
   @Input() title: string;
   @Input() type: string;
-  @Input() on = true;
+  @Input() val :string;
 }
