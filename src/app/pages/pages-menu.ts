@@ -16,10 +16,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-edit',
     link: '/pages/ui-features',
     children: [
-      {
-        title: 'RSS Feed',
-        link: '/pages/ui-features/buttons',
-      },
+      // {
+      //   title: 'RSS Feed',
+      //   link: '/pages/ui-features/buttons',
+      // },
       {
         title: 'Sync',
         link: '/pages/ui-features/grid',
@@ -28,10 +28,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Create Manually',
         link: '/pages/editors/ckeditor',
       },
-      {
-        title: 'Icons',
-        link: '/pages/ui-features/icons',
-      },
+      // {
+      //   title: 'Icons',
+      //   link: '/pages/ui-features/icons',
+      // },
       // {
       //   title: 'Modals',
       //   link: '/pages/ui-features/modals',
@@ -48,25 +48,27 @@ export const MENU_ITEMS: NbMenuItem[] = [
       //   title: 'Animated Searches',
       //   link: '/pages/ui-features/search-fields',
       // },
-      {
-        title: 'Tabs',
-        link: '/pages/ui-features/tabs',
-      },
+      // {
+      //   title: 'Tabs',
+      //   link: '/pages/ui-features/tabs',
+      // },
     ],
   },
   {
     title: 'Earnings',
     icon: 'ion-social-usd-outline',
-    children: [
-      {
-        title: 'Withdraws',
-        link: '/pages/forms/inputs',
-      },
-      {
-        title: 'Earning Setting',
-        link: 'ui-features/tabs/tab1',
-      },
-    ],
+    link: 'ui-features/tabs/tab1',
+    // children: [
+    //   {
+    //     title: 'Withdraws',
+    //     link: '/pages/forms/inputs',
+        
+    //   },
+    //   {
+    //     title: 'Earning Setting',
+    //     link: 'ui-features/tabs/tab1',
+    //   },
+    // ],
   },
   // {
   //   title: 'Analytics',
@@ -106,55 +108,56 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Analytics',
     icon: 'nb-bar-chart',
-    children: [
-      {
-        title: 'Echarts',
-        link: '/pages/charts/echarts',
-      },
-      {
-        title: 'Charts.js',
-        link: '/pages/charts/chartjs',
-      },
-      {
-        title: 'D3',
-        link: '/pages/charts/d3',
-      },
-    ],
+    link: '/pages/charts/chartjs',
+  //   children: [
+  //     {
+  //       title: 'Echarts',
+  //       link: '/pages/charts/echarts',
+  //     },
+  //     {
+  //       title: 'Charts.js',
+  //       link: '/pages/charts/chartjs',
+  //     },
+  //     {
+  //       title: 'D3',
+  //       link: '/pages/charts/d3',
+  //     },
+  //   ],
   },
-  {
-    title: 'Editors',
-    icon: 'nb-title',
-    children: [
-      {
-        title: 'TinyMCE',
-        link: '/pages/editors/tinymce',
-      },
-      {
-        title: 'CKEditor',
-        link: '/pages/editors/ckeditor',
-      },
-    ],
-  },
-  {
-    title: 'Tables',
-    icon: 'nb-tables',
-    children: [
-      {
-        title: 'Smart Table',
-        link: '/pages/tables/smart-table',
-      },
-    ],
-  },
-  {
-    title: 'Miscellaneous',
-    icon: 'nb-shuffle',
-    children: [
-      {
-        title: '404',
-        link: '/pages/miscellaneous/404',
-      },
-    ],
-  },
+  // {
+  //   title: 'Editors',
+  //   icon: 'nb-title',
+  //   children: [
+  //     {
+  //       title: 'TinyMCE',
+  //       link: '/pages/editors/tinymce',
+  //     },
+  //     {
+  //       title: 'CKEditor',
+  //       link: '/pages/editors/ckeditor',
+  //     },
+  //   ],
+  // },
+  // // {
+  // //   title: 'Tables',
+  // //   icon: 'nb-tables',
+  // //   children: [
+  // //     {
+  // //       title: 'Smart Table',
+  // //       link: '/pages/tables/smart-table',
+  // //     },
+  // //   ],
+  // // },
+  // // {
+  // //   title: 'Miscellaneous',
+  // //   icon: 'nb-shuffle',
+  // //   children: [
+  // //     {
+  // //       title: '404',
+  // //       link: '/pages/miscellaneous/404',
+  // //     },
+  //   ],
+  // },
   {
     title: 'Auth',
     icon: 'nb-locked',
