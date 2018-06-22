@@ -16,7 +16,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './auth-interceptor';
-
+import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
 @NgModule({
   declarations: [AppComponent, LoginComponent],
   imports: [
@@ -28,10 +28,13 @@ import { AuthInterceptor } from './auth-interceptor';
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
+    SnotifyModule,
   ],
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+    SnotifyService,
     {
       provide:HTTP_INTERCEPTORS,
       useClass:AuthInterceptor,

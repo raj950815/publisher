@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {  Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-
+import {SnotifyService, SnotifyPosition, SnotifyToastConfig} from 'ng-snotify';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -14,9 +14,10 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder,
     private router:Router,
-    private auth:AuthService
+    private auth:AuthService,
+    private snotifyService: SnotifyService
   ) { }
-
+  
   ngOnInit() {
     this.loginForm=this.formBuilder.group({
       email:['',Validators.required],
@@ -31,11 +32,13 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.submitted=true;
-    this.auth.getUserDetails(this.f.email.value,this.f.password.value).subscribe(
+    this.auth.getUserDetails(this.f.email.value,this.f.password.value).subscribe(   
       data=>{
         localStorage.setItem('userToken',data.token)
+        const icon = `https://placehold.it/48x100`;
+        this.snotifyService.success("this.body","Logged in Successfully")
         this.auth.setLoggedIn(true)
-        this.router.navigate(['/pages/dashboard'])
+        // this.router.navigate(['/pages/dashboard'])
       }
     )
   }
