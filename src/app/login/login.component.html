@@ -1,24 +1,44 @@
-<div class="col-md-12">
-  <nb-card>
-    <nb-card-header>Basic form</nb-card-header>
-    <nb-card-body>
-      <div class="flex-centered col-xl-4 col-lg-6 col-md-8 col-sm-12">
-        <form [formGroup]="loginForm" (ngSubmit)="login()">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <nb-checkbox>Check me out</nb-checkbox>
-          </div>
-          <button type="submit" class="btn btn-danger">Submit</button>
-        </form>
-      </div>
-    </nb-card-body>
-  </nb-card> 
-  <ng-snotify class="simple"></ng-snotify>
+<!-- <nb-auth>
+  <nb-layout> -->
+    <div class="scrollable-container login-form">
+        <div class="layout">
+            <div class="layout-container">
+              <div class="content">
+                <div class="columns">
+                  <nb-layout-column>
+                    <div class="flex-centered col-xl-4 col-lg-6 col-md-8 col-sm-12 text-center">
+                        <h2 class="title"> Sign In </h2>
+                        <small class="form-text sub-title mb-3">Hello! Sign in with your username or email</small>
+                        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>                     
+                            <div class="form-group">                            
+                                <input placeholder="Email"type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+                                <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                                    <div *ngIf="email.errors.required">Email is required</div>
+                                    <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+                                <input placeholder="password"type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required />
+                                <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                                    <div *ngIf="password.errors.required">Password is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group accept-group col-sm-12">
+                                <nb-checkbox name="rememberMe" [(ngModel)]="model.rememberMe">Remember me</nb-checkbox>
+                                <a class="forgot-password" routerLink="/request-password">Forgot Password?</a>
+                            </div>                        
+                            <div class="form-group">
+                                <button class="btn btn-block btn-hero-success">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                  </nb-layout-column>
+                </div>
+              </div>
+            </div>
+        </div>
+      <ng-snotify class="simple"></ng-snotify>
+    </div>  
+  <!-- </nb-layout>
+</nb-auth> -->
 

@@ -1,0 +1,46 @@
+// .btn.btn-hero-success {
+//     background-image: linear-gradient(to right, #40dcb2, #40dc7e);
+//     box-shadow: 0 0 0 0 #37bd83, 0 0 0 0 #40dc98;
+//     text-shadow: none;
+//     border: none;
+//     line-height: calc((1rem * 1.25) + 4px);
+
+// }
+//  a {
+//     color: #3dcc6d;
+// }
+@import "../@theme/styles/themes";
+
+.login-form .layout {
+    padding: 2.5rem;
+    font-family: Roboto;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #a4abb3;
+    background: #ebeff5;
+    min-height: 100vh;
+}
+
+.nb-theme-default nb-checkbox .customised-control-indicator {
+    left: 0;
+}
+
+.login-form .flex-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-form .form-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+.login-form .layout-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 12px 0 #dfe3eb;
+    height: calc(100vh - 2 * 2.5rem);
+}

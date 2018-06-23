@@ -17,8 +17,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './auth-interceptor';
 import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, ForgetpasswordComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
