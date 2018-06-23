@@ -21,9 +21,24 @@ export class AuthService {
 getauthenticatedUserId(){
   return this.http.get<any>("http://192.168.2.74/restapi/Api")
 }
-  fogetPasswordRequest(){
-    return
+  fogetPasswordRequest(email):Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    
+  let  data={
+      "email":email
   }
+  console.log("data",data);
+  
+  return this.http.post("http://192.168.2.74/restapi/auth/forget", data, httpOptions)
+}
+
+
+
+
   getUserDetails(email, password):Observable<any>{
       const httpOptions = {
         headers: new HttpHeaders({

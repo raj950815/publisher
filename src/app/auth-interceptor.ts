@@ -20,7 +20,11 @@ export class AuthInterceptor implements HttpInterceptor {
             });         
         }
         return next.handle(req).catch(errorResponse => {
+            // console.log("inside err");
+            
             if (errorResponse.status==401 || errorResponse.status==403) {
+                // console.log("401 403");
+                
                 this.route.navigate(['/login'])
             }
              return _throw(errorResponse.message);

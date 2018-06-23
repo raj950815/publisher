@@ -18,8 +18,9 @@ import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './auth-interceptor';
 import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ForgetpasswordComponent],
+  declarations: [AppComponent, LoginComponent, ForgetpasswordComponent, RegisterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {  Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import {SnotifyService} from 'ng-snotify';
@@ -9,8 +9,8 @@ import {SnotifyService} from 'ng-snotify';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm:FormGroup
-  submitted=false;
+  // loginForm:FormGroup
+  // submitted=false;
   constructor(
     private router:Router,
     private auth:AuthService,
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       (data)=>{
 
         localStorage.setItem('userToken',data.token)
-        this.snotifyService.success("this.body","Logged in Successfully")
+        this.snotifyService.success("email sent successfully","success")
         this.auth.setLoggedIn(true)
         this.router.navigate(['/pages/dashboard'])
       },err=>{

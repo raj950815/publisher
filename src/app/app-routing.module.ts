@@ -11,11 +11,23 @@ import {
 } from '@nebular/auth';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
     path :'login',
     component:LoginComponent,
+    
+  },
+  {
+    path :'forget',
+    component:ForgetpasswordComponent,
+    
+  },
+  {
+    path :'register',
+    component:RegisterComponent,
     
   },
 
