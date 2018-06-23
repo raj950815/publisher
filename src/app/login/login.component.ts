@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import {  Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import {SnotifyService} from 'ng-snotify';
+import { ThemeModule } from '../@theme/theme.module';
+
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -18,9 +20,9 @@ export class LoginComponent implements OnInit {
   ) { }
   
   ngOnInit() {
-
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.add('nb-theme-default');
   }
-  
 
   model: any = {};
 
