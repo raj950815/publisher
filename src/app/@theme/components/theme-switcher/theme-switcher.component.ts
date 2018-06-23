@@ -40,7 +40,7 @@ export class ThemeSwitcherComponent implements OnInit {
     const themeName = this.boolToTheme(theme);
     this.themeService.changeTheme(themeName);
 
-    this.analyticsService.trackEvent('switchTheme');
+    // this.analyticsService.trackEvent('switchTheme');
   }
 
   currentBoolTheme() {

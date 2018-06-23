@@ -33,6 +33,8 @@ getauthenticatedUserId(){
         "email":email,
         "password":password
     }
+    console.log("data",data);
+    
     return this.http.post("http://192.168.2.74/restapi/Register/login", data, httpOptions)
   }
 }
