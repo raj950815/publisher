@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
       email:['',Validators.required],
       password:['',Validators.required]
     })
+
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.add('nb-theme-default');
   }
   
 
