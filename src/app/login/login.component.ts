@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import {  Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import {SnotifyService} from 'ng-snotify';
@@ -37,13 +36,5 @@ export class LoginComponent implements OnInit {
         this.snotifyService.error("email or password is incorrect","Unauthorized",)
       }
     )
-
-
-
-
-
-    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
   }
-
-
 }
