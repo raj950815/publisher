@@ -1,36 +1,48 @@
-<div class="col-md-12">
-    <div class="jumbotron">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 offset-md-4 text-center">
-                    <h2 class="title">Register </h2>
-                    <small class="form-text sub-title"> Lorem ipsum dolor sit amet consectetur. </small>
-                    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>                     
-                        <div class="form-group">                            
-                            <input placeholder="Email"type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+ <div class="scrollable-container login-form">
+    <div class="layout">
+        <div class="layout-container">  
+                <div class="flex-centered col-xl-4 col-lg-6 col-md-8 col-sm-12 text-center">
+                    <h2 class="title"> Sign Up </h2>
+                    <small class="form-text sub-title mb-3">Hello! Sign in with your username or email</small>
+                    <form name="form" (ngSubmit)="f.form.valid && registerSubmit()" #f="ngForm" novalidate>
+                      <div class="form-group"> 
+                          <input placeholder="publisher"type="text" class="form-control" name="publisher" [(ngModel)]="model.publisher" #publisher="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && publisher.invalid }" required />
+                          <div *ngIf="f.submitted && publisher.invalid" class="invalid-feedback">
+                              <div *ngIf="publisher.errors.required">publisher is required</div>
+                          </div>
+                      </div>   
+                      <div class="form-group">                            
+                            <input placeholder="Email"type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && email.invalid }" required email />
                             <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
                                 <div *ngIf="email.errors.required">Email is required</div>
                                 <div *ngIf="email.errors.email">Email must be a valid email address</div>
                             </div>
-                        </div>
+                      </div>
+                      <div class="form-group">                            
+                          <input placeholder="Website Url" type="url"   class="form-control" name="url" [(ngModel)]="model.url" #url="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && url.invalid }" required url   />
+                        
+                          <div *ngIf="f.submitted && url.invalid" class="invalid-feedback">
+                              <div *ngIf="url.errors.required">url is required</div>
+                              <div *ngIf="url.errors.url">url is not valid</div>
+                          </div>
+                      </div>
                         <div class="form-group"> 
-                            <input placeholder="password"type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required />
+                            <input placeholder="password"type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" minlength="6" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && password.invalid }" required />
                             <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
-                                <div *ngIf="password.errors.required">Password is required</div>
+                                <div *ngIf="password.errors.required">password is required</div>
+                                <div *ngIf="password.errors.minlength">password should be greater than 6 character </div>
+
                             </div>
                         </div>
-                        <div class="form-group accept-group col-sm-12">
-                            <nb-checkbox name="rememberMe" [(ngModel)]="model.rememberMe">Remember me</nb-checkbox>
-                            <a class="forgot-password" routerLink="/request-password">Forgot Password?</a>
-                        </div>                        
+                                            
                         <div class="form-group">
-                            <button class="btn btn-block btn-hero-success">Login</button>
+                            <button class="btn btn-block btn-hero-success">Sign Up</button>
                         </div>
                     </form>
                 </div>
-            </div>
+           
         </div>
-      </div>
+    </div>
   <ng-snotify class="simple"></ng-snotify>
-</div>
+</div>   
 

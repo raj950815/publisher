@@ -10,6 +10,12 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.add('nb-theme-default');
 
+  }
+model:any={}
+registerSubmit(){
+
+}
 }

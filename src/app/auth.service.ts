@@ -52,6 +52,6 @@ getauthenticatedUserId(){
     }
     console.log("data",data);
     
-    return this.http.post("http://192.168.2.74/restapi/Register/login", data, httpOptions)
+    return this.http.post("http://192.168.2.74/publishers_new/login/login", data, httpOptions)
   }
 }

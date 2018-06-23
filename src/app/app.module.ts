@@ -19,20 +19,22 @@ import { AuthInterceptor } from './auth-interceptor';
 import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { RegisterComponent } from './register/register.component';
+import { CustomFormsModule } from 'ng4-validators';
 @NgModule({
   declarations: [AppComponent, LoginComponent, ForgetpasswordComponent, RegisterComponent],
-  imports: [
+  bootstrap: [AppComponent],
+    imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    CustomFormsModule,
 
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
     SnotifyModule,
   ],
-  bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults},

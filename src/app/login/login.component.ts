@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {  Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import {SnotifyService} from 'ng-snotify';
-import { ThemeModule } from '../@theme/theme.module';
+// import { ThemeModule } from '../@theme/theme.module';
 
 @Component({
   selector: 'login',
@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.auth.getUserDetails(this.model.email,this.model.password).subscribe(   
       (data)=>{
-
         localStorage.setItem('userToken',data.token)
         this.snotifyService.success("email sent successfully","success")
         this.auth.setLoggedIn(true)
