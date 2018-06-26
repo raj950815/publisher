@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-xxxl-3 col-md-4">
+    <ngx-status-card title="Earnings" val="$230" type="primary">
+      <i class="ion-social-usd" style="padding:0;margin:0"></i>
+    </ngx-status-card>
+  </div>
+
+  <div class="col-xxxl-3 col-md-4">
+    <ngx-status-card title="Clicks" val="230K" type="success">
+      <i class="ion-mouse"></i>
+    </ngx-status-card>
+  </div>
+
+  <div class="col-xxxl-3 col-md-4">
+    <ngx-status-card title="Followers" val="150K" type="info">
+      <i class="nb-audio"></i>
+    </ngx-status-card>
+  </div>
+
+
+</div>
+
+<div class="row">
+    <div *ngFor="let card of values" class="col-xxxl-4 col-xxl-4 col-lg-4 col-md-4" style="    margin-bottom: 15px;">
+       
+    
+        <ngx-kitten [storyCard]='card'></ngx-kitten>
+      </div>
+
+     <!-- <div class="col-xxxl-4 col-xxl-4 col-lg-4 col-md-4">
+       
+    
+          <ngx-kitten></ngx-kitten>
+        </div>
+        <div class="col-xxxl-4 col-xxl-4 col-lg-4 col-md-4">
+       
+    
+            <ngx-kitten></ngx-kitten>
+          </div>
+          <div class="col-xxxl-4 col-xxl-4 col-lg-4 col-md-4">
+       
+    
+              <ngx-kitten></ngx-kitten>
+            </div>-->
+</div>
+<!--
+<div class="row">
+  <div class="col-xxxl-9 col-xl-12">
+    <ngx-rooms></ngx-rooms>
+  </div>
+
+  <div class="col-xxxl-3 col-xxl-4 col-lg-7 col-md-6">
+    <ngx-contacts></ngx-contacts>
+  </div>
+
+  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
+    <ngx-solar [chartValue]="72"></ngx-solar>
+
+   <ngx-kitten></ngx-kitten>
+  </div>
+
+  <div class="col-xxxl-3 col-xxl-4 col-md-5">
+    <ngx-traffic></ngx-traffic>
+    <ngx-weather></ngx-weather>
+  </div>
+
+  <div class="col-xxxl-6 col-xxl-12 col-md-7">
+    <ngx-security-cameras></ngx-security-cameras>
+  </div>
+</div>
+-->
