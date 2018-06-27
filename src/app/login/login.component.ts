@@ -28,13 +28,16 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.auth.getUserDetails(this.model.email,this.model.password).subscribe(   
-      (data)=>{
+      data=>{
+        if(data['status']){
         localStorage.setItem('userToken',data.token)
-        this.snotifyService.success("email sent successfully","success")
+        this.snotifyService.success(data['message'],"success")
         this.auth.setLoggedIn(true)
         this.router.navigate(['/pages/dashboard'])
-      },err=>{
-        this.snotifyService.error("email or password is incorrect","Unauthorized",)
+        }else{
+            this.snotifyService.error(data['message'],"Unauthorized",)
+        }
+        
       }
     )
   }

@@ -21,23 +21,14 @@ export class AuthService {
 getauthenticatedUserId(){
   return this.http.get<any>("http://192.168.2.74/publishers/Api")
 }
-  fogetPasswordRequest(email):Observable<any>{
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-      })
-    };
+fogetPasswordRequest(email):Observable<any>{
     
   let  data={
       "email":email
   }
-  console.log("data",data);
-  
-  return this.http.post("http://192.168.2.74/publishers/login/forgot_password", data, httpOptions)
+
+  return this.http.post("http://192.168.2.74/publishers/login/forgot_password", data)
 }
-
-
-
 
   getUserDetails(email, password):Observable<any>{
       const httpOptions = {
@@ -67,12 +58,8 @@ getauthenticatedUserId(){
     return this.http.post("http://192.168.2.74/publishers/login/register",data)
   }
 
-  verify(password:any,token:any){
-    let data:any={
-      "password":password,
-      // "id":id,
-      "rt":token
-    }
+verify(data){
+  
     console.log(data);
     
     return this.http.post("http://192.168.2.74/publishers/login/reset",data)
@@ -93,7 +80,12 @@ getauthenticatedUserId(){
     return this.http.get("http://192.168.2.74/publishers/login/verify_email?h="+data)
   }
 
+  getPaymentDetails(){
+    return this.http.get("http://192.168.2.34/publishers/earning/get_payment_info")
+  }
+
   updateBank(data){
-    return this.http.post("",data)
+    console.log(data)
+    return this.http.post("http://192.168.2.34/publishers/earning/update_payment_info",data)
   }
 }

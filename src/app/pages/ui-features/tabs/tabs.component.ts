@@ -32,7 +32,19 @@ export class Tab2Component { }
 })
 export class TabsComponent {
 
-  constructor(private modalService:NgbModal, private auth:AuthService){}
+  model: any = {};
+  message :any =Object
+
+  constructor(private auth:AuthService){}
+  
+  ngOnInit(){
+    this.auth.getPaymentDetails().subscribe(data=>{
+      console.log("hello",data)
+      this.message=data['response']
+      console.log(this.message);
+      
+    })
+  }
 
   tabs: any[] = [
     {
@@ -44,15 +56,10 @@ export class TabsComponent {
       route: '/pages/ui-features/tabs/tab2',
     },
   ];
-
-  showLargeModal() {
-    const activeModal = this.modalService.open(ModalComponent, { size: 'lg', container: 'nb-layout' });
-
-    activeModal.componentInstance.modalHeader = 'Large Modal';
-  }
-  model: any = {};
   updateSubmit(){
+    // this.model.token=localStorage.getItem('userToken')
     this.auth.updateBank(this.model).subscribe(data=>{
+      
       console.log(data);
       
     })

@@ -328,82 +328,100 @@
                 <label for="">Country/Currency:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">US, US Dollar</label>
+                <label for="">{{message.country}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Earning settings:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">Bank Settlement</label>
+                <label for="">{{message.payment_method}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Beneficiary Type:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">Company</label>
+                <label for="">{{message.beneficiary_type}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Signatory/Beneficiary Name:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">CA. Arpit Agrawal</label>
+                <label for="">{{message.beneficiary_name}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Beneficiary Bank Name:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">Vatsana Technologies Pte Ltd</label>
+                <label for="">{{message.bank_name}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Beneficiary Account No:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">123412187812312</label>
+                <label for="">{{message.acc_number}}</label>
               </div>
             </div>
             <div class="text-center">
-              <button class="btn btn-primary" (click)="showLargeModal()">Edit Details</button>
+              <button class="btn btn-primary">Edit Details</button>
             </div>
             <div>
                 <form name="form" (ngSubmit)="f.form.valid && updateSubmit()" #f="ngForm" novalidate>                     
                     <div class="form-group">
+                      <label class="col-md-3 control-label">Country</label>
+                    <div class="col-md-7">
                         <input placeholder="Country/Currency" type="text" class="form-control" name="country" [(ngModel)]="model.country" #country="ngModel" value="US, US Dollar" [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" required />
                         <div *ngIf="f.submitted && country.invalid" class="invalid-feedback">
                             <div *ngIf="country.errors.required">Country is required</div>
                         </div>
+                      </div>
                     </div>
-                    <div class="form-group"> 
-                        <input placeholder="Earning settings"type="text" class="form-control" name="earningSettings" [(ngModel)]="model.earningSettings" #earningSettings="ngModel" [ngClass]="{ 'is-invalid': f.submitted && earningSettings.invalid }" required />
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Earning Settings</label>
+                        <div class="col-md-7">
+                        <input placeholder="Earning settings"type="text" class="form-control" name="earningSettings" [(ngModel)]="model.paymentMethod" #earningSettings="ngModel" [ngClass]="{ 'is-invalid': f.submitted && earningSettings.invalid }" required />
                         <div *ngIf="f.submitted && earningSettings.invalid" class="invalid-feedback">
                             <div *ngIf="earningSettings.errors.required">Earning Settings is required</div>
                         </div>
+                      </div>
                     </div>
-                    <div class="form-group"> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Earning Settings</label>
+                        <div class="col-md-7">
                         <input placeholder="Beneficiary Type"type="text" class="form-control" name="beneficiaryType" [(ngModel)]="model.beneficiaryType" #beneficiaryType="ngModel" [ngClass]="{ 'is-invalid': f.submitted && beneficiaryType.invalid }" required />
                         <div *ngIf="f.submitted && beneficiaryType.invalid" class="invalid-feedback">
                             <div *ngIf="beneficiaryType.errors.required">Beneficiary Type is required</div>
                         </div>
+                        </div>
                     </div>
-                    <div class="form-group"> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Earning Settings</label>
+                        <div class="col-md-7">
                         <input placeholder="Signatory/Beneficiary Name"type="text" class="form-control" name="beneficiaryName" [(ngModel)]="model.beneficiaryName" #beneficiaryName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && beneficiaryName.invalid }" required />
                         <div *ngIf="f.submitted && beneficiaryName.invalid" class="invalid-feedback">
                             <div *ngIf="beneficiaryName.errors.required">Beneficiary Name is required</div>
                         </div>
+                        </div>
                     </div>
-                    <div class="form-group"> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Earning Settings</label>
+                        <div class="col-md-7">
                         <input placeholder="Beneficiary Bank Name"type="text" class="form-control" name="bankName" [(ngModel)]="model.bankName" #bankName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bankName.invalid }" required />
                         <div *ngIf="f.submitted && bankName.invalid" class="invalid-feedback">
                             <div *ngIf="bankName.errors.required">Bank Name is required</div>
                         </div>
+                        </div>
                     </div>
-                    <div class="form-group"> 
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Earning Settings</label>
+                        <div class="col-md-7"> 
                         <input placeholder="Beneficiary Account No"type="text" class="form-control" name="accountNo" [(ngModel)]="model.accountNo" #accountNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && accountNo.invalid }" required />
                         <div *ngIf="f.submitted && accountNo.invalid" class="invalid-feedback">
                             <div *ngIf="accountNo.errors.required">Beneficiary Account No is required</div>
                         </div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-block btn-hero-success">Submit</button>
+                        <button class="btn btn-hero-success">Submit</button>
                     </div>
                 </form>
             </div>
