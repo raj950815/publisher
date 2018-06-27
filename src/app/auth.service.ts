@@ -19,7 +19,7 @@ export class AuthService {
     return localStorage.getItem("userToken"); 
   }
 getauthenticatedUserId(){
-  return this.http.get<any>("http://192.168.2.34/publishers/Api")
+  return this.http.get<any>("http://192.168.2.74/publishers/Api")
 }
   fogetPasswordRequest(email):Observable<any>{
     const httpOptions = {
@@ -33,7 +33,7 @@ getauthenticatedUserId(){
   }
   console.log("data",data);
   
-  return this.http.post("http://192.168.2.34/publishers/login/forgot_password", data, httpOptions)
+  return this.http.post("http://192.168.2.74/publishers/login/forgot_password", data, httpOptions)
 }
 
 
@@ -52,7 +52,7 @@ getauthenticatedUserId(){
     }
     console.log("data",data);
     
-    return this.http.post("http://192.168.2.34/publishers/login/login_publisher", data, httpOptions)
+    return this.http.post("http://192.168.2.74/publishers/login/login_publisher", data, httpOptions)
   }
 
   registerUser(data:FormData){
@@ -63,15 +63,8 @@ getauthenticatedUserId(){
       })
     };
 
-    // let data = {
-    //   "publisher_name":publisher,
-    //   "email":email,
-    //   "url":url,
-    //   "password":password
-    // }
-    console.log(data);
     
-    return this.http.post("http://192.168.2.34/publishers/login/register",data)
+    return this.http.post("http://192.168.2.74/publishers/login/register",data)
   }
 
   verify(password:any,token:any){
@@ -82,7 +75,7 @@ getauthenticatedUserId(){
     }
     console.log(data);
     
-    return this.http.post("http://192.168.2.34/publishers/login/reset",data)
+    return this.http.post("http://192.168.2.74/publishers/login/reset",data)
   }
 
   resetpassword(password, token){
@@ -91,6 +84,16 @@ getauthenticatedUserId(){
       "token":token
     }
     console.log(data)
-    return this.http.post("http://192.168.2.34/publishers/login/set_new_password",data)
+    return this.http.post("http://192.168.2.74/publishers/login/set_new_password",data)
+  }
+
+  confirmMail(data){
+    // console.log("i am here",data);
+    
+    return this.http.get("http://192.168.2.74/publishers/login/verify_email?h="+data)
+  }
+
+  updateBank(data){
+    return this.http.post("",data)
   }
 }

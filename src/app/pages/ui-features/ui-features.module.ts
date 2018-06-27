@@ -7,7 +7,7 @@ import { UiFeaturesComponent } from './ui-features.component';
 import { GridComponent } from './grid/grid.component';
 import { ModalsComponent } from './modals/modals.component';
 import { IconsComponent } from './icons/icons.component';
-import { ModalComponent } from './modals/modal/modal.component';
+// import { ModalComponent } from './modals/modal/modal.component';
 import { TypographyComponent } from './typography/typography.component';
 import { TabsComponent, Tab1Component, Tab2Component } from './tabs/tabs.component';
 import { SearchComponent } from './search-fields/search-fields.component';
@@ -16,6 +16,7 @@ import {
   NgxPopoverCardComponent, NgxPopoverFormComponent,
   NgxPopoverTabsComponent,
 } from './popovers/popover-examples.component';
+import { ModalComponent } from './tabs/modal/modal.component';
 
 const components = [
   UiFeaturesComponent,
@@ -42,6 +43,7 @@ const components = [
   ],
   declarations: [
     ...components,
+    ModalComponent,
   ],
   entryComponents: [
     ModalComponent,

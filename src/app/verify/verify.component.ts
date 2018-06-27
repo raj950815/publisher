@@ -34,11 +34,15 @@ export class VerifyComponent implements OnInit {
    
   resetSubmit(){
     // console.log(this.model.);
+    let data={
+      "password":this.model.password,
+      "rt":this.resetToken
+    }
     
-    this.auth.verify(this.model.password,this.resetToken).subscribe(data=>{
+    this.auth.verify(data).subscribe(data=>{
       if(data){
       this.snotifyService.success("Password Successfully Changed.")
-        this.router.navigate['/login']
+      this.router.navigate(['/login'])
       // console.log(data); 
       }
     },err=>{

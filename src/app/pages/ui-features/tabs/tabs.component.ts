@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from "./modal/modal.component";
+import { AuthService } from '../../../auth.service';
 
 @Component({
   selector: 'ngx-tab1',
@@ -29,6 +32,8 @@ export class Tab2Component { }
 })
 export class TabsComponent {
 
+  constructor(private modalService:NgbModal, private auth:AuthService){}
+
   tabs: any[] = [
     {
       title: 'Route tab #1',
@@ -39,5 +44,18 @@ export class TabsComponent {
       route: '/pages/ui-features/tabs/tab2',
     },
   ];
+
+  showLargeModal() {
+    const activeModal = this.modalService.open(ModalComponent, { size: 'lg', container: 'nb-layout' });
+
+    activeModal.componentInstance.modalHeader = 'Large Modal';
+  }
+  model: any = {};
+  updateSubmit(){
+    this.auth.updateBank(this.model).subscribe(data=>{
+      console.log(data);
+      
+    })
+  }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { SnotifyService } from 'ng-snotify';
 
 @Component({
   selector: 'register',
@@ -11,7 +12,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private auth:AuthService,
-    private router:Router
+    private router:Router,
+    private snotifyService: SnotifyService
   ) { }
 
   ngOnInit() {
@@ -21,17 +23,14 @@ export class RegisterComponent implements OnInit {
   }
 model:any={}
 registerSubmit() {
-  // console.log(this.model)
     this.auth.registerUser(this.model).subscribe(   
       (data)=>{
-        // localStorage.setItem('userToken',data.token)
-        // this.snotifyService.success("email sent successfully","success")
-        // this.auth.setLoggedIn(true)
-        console.log("hjdlls");
-        this.router.navigate(['/login'])
+      // let message=data.message
+      // this.snotifyService.success(data,"success");
+      this.router.navigate(['/login'])
       }
       // ,err=>{
-      //   this.snotifyService.error("email or password is incorrect","Unauthorized",)
+      //   this.snotifyService.error(this.data,"Unauthorized",)
       // }
     )
   }

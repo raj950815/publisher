@@ -15,6 +15,7 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { RegisterComponent } from './register/register.component';
 import { VerifyComponent } from './verify/verify.component';
 import { ResetComponent } from './pages/reset/reset.component';
+import { MailConfirmComponent } from './mail-confirm/mail-confirm.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path:'verify',
     component:VerifyComponent
+  },
+  {
+    path: 'confirm',
+    component:MailConfirmComponent
   },
 
   { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule',

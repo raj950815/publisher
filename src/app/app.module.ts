@@ -21,8 +21,9 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { RegisterComponent } from './register/register.component';
 import { CustomFormsModule } from 'ng4-validators';
 import { VerifyComponent } from './verify/verify.component';
+import { MailConfirmComponent } from './mail-confirm/mail-confirm.component';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ForgetpasswordComponent, RegisterComponent, VerifyComponent],
+  declarations: [AppComponent, LoginComponent, ForgetpasswordComponent, RegisterComponent, VerifyComponent, MailConfirmComponent],
   bootstrap: [AppComponent],
     imports: [
     BrowserModule,
