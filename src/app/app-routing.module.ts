@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { RegisterComponent } from './register/register.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { MailVerifyComponent } from './mail-verify/mail-verify.component';
 
 const routes: Routes = [
   {
@@ -30,7 +32,14 @@ const routes: Routes = [
     component:RegisterComponent,
     
   },
-
+  {
+    path :'forgetReset',
+    component:PasswordResetComponent
+  },
+  {
+    path :'verify',
+    component:MailVerifyComponent
+  },
   { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule',
   canActivate: [AuthGuard],
   // runGuardsAndResolvers: 'always'

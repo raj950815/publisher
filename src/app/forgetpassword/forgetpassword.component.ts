@@ -15,16 +15,21 @@ export class ForgetpasswordComponent implements OnInit {
     private auth:AuthService,
     private snotifyService: SnotifyService
   ) { }
-
+response=false
   ngOnInit() {
   }
   model:any={}
+  message=""
 forgetSubmit(){
   // debugger
-    this.auth.fogetPasswordRequest(this.model.email).subscribe(data=>{
-      if(data){
-       let message=data.message
-        this.snotifyService.simple(message,"success");
+    this.auth.fogetPasswordRequest(this.model).subscribe(data=>{
+      if(data["status"]){
+        this.message=data["message"]
+       this.response=true
+        // this.snotifyService.simple(message,"success");
+      }else{
+        this.response=false
+        this.snotifyService.warning(data["message"],"warning");
       }
     },err=>{
       this.snotifyService.error("there is an issue","error");

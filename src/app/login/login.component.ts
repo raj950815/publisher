@@ -20,20 +20,28 @@ export class LoginComponent implements OnInit {
   ) { }
   
   ngOnInit() {
-    const body = document.getElementsByTagName('body')[0];
-    body.classList.add('nb-theme-default');
+    // const body = document.getElementsByTagName('body')[0];
+    // body.classList.add('nb-theme-default');
   }
 
   model: any = {};
 
   onSubmit() {
-    this.auth.getUserDetails(this.model.email,this.model.password).subscribe(   
+
+    this.auth.getUserDetails(this.model).subscribe(   
       (data)=>{
-        localStorage.setItem('userToken',data.token)
-        this.snotifyService.success("email sent successfully","success")
-        this.auth.setLoggedIn(true)
-        this.router.navigate(['/pages/dashboard'])
+        console.log(data);
+        
+        if (data["status"]) {
+          localStorage.setItem('userToken',data["token"])
+          this.router.navigate(['/pages/dashboard'])
+          
+        } else {
+          localStorage.removeItem('userToken')
+          this.snotifyService.warning(data["message"],"Unauthorized")
+        }
       },err=>{
+        localStorage.removeItem('userToken')
         this.snotifyService.error("email or password is incorrect","Unauthorized",)
       }
     )

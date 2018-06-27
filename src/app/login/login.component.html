@@ -7,8 +7,8 @@
                 <div class="columns">
                   <nb-layout-column>
                     <div class="col-md-4 offset-md-4 text-center">
-                        <h2 class="title"> Sign In </h2>
-                        <small class="form-text sub-title mb-3">Hello! Sign in with your username or email</small>
+                        <h2 class="title"> Onefeed </h2>
+                        <small class="form-text sub-title mb-3">Hello! Sign in with your email</small>
                         <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>                     
                             <div class="form-group">                            
                                 <input placeholder="Email"type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
@@ -24,8 +24,8 @@
                                 </div>
                             </div>
                             <div class="form-group accept-group col-sm-12">
-                                <nb-checkbox name="rememberMe" [(ngModel)]="model.rememberMe">Remember me</nb-checkbox>
-                                <a class="forgot-password" routerLink="/request-password">Forgot Password?</a>
+                                <nb-checkbox name="remember_me" [(ngModel)]="model.remember_me">Remember me</nb-checkbox>
+                                <a class="forgot-password" routerLink="/forget">Forgot Password?</a>
                             </div>                        
                             <div class="form-group">
                                 <button class="btn btn-block btn-hero-success">Login</button>

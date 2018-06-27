@@ -20,8 +20,10 @@ import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { RegisterComponent } from './register/register.component';
 import { CustomFormsModule } from 'ng4-validators';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { MailVerifyComponent } from './mail-verify/mail-verify.component';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ForgetpasswordComponent, RegisterComponent],
+  declarations: [AppComponent, LoginComponent, ForgetpasswordComponent, RegisterComponent, PasswordResetComponent, MailVerifyComponent],
   bootstrap: [AppComponent],
     imports: [
     BrowserModule,

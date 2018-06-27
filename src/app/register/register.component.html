@@ -2,13 +2,13 @@
     <div class="layout">
         <div class="layout-container">  
                 <div class="flex-centered col-xl-4 col-lg-6 col-md-8 col-sm-12 text-center">
-                    <h2 class="title"> Sign Up </h2>
-                    <small class="form-text sub-title mb-3">Hello! Sign in with your username or email</small>
+                    <h2 class="title"> Onefeed </h2>
+                    <small class="form-text sub-title mb-3"> Sign up with your official email</small>
                     <form name="form" (ngSubmit)="f.form.valid && registerSubmit()" #f="ngForm" novalidate>
                       <div class="form-group"> 
-                          <input placeholder="publisher"type="text" class="form-control" name="publisher" [(ngModel)]="model.publisher" #publisher="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && publisher.invalid }" required />
-                          <div *ngIf="f.submitted && publisher.invalid" class="invalid-feedback">
-                              <div *ngIf="publisher.errors.required">publisher is required</div>
+                          <input placeholder="publisher"type="text" class="form-control" name="publisher_name" [(ngModel)]="model.publisher_name" #publisher_name="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && publisher_name.invalid }" required />
+                          <div *ngIf="f.submitted && publisher_name.invalid" class="invalid-feedback">
+                              <div *ngIf="publisher_name.errors.required">publisher is required</div>
                           </div>
                       </div>   
                       <div class="form-group">                            
