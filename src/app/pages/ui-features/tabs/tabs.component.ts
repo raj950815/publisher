@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SnotifyService } from 'ng-snotify';
+import { EarningService } from '../../earning.service';
 
 @Component({
   selector: 'ngx-tab1',
@@ -29,6 +31,65 @@ export class Tab2Component { }
 })
 export class TabsComponent {
 
+  agreement:any = Object
+  message :any = Object
+  yesterdayEarnings: any
+  monthlyEarnings:any
+  totalEarnings:any
+  withdrawEarnings= []
+  model: any = {
+    country:this.message.country
+  };
+
+  constructor(
+    private earning:EarningService,
+    private snotify:SnotifyService
+  ){}
+  
+  ngOnInit(){
+
+    this.earning.geAgreementDetails().subscribe(data=>{
+      this.agreement=data['response']
+    })
+
+    this.earning.getPaymentDetails().subscribe(data=>{
+      this.message=data['response']
+    })
+
+    this.earning.getYesterdayEarning().subscribe(data=>{
+      if(data['status']){
+        this.yesterdayEarnings = data['response']
+        
+      }else{
+        this.yesterdayEarnings=0
+      }
+    })
+
+    this.earning.getMonthlyEarning().subscribe(data=>{
+      if(data['status']){
+        this.monthlyEarnings = data['response']
+      }else{
+        this.monthlyEarnings=0
+      }
+    })
+    
+    this.earning.getTotalEarning().subscribe(data=>{
+      if(data['status']){
+        this.totalEarnings = data['response']
+        
+      }else{
+        this.totalEarnings=0
+      }
+    })
+
+    this.earning.getWithdrawEarnings().subscribe(data=>{
+      if(data['status']){
+        this.withdrawEarnings = data['response']
+        // console.log(data);
+      }
+    })
+  }
+
   tabs: any[] = [
     {
       title: 'Route tab #1',
@@ -39,5 +100,16 @@ export class TabsComponent {
       route: '/pages/ui-features/tabs/tab2',
     },
   ];
+  updateSubmit(){
+    this.earning.updateBank(this.model).subscribe(data=>{
+      if (data["status"]) {
+        this.snotify.success(data["message"],"Success")
+      } else {
+        this.snotify.warning(data["message"],"Warning")
+      }
+    },err=>{
+      this.snotify.warning("Something Went to Wrong","Warning")
+    })
+  }
 
 }
