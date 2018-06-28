@@ -22,6 +22,9 @@ import { RegisterComponent } from './register/register.component';
 import { CustomFormsModule } from 'ng4-validators';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { MailVerifyComponent } from './mail-verify/mail-verify.component';
+
+import { MyDateRangePickerModule } from 'mydaterangepicker';
+
 @NgModule({
   declarations: [AppComponent, LoginComponent, ForgetpasswordComponent, RegisterComponent, PasswordResetComponent, MailVerifyComponent],
   bootstrap: [AppComponent],
@@ -36,6 +39,7 @@ import { MailVerifyComponent } from './mail-verify/mail-verify.component';
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
     SnotifyModule,
+    MyDateRangePickerModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },

@@ -5,35 +5,26 @@
       <nb-card>
         <nb-card-header>Submit Feed Links</nb-card-header>
         <nb-card-body>
-          <div class="input-group">
-            <input type="text" placeholder="RSS Feed Link  https://www.wittyfeed.me/sitemap/rssfeed" class="form-control"/>
-          </div>
-          <div class="row full-name-inputs">
-            <div class="col-sm-6 input-group">
-                <div class="form-group validation-checkboxes row">
-                    <nb-checkbox status="success" class="col-sm-2">Story</nb-checkbox>
-                    <nb-checkbox status="success" class="col-sm-2">Video</nb-checkbox>
-                    <nb-checkbox status="success" class="col-sm-2">GIF</nb-checkbox>
-                  </div>
-            </div>
-            <div class="col-sm-6  input-group">
-                   <select class="form-control">
-                      <option>Select Category</option>
-                      <option>Technology</option>
-                      <option>History</option>
-                      <option>Humor</option>
-                      <option>Entertainment</option>
-                    </select>                  
-            </div>
-          </div>
-          <div class="form-group row">
-              <div class="col-sm-9">
-                  <nb-checkbox status="success" class="col-sm-1">I acknowledge Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam odit laudantium, dolor eos numquam veritatis aliquid repudiandae earum quod necessitatibus?</nb-checkbox>
-              </div>
-              <div class="col-sm-3">
-                <button type="submit" class="btn btn-primary">Submit Link</button>
-              </div>
-            </div>
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>                     
+                <div class="form-group">                            
+                    <input placeholder="RSS Link"type="text" class="form-control" name="feed_link" [(ngModel)]="model.feed_link" #feed="ngModel" [ngClass]="{ 'is-invalid': f.submitted && feed.invalid }" required  />
+                    <div *ngIf="f.submitted && feed.invalid" class="invalid-feedback">
+                        <div *ngIf="feed.errors.required">Feed link is required</div>
+                        <!-- <div *ngIf="email.errors.email">Email must be a valid email address</div> -->
+                    </div>
+                </div>
+                <div class="input-group">
+                    <select class="form-control col-md-4" name="category" [(ngModel)]="model.category" >
+                       <option>Select Category</option>
+                       <option>Technology</option>
+                       <option>History</option>
+                       <option>Humor</option>
+                       <option>Entertainment</option>
+                     </select>                  
+                     <button type="submit" class="offset-md-6 btn btn-primary">Submit Link</button>
+             </div>
+            </form>
+
         </nb-card-body>
       </nb-card>
     </div>
@@ -46,37 +37,36 @@
         Submissions History
       </nb-card-header>
       <nb-card-body>
-     
         <div class="table-responsive">
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th>Media</th>
-                <th > URL
-                </th>
-                <th> Status
-                </th>
-                <th>Action
-                </th>              
+                <th > URL</th>
+                
+                <th> Category</th>
+                  
+                <th> Status</th>
+                
+                <th>Action</th>
+                              
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let link of listRss">
                 <td>rss</td>
-                <td >https://www.wittyfeed.me/sitemap/rssfeed?utm_term=topbuzz&i=2&cat=InnerVoice</td>
-                <td>Active</td>
-                <td><i class="nb-compose"></i> | <i class="nb-trash"></i></td>
+                <td ><a [attr.href]="link?.link">{{link["link"]}}</a></td>
+                <td>{{link["category"]}}</td>
+
+                <td>{{link["status"]}}</td>
+                <td> <i class="nb-trash" (click)="deleteLink(link.id)"></i></td>
               </tr>
-              <tr>
-                  <td>rss</td>
-                  <td >https://www.wittyfeed.me/sitemap/rssfeed?utm_term=topbuzz&i=2&cat=sports</td>
-                  <td>pending</td>
-                  <td><i class="nb-compose"></i> | <i class="nb-trash"></i></td>
-                </tr>
+           
             </tbody>
           </table>
         </div>
       </nb-card-body>
     </nb-card>
   </div>
+  <ng-snotify class="simple"></ng-snotify>
 </div>

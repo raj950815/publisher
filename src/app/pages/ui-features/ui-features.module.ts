@@ -16,6 +16,7 @@ import {
   NgxPopoverCardComponent, NgxPopoverFormComponent,
   NgxPopoverTabsComponent,
 } from './popovers/popover-examples.component';
+import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
 
 const components = [
   UiFeaturesComponent,
@@ -39,6 +40,7 @@ const components = [
     ThemeModule,
     UiFeaturesRoutingModule,
     ButtonsModule,
+    SnotifyModule,
   ],
   declarations: [
     ...components,
@@ -49,5 +51,9 @@ const components = [
     NgxPopoverFormComponent,
     NgxPopoverTabsComponent,
   ],
+  providers:[
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+    SnotifyService,
+  ]
 })
 export class UiFeaturesModule { }
