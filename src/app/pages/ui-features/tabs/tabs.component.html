@@ -6,19 +6,19 @@
           <nb-action>
             <div class="earning-content text-center">
               <span>Yesterday's Earnings</span>
-              <span>$0.00</span>
+              <span>${{yesterdayEarnings}} </span>
           </div>
           </nb-action>
           <nb-action>
             <div class="earning-content text-center">
               <span>Earnings of this month</span>
-              <span>$0.00</span>
+              <span>${{monthlyEarnings}} </span>
             </div>
           </nb-action>
           <nb-action>
             <div class="earning-content text-center">
               <span>Total Earnings</span>
-              <span>$0.00</span>
+              <span>${{totalEarnings}} </span>
             </div>
           </nb-action>
         </nb-actions>
@@ -57,102 +57,18 @@
             <table class="table table-bordered table-striped table-fixed">
               <thead>
                 <tr>
+                  <th>S.No.</th>
+                  <th>Credit</th>
+                  <th>Reason</th>
                   <th>Date</th>
-                  <th>Earnings</th>
-                  <th>Reads</th>
-                  <th>Articale Earnings</th>
-                  <th>Play Count</th>
-                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>Active</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
+                <tr *ngFor="let compEarn of completeEarnings; let i = index">
+                  <td>{{i+1}}</td>
+                  <td> {{compEarn?.credit}} </td>
+                  <td>{{compEarn?.reason}}</td>
+                  <td>{{compEarn?.date}}</td>
                 </tr>
               </tbody>
             </table>
@@ -163,102 +79,18 @@
             <table class="table table-bordered table-striped table-fixed">
               <thead>
                 <tr>
+                  <th>S.No.</th>
+                  <th>Debited</th>
+                  <th>Status</th>
                   <th>Date</th>
-                  <th>Earnings</th>
-                  <th>Reads</th>
-                  <th>Articale Earnings</th>
-                  <th>Play Count</th>
-                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>Active</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>rss</td>
-                  <td></td>
-                  <td>pending</td>
-                  <td>rss</td>
-                  <td>Active</td>
-                  <td>
-                    <i class="nb-compose"></i> |
-                    <i class="nb-trash"></i>
-                  </td>
+                <tr *ngFor="let withdraw of withdrawEarnings; let i= index">
+                  <td>{{i+1}}</td>
+                  <td>{{withdraw?.debit}}</td>
+                  <td>{{withdraw?.status}}</td>
+                  <td>{{withdraw?.date}}</td>
                 </tr>
               </tbody>
             </table>
@@ -272,43 +104,43 @@
                 <label for="">Signatory:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">WittyFeed</label>
+                <label for=""> {{agreement.signatory}} </label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Term of Agreement:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">09-29-2017 - 09-28-2018</label>
+                <label for="">{{agreement.toa_start}} - {{agreement.toa_end}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Article:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">ABC001</label>
+                <label for="">{{agreement.article}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Video:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">ABC002</label>
+                <label for="">{{agreement.video}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Address:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">911 Shekhar Central, A.B. Road, Palasia Square, Indore, Madhya Pradesh India - 452001</label>
+                <label for="">{{agreement.address}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Phone:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">+91 7879215310</label>
+                <label for="">{{agreement.phone}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Email:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">addressshruti@wittyfeed.com</label>
+                <label for="">{{agreement.email}}</label>
               </div>
             </div>
             <legend style="margin-top: 15px;">Payment information</legend>
@@ -328,41 +160,103 @@
                 <label for="">Country/Currency:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">US, US Dollar</label>
+                <label for="">{{message.country}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Earning settings:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">Bank Settlement</label>
+                <label for="">{{message.payment_method}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Beneficiary Type:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">Company</label>
+                <label for="">{{message.beneficiary_type}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Signatory/Beneficiary Name:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">CA. Arpit Agrawal</label>
+                <label for="">{{message.beneficiary_name}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Beneficiary Bank Name:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">Vatsana Technologies Pte Ltd</label>
+                <label for="">{{message.bank_name}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Beneficiary Account No:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">123412187812312</label>
+                <label for="">{{message.acc_number}}</label>
               </div>
             </div>
             <div class="text-center">
               <button class="btn btn-primary">Edit Details</button>
+            </div>
+            <div>
+                <form name="form" (ngSubmit)="f.form.valid && updateSubmit()" #f="ngForm" novalidate>                     
+                    <div class="form-group">
+                      <label class="col-md-3 control-label">Country</label>
+                    <div class="col-md-7">
+                        <input placeholder="Country/Currency" type="text" class="form-control" name="country" [value]="message.country" [(ngModel)]="model.country" #country="ngModel" value="US, US Dollar" [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" required />
+                        <div *ngIf="f.submitted && country.invalid" class="invalid-feedback">
+                            <div *ngIf="country.errors.required">Country is required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Earning Settings</label>
+                        <div class="col-md-7">
+                        <input placeholder="Earning settings"type="text" class="form-control" name="payment_method" value="{{message.payment_method}}" [(ngModel)]="model.payment_method" #payment_method="ngModel" [ngClass]="{ 'is-invalid': f.submitted && payment_method.invalid }" required />
+                        <div *ngIf="f.submitted && payment_method.invalid" class="invalid-feedback">
+                            <div *ngIf="payment_method.errors.required">Earning Settings is required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Beneficiary Type</label>
+                        <div class="col-md-7">
+                        <input placeholder="Beneficiary Type"type="text" class="form-control" name="beneficiary_type" value="{{message.beneficiary_type}}" [(ngModel)]="model.beneficiary_type" #beneficiary_type="ngModel" [ngClass]="{ 'is-invalid': f.submitted && beneficiary_type.invalid }" required />
+                        <div *ngIf="f.submitted && beneficiary_type.invalid" class="invalid-feedback">
+                            <div *ngIf="beneficiary_type.errors.required">Beneficiary Type is required</div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Beneficiary Name</label>
+                        <div class="col-md-7">
+                        <input placeholder="Signatory/Beneficiary Name"type="text" class="form-control" name="beneficiary_name" value="{{message.beneficiary_name}}" [(ngModel)]="model.beneficiary_name" #beneficiary_name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && beneficiary_name.invalid }" required />
+                        <div *ngIf="f.submitted && beneficiary_name.invalid" class="invalid-feedback">
+                            <div *ngIf="beneficiary_name.errors.required">Beneficiary Name is required</div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Bank Name</label>
+                        <div class="col-md-7">
+                        <input placeholder="Beneficiary Bank Name"type="text" class="form-control" name="bankName" value="{{message.bank_name}}" [(ngModel)]="model.bank_name" #bankName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bank_name.invalid }" required />
+                        <div *ngIf="f.submitted && bank_name.invalid" class="invalid-feedback">
+                            <div *ngIf="bank_name.errors.required">Bank Name is required</div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Account No.</label>
+                        <div class="col-md-7"> 
+                        <input placeholder="Beneficiary Account No"type="text" class="form-control" name="acc_number" value="{{message.acc_number}}" [(ngModel)]="model.acc_number" #acc_number="ngModel" [ngClass]="{ 'is-invalid': f.submitted && acc_number.invalid }" required />
+                        <div *ngIf="f.submitted && acc_number.invalid" class="invalid-feedback">
+                            <div *ngIf="acc_number.errors.required">Beneficiary Account No is required</div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-hero-success">Submit</button>
+                    </div>
+                </form>
+                <ng-snotify class="simple"></ng-snotify>
             </div>
           </div>
         </nb-tab>

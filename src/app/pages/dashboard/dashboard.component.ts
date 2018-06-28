@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../auth.service';
+import { EarningService } from '../earning.service';
 
 @Component({
   selector: 'ngx-dashboard',
@@ -7,14 +8,26 @@ import { AuthService } from '../../auth.service';
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent {
-constructor(private auth:AuthService){}
+  totalEarnings:any
+constructor(
+  private auth:AuthService,
+  private earning:EarningService
+){}
 
-ngOnInit() {  
+ngOnInit() {
   console.log("dashboard",this.auth.getauthenticatedUserId())
   this.auth.getauthenticatedUserId().subscribe(data=>{
     console.log("das",data);  
   })
 
+  this.earning.getTotalEarning().subscribe(data=>{
+    if(data['status']){
+      this.totalEarnings = data['response']
+      
+    }else{
+      this.totalEarnings=0
+    }
+  })
 }
   values = [{
     'image': '1',
