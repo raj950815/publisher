@@ -53,10 +53,7 @@ const components = [
   ],
   providers:[
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
-<<<<<<< HEAD
     SnotifyService,
-=======
->>>>>>> fb9881abf171395739538d66bf8acdbb5cec0d04
   ]
 })
 export class UiFeaturesModule { }
