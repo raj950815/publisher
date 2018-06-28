@@ -37,4 +37,8 @@ export class EarningService {
   getWithdrawEarnings():Observable<any>{
     return this.http.get("http://192.168.2.34/publishers/earning/withdraw_history")
   }
+
+  getCompleteInfo():Observable<any>{
+    return this.http.get("http://192.168.2.34/publishers/earning/datewise_earning")
+  }
 }

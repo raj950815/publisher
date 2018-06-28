@@ -36,15 +36,16 @@ export class TabsComponent {
   yesterdayEarnings: any
   monthlyEarnings:any
   totalEarnings:any
-  withdrawEarnings= []
-  model: any = {
-    country:this.message.country
-  };
+  withdrawEarnings:any
+  completeEarnings:any
+  model: any = Object
 
   constructor(
     private earning:EarningService,
     private snotify:SnotifyService
-  ){}
+  ){
+    this.model=this.message
+  }
   
   ngOnInit(){
 
@@ -54,6 +55,8 @@ export class TabsComponent {
 
     this.earning.getPaymentDetails().subscribe(data=>{
       this.message=data['response']
+      console.log(this.message)
+      // debugger
     })
 
     this.earning.getYesterdayEarning().subscribe(data=>{
@@ -85,7 +88,12 @@ export class TabsComponent {
     this.earning.getWithdrawEarnings().subscribe(data=>{
       if(data['status']){
         this.withdrawEarnings = data['response']
-        // console.log(data);
+      }
+    })
+
+    this.earning.getCompleteInfo().subscribe(data=>{
+      if(data['status']){
+        this.completeEarnings = data['response']
       }
     })
   }
