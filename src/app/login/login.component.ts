@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
           
         } else {
           localStorage.removeItem('userToken')
-          this.snotifyService.warning(data["message"],"Unauthorized")
+          this.snotifyService.warning(data["message"],"Warning")
         }
       },err=>{
         localStorage.removeItem('userToken')

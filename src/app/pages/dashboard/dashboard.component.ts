@@ -8,7 +8,7 @@ import { EarningService } from '../earning.service';
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent {
-  totalEarnings:any
+  earningObj:any
 constructor(
   private auth:AuthService,
   private earning:EarningService
@@ -22,10 +22,10 @@ ngOnInit() {
 
   this.earning.getTotalEarning().subscribe(data=>{
     if(data['status']){
-      this.totalEarnings = data['response']
+      this.earningObj = data['response']
       
     }else{
-      this.totalEarnings=0
+      this.earningObj={}
     }
   })
 }

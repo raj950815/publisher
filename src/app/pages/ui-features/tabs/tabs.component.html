@@ -6,19 +6,19 @@
           <nb-action>
             <div class="earning-content text-center">
               <span>Yesterday's Earnings</span>
-              <span>${{yesterdayEarnings}} </span>
+              <span>${{earningObj?.yesterday_earning}} </span>
           </div>
           </nb-action>
           <nb-action>
             <div class="earning-content text-center">
               <span>Earnings of this month</span>
-              <span>${{monthlyEarnings}} </span>
+              <span>${{earningObj?.monthly_earning}} </span>
             </div>
           </nb-action>
           <nb-action>
             <div class="earning-content text-center">
               <span>Total Earnings</span>
-              <span>${{totalEarnings}} </span>
+              <span>${{earningObj?.total_earning}} </span>
             </div>
           </nb-action>
         </nb-actions>
@@ -33,6 +33,8 @@
                 <nb-action>
                   <div class="earning-content">
                     <span>7 Days</span>
+                    <!-- <my-date-range-picker name="mydaterange" [options]="myDateRangePickerOptions"
+                    [(ngModel)]="modal" required></my-date-range-picker> -->
                   </div>
                 </nb-action>
                 <nb-action>
@@ -41,6 +43,9 @@
                   </div>
                 </nb-action>
                 <nb-action>
+
+
+                  
                   <div class="earning-content">
                     <span>30 Days</span>
                   </div>
@@ -54,7 +59,7 @@
             </nb-card-body>
           </nb-card>
           <div class="table-responsive table-earnings">
-            <table class="table table-bordered table-striped table-fixed">
+            <table *ngIf="completeEarnings" class="table table-bordered table-striped table-fixed">
               <thead>
                 <tr>
                   <th>S.No.</th>
@@ -72,11 +77,14 @@
                 </tr>
               </tbody>
             </table>
+            <div class="text-center" *ngIf="!completeEarnings">
+              <label >No Data Available</label>
+            </div>
           </div>
         </nb-tab>
         <nb-tab tabTitle="Withdraw Earnings">
           <div class="table-responsive table-earnings">
-            <table class="table table-bordered table-striped table-fixed">
+            <table *ngIf="withdrawEarnings" class="table table-bordered table-striped table-fixed">
               <thead>
                 <tr>
                   <th>S.No.</th>
@@ -94,12 +102,15 @@
                 </tr>
               </tbody>
             </table>
+            <div class="text-center" *ngIf="!withdrawEarnings">
+              <label >No Data Available</label>
+            </div>
           </div>
         </nb-tab>
         <nb-tab tabTitle="Earnings Settings">
           <div class="container earning-settings">
             <legend>Agreement Information</legend>
-            <div class="row">
+            <div class="row" *ngIf="agreement">
               <div class="col-lg-3 text-right">
                 <label for="">Signatory:</label>
               </div>
@@ -143,71 +154,87 @@
                 <label for="">{{agreement.email}}</label>
               </div>
             </div>
+            <div class="text-center" *ngIf="!agreement">
+              <label >please complete your agreement <a href="">click here to complete your agreement</a></label>
+            </div>
+
             <legend style="margin-top: 15px;">Payment information</legend>
-            <div class="row">
+            <div class="row" *ngIf="bInfo">
               <div class="col-lg-3 text-right">
                 <label for="">Attention:</label>
               </div>
               <div class="col-lg-9 text-left">
                 <label for="">1. In order for the payment to be successfully processed, the recipient's name and phone number must match the name and phone
                 number on the bank account.</label>
-                <label for="">2. In order for the payment to be successfully processed, the recipient's name and phone number must match the name and phone
-                  number on the bank account.</label>
-                  <label for="">3. In order for the payment to be successfully processed, the recipient's name and phone number must match the name and phone
-                    number on the bank account.</label>
+              
               </div>
               <div class="col-lg-3 text-right">
-                <label for="">Country/Currency:</label>
+                <label for="">Payment Method:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">{{message.country}}</label>
+                <label for="">{{bInfo?.payment_method}}</label>
               </div>
               <div class="col-lg-3 text-right">
-                <label for="">Earning settings:</label>
+                <label for="">Contact:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">{{message.payment_method}}</label>
+                <label for="">{{bInfo?.user_mobile}}</label>
               </div>
               <div class="col-lg-3 text-right">
-                <label for="">Beneficiary Type:</label>
+                <label for="">Payment Email:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">{{message.beneficiary_type}}</label>
+                <label for="">{{bInfo?.payment_email}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Signatory/Beneficiary Name:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">{{message.beneficiary_name}}</label>
+                <label for="">{{bInfo?.payee_name}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Beneficiary Bank Name:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">{{message.bank_name}}</label>
+                <label for="">{{bInfo?.bank_name}}</label>
               </div>
               <div class="col-lg-3 text-right">
                 <label for="">Beneficiary Account No:</label>
               </div>
               <div class="col-lg-9 text-left">
-                <label for="">{{message.acc_number}}</label>
+                <label for="">{{bInfo?.acc_number}}</label>
+              </div>
+              <div class="col-lg-3 text-right">
+                <label for="">Bank IFSC Code:</label>
+              </div>
+              <div class="col-lg-9 text-left">
+                <label for="">{{bInfo?.bank_code}}</label>
               </div>
             </div>
             <div class="text-center">
-              <button class="btn btn-primary">Edit Details</button>
+              <button class="btn btn-primary">{{bInfo ? "Update Details":"Add Details"}}</button>
             </div>
             <div>
                 <form name="form" (ngSubmit)="f.form.valid && updateSubmit()" #f="ngForm" novalidate>                     
                     <div class="form-group">
-                      <label class="col-md-3 control-label">Country</label>
+                      <label class="col-md-3 control-label">Payment Method</label>
                     <div class="col-md-7">
-                        <input placeholder="Country/Currency" type="text" class="form-control" name="country"  [(ngModel)]="model.country" #country="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" required />
+                        <select class="form-control" name="payment_method"  [(ngModel)]="model.payment_method" #payment_method="ngModel" [ngClass]="{ 'is-invalid': f.submitted && payment_method.invalid }" required >
+                            <option [value]="" selected>Select Payment Method</option>                            
+                            <option [value]="Paypal">Paypal</option>
+                            <option [value]="Payoneer">Payoneer</option>
+                            <option [value]="Bank">Bank</option>
+                          </select>
+                          <div *ngIf="f.submitted && payment_method.invalid" class="invalid-feedback">
+                              <div *ngIf="payment_method.errors.required">Earning Settings is required</div>
+                          </div>
+                        <!-- <input placeholder="Country/Currency" type="text" class="form-control" name="country"  [(ngModel)]="model.country" #country="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" required />
                         <div *ngIf="f.submitted && country.invalid" class="invalid-feedback">
                             <div *ngIf="country.errors.required">Country is required</div>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="col-md-3 control-label">Earning Settings</label>
                         <div class="col-md-7">
                         <input placeholder="Earning settings"type="text" class="form-control" name="payment_method"  [(ngModel)]="model.payment_method" #payment_method="ngModel" [ngClass]="{ 'is-invalid': f.submitted && payment_method.invalid }" required />
@@ -215,7 +242,7 @@
                             <div *ngIf="payment_method.errors.required">Earning Settings is required</div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label class="col-md-3 control-label">Beneficiary Type</label>
                         <div class="col-md-7">
@@ -263,27 +290,4 @@
       </nb-tabset>
     </nb-card>
   </div>
-
-  <!-- <div class="col-md-6">
-    <nb-card size="small">
-      <nb-tabset fullWidth>
-        <nb-tab tabTitle="Full width tab #1">
-          <p><b>Home automation</b> or <b>smart home</b><sup id="cite_ref-Smart_Home_1-0" class="reference"><a target="_blank" href="https://en.wikipedia.org#cite_note-Smart_Home-1">[1]</a></sup> (also known as <b>domotics</b><sup id="cite_ref-t3_2-0" class="reference"><a target="_blank" href="https://en.wikipedia.org#cite_note-t3-2">[2]</a></sup>) is <a target="_blank" href="https://en.wikipedia.org/wiki/Building_automation" title="Building automation">building automation</a> for the home. It involves the control and automation of lighting, heating (such as <a target="_blank" href="https://en.wikipedia.org/wiki/Smart_thermostat" title="Smart thermostat">smart thermostats</a>), ventilation, air conditioning (<a target="_blank" href="https://en.wikipedia.org/wiki/HVAC" title="HVAC">HVAC</a>), and security, as well as <a target="_blank" href="https://en.wikipedia.org/wiki/Home_appliance" title="Home appliance">home appliances</a> such as washer/dryers, ovens or refrigerators/freezers. <a target="_blank" href="https://en.wikipedia.org/wiki/Wi-Fi" title="Wi-Fi">Wi-Fi</a> is often used for remote monitoring and control. Home devices, when remotely monitored and controlled via the Internet, are an important constituent of the <a target="_blank" href="https://en.wikipedia.org/wiki/Internet_of_Things" class="mw-redirect" title="Internet of Things">Internet of Things</a>. Modern systems generally consist of switches and sensors connected to a central hub sometimes called a "gateway" from which the system is controlled with a <a target="_blank" href="https://en.wikipedia.org/wiki/User_interface" title="User interface">user interface</a> that is interacted either with a wall-mounted terminal, mobile phone software, <a target="_blank" href="https://en.wikipedia.org/wiki/Tablet_computer" title="Tablet computer">tablet computer</a> or a web interface, often but not always via Internet cloud services.</p>
-          <p>While there are many competing vendors, there are very few worldwide accepted industry standards and the smart home space is heavily fragmented.<sup id="cite_ref-3" class="reference"><a target="_blank" href="https://en.wikipedia.org#cite_note-3">[3]</a></sup> Popular <a target="_blank" href="https://en.wikipedia.org/wiki/Communications_protocol" title="Communications protocol">communications protocol</a> for products include <a target="_blank" href="https://en.wikipedia.org/wiki/X10_(industry_standard)" title="X10 (industry standard)">X10</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Ethernet" title="Ethernet">Ethernet</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/RS-485" title="RS-485">RS-485</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/6LoWPAN" title="6LoWPAN">6LoWPAN</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/Bluetooth_low_energy" class="mw-redirect" title="Bluetooth low energy">Bluetooth LE (BLE)</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/ZigBee" class="mw-redirect" title="ZigBee">ZigBee</a> and <a target="_blank" href="https://en.wikipedia.org/wiki/Z-Wave" title="Z-Wave">Z-Wave</a>, or other proprietary protocols all of which are incompatible with each other.<sup id="cite_ref-crhomephone_4-0" class="reference"><a target="_blank" href="https://en.wikipedia.org#cite_note-crhomephone-4">[4]</a></sup> Manufacturers often prevent independent implementations by withholding documentation and by litigation.<sup id="cite_ref-5" class="reference"><a target="_blank" href="https://en.wikipedia.org#cite_note-5">[5]</a></sup></p>
-        </nb-tab>
-        <nb-tab tabTitle="Full width tab #2">
-          <span>Content #2</span>
-        </nb-tab>
-        <nb-tab tabTitle="Full width tab #3">
-          <span>Content #3</span>
-        </nb-tab>
-      </nb-tabset>
-    </nb-card>
-  </div>
-
-  <div class="col-md-6">
-    <nb-card size="small">
-      <nb-route-tabset [tabs]="tabs"></nb-route-tabset>
-    </nb-card>
-  </div> -->
 </div>

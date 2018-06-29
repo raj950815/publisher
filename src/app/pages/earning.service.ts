@@ -22,16 +22,16 @@ export class EarningService {
     return this.http.post("http://192.168.2.34/publishers/earning/update_payment_info",data)
   }
 
-  getYesterdayEarning():Observable<any>{
-    return this.http.get("http://192.168.2.34/publishers/earning/yesterday_earning")
-  }
+  // getYesterdayEarning():Observable<any>{
+  //   return this.http.get("http://192.168.2.34/publishers/earning/yesterday_earning")
+  // }
 
-  getMonthlyEarning():Observable<any>{
-    return this.http.get("http://192.168.2.34/publishers/earning/monthly_earning")
-  }
+  // getMonthlyEarning():Observable<any>{
+  //   return this.http.get("http://192.168.2.34/publishers/earning/monthly_earning")
+  // }
 
   getTotalEarning():Observable<any>{
-    return this.http.get("http://192.168.2.34/publishers/earning/total_earning")
+    return this.http.get("http://192.168.2.34/publishers/earning/earnings")
   }
 
   getWithdrawEarnings():Observable<any>{
