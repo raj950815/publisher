@@ -29,11 +29,12 @@ registerSubmit() {
       (data)=>{
         console.log(data);
         if (data["status"]) {
+          console.log(data)
           this.snotifyService.info(data["message"],"Success")
           setTimeout(() => {
             
+            this.router.navigate(['/login'])
           }, 5000);
-          this.router.navigate(['/login'])
           
         } else {
           this.snotifyService.warning(data["message"],"Warning")

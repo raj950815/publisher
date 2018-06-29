@@ -201,7 +201,7 @@
                     <div class="form-group">
                       <label class="col-md-3 control-label">Country</label>
                     <div class="col-md-7">
-                        <input placeholder="Country/Currency" type="text" class="form-control" name="country" [value]="message.country" [(ngModel)]="model.country" #country="ngModel" value="US, US Dollar" [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" required />
+                        <input placeholder="Country/Currency" type="text" class="form-control" name="country"  [(ngModel)]="model.country" #country="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" required />
                         <div *ngIf="f.submitted && country.invalid" class="invalid-feedback">
                             <div *ngIf="country.errors.required">Country is required</div>
                         </div>
@@ -210,7 +210,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Earning Settings</label>
                         <div class="col-md-7">
-                        <input placeholder="Earning settings"type="text" class="form-control" name="payment_method" value="{{message.payment_method}}" [(ngModel)]="model.payment_method" #payment_method="ngModel" [ngClass]="{ 'is-invalid': f.submitted && payment_method.invalid }" required />
+                        <input placeholder="Earning settings"type="text" class="form-control" name="payment_method"  [(ngModel)]="model.payment_method" #payment_method="ngModel" [ngClass]="{ 'is-invalid': f.submitted && payment_method.invalid }" required />
                         <div *ngIf="f.submitted && payment_method.invalid" class="invalid-feedback">
                             <div *ngIf="payment_method.errors.required">Earning Settings is required</div>
                         </div>
@@ -219,7 +219,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Beneficiary Type</label>
                         <div class="col-md-7">
-                        <input placeholder="Beneficiary Type"type="text" class="form-control" name="beneficiary_type" value="{{message.beneficiary_type}}" [(ngModel)]="model.beneficiary_type" #beneficiary_type="ngModel" [ngClass]="{ 'is-invalid': f.submitted && beneficiary_type.invalid }" required />
+                        <input placeholder="Beneficiary Type"type="text" class="form-control" name="beneficiary_type"  [(ngModel)]="model.beneficiary_type" #beneficiary_type="ngModel" [ngClass]="{ 'is-invalid': f.submitted && beneficiary_type.invalid }" required />
                         <div *ngIf="f.submitted && beneficiary_type.invalid" class="invalid-feedback">
                             <div *ngIf="beneficiary_type.errors.required">Beneficiary Type is required</div>
                         </div>
@@ -228,7 +228,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Beneficiary Name</label>
                         <div class="col-md-7">
-                        <input placeholder="Signatory/Beneficiary Name"type="text" class="form-control" name="beneficiary_name" value="{{message.beneficiary_name}}" [(ngModel)]="model.beneficiary_name" #beneficiary_name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && beneficiary_name.invalid }" required />
+                        <input placeholder="Signatory/Beneficiary Name"type="text" class="form-control" name="beneficiary_name"  [(ngModel)]="model.beneficiary_name" #beneficiary_name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && beneficiary_name.invalid }" required />
                         <div *ngIf="f.submitted && beneficiary_name.invalid" class="invalid-feedback">
                             <div *ngIf="beneficiary_name.errors.required">Beneficiary Name is required</div>
                         </div>
@@ -237,7 +237,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Bank Name</label>
                         <div class="col-md-7">
-                        <input placeholder="Beneficiary Bank Name"type="text" class="form-control" name="bankName" value="{{message.bank_name}}" [(ngModel)]="model.bank_name" #bankName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bank_name.invalid }" required />
+                        <input placeholder="Beneficiary Bank Name"type="text" class="form-control" name="bank_name"  [(ngModel)]="model.bank_name" #bank_name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bank_name.invalid }" required />
                         <div *ngIf="f.submitted && bank_name.invalid" class="invalid-feedback">
                             <div *ngIf="bank_name.errors.required">Bank Name is required</div>
                         </div>
@@ -246,7 +246,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Account No.</label>
                         <div class="col-md-7"> 
-                        <input placeholder="Beneficiary Account No"type="text" class="form-control" name="acc_number" value="{{message.acc_number}}" [(ngModel)]="model.acc_number" #acc_number="ngModel" [ngClass]="{ 'is-invalid': f.submitted && acc_number.invalid }" required />
+                        <input placeholder="Beneficiary Account No"type="text" class="form-control" name="acc_number"  [(ngModel)]="model.acc_number" #acc_number="ngModel" [ngClass]="{ 'is-invalid': f.submitted && acc_number.invalid }" required />
                         <div *ngIf="f.submitted && acc_number.invalid" class="invalid-feedback">
                             <div *ngIf="acc_number.errors.required">Beneficiary Account No is required</div>
                         </div>

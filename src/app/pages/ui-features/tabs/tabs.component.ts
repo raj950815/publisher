@@ -44,7 +44,7 @@ export class TabsComponent {
     private earning:EarningService,
     private snotify:SnotifyService
   ){
-    this.model=this.message
+    
   }
   
   ngOnInit(){
@@ -56,6 +56,8 @@ export class TabsComponent {
     this.earning.getPaymentDetails().subscribe(data=>{
       this.message=data['response']
       console.log(this.message)
+      this.model={...this.message}
+    console.log("model",this.model)
       // debugger
     })
 
@@ -109,6 +111,7 @@ export class TabsComponent {
     },
   ];
   updateSubmit(){
+    // console.log("this.model",this.model)
     this.earning.updateBank(this.model).subscribe(data=>{
       if (data["status"]) {
         this.snotify.success(data["message"],"Success")
