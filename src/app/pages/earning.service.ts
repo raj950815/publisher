@@ -30,8 +30,8 @@ export class EarningService {
     return this.http.get("http://192.168.2.34/publishers/earning/monthly_earning")
   }
 
-  getTotalEarning():Observable<any>{
-    return this.http.get("http://192.168.2.34/publishers/earning/total_earning")
+  getEarnings():Observable<any>{
+    return this.http.get("http://192.168.2.34/publishers/earning/earnings")
   }
 
   getWithdrawEarnings():Observable<any>{

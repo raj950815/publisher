@@ -10,6 +10,6 @@ export class ProfileService {
   constructor(private http:HttpClient) { }
 
   resetPassword(data:any): Observable <any> {
-    return this.http.post("http://192.168.2.34/publishers/profile/set_new_password",data)
+    return this.http.post("http://192.168.2.74/publishers/profile/set_new_password",data)
   }
 }

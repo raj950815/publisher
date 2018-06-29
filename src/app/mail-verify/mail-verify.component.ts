@@ -16,14 +16,10 @@ export class MailVerifyComponent implements OnInit {
     ) { 
       route.queryParams.subscribe(data=>{
         this.h=data['h'];
-        // this.id=data['id'];
-        console.log(data)
       })
      }
   
     ngOnInit() {
-      // const body = document.getElementsByTagName('body')[0];
-      // body.classList.add('nb-theme-default');
       this.auth.mailConfirm(this.h).subscribe(
         data=>{
           this.message=data['message']

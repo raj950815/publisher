@@ -38,11 +38,14 @@ export class PasswordResetComponent implements OnInit {
     this.auth.passwordReset(data).subscribe(data=>{
       if(data["status"]){
 
-      this.snotifyService.success("Password Successfully Changed.")
-        this.router.navigate['/login']
+      this.snotifyService.success(data["message"],"Success")
+      setTimeout(() => {
+            
+        this.router.navigate(['/login'])
+      }, 5000);
       // console.log(data); 
       }else{
-        
+        this.snotifyService.warning(data["message"],"Warning")
       }
     },err=>{
       this.snotifyService.error("Something went to wrong")

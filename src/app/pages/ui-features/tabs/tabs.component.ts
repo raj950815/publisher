@@ -33,9 +33,7 @@ export class TabsComponent {
 
   agreement:any = Object
   message :any = Object
-  yesterdayEarnings: any
-  monthlyEarnings:any
-  totalEarnings:any
+  totalEarnings:any = Object
   withdrawEarnings:any
   completeEarnings:any
   model: any = Object
@@ -50,50 +48,40 @@ export class TabsComponent {
   ngOnInit(){
 
     this.earning.geAgreementDetails().subscribe(data=>{
-      this.agreement=data['response']
+      if(data["status"]){
+        this.agreement=data['response']
+      }else{
+        this.agreement=""
+      }
     })
 
     this.earning.getPaymentDetails().subscribe(data=>{
-      this.message=data['response']
-      console.log(this.message)
-      // debugger
-    })
-
-    this.earning.getYesterdayEarning().subscribe(data=>{
       if(data['status']){
-        this.yesterdayEarnings = data['response']
-        
-      }else{
-        this.yesterdayEarnings=0
-      }
-    })
-
-    this.earning.getMonthlyEarning().subscribe(data=>{
-      if(data['status']){
-        this.monthlyEarnings = data['response']
-      }else{
-        this.monthlyEarnings=0
+        this.message=data['response']
       }
     })
     
-    this.earning.getTotalEarning().subscribe(data=>{
+    this.earning.getEarnings().subscribe(data=>{
       if(data['status']){
         this.totalEarnings = data['response']
-        
       }else{
-        this.totalEarnings=0
+        this.totalEarnings=[0]
       }
     })
 
     this.earning.getWithdrawEarnings().subscribe(data=>{
       if(data['status']){
         this.withdrawEarnings = data['response']
+      }else{
+        this.withdrawEarnings = ""
       }
     })
 
     this.earning.getCompleteInfo().subscribe(data=>{
       if(data['status']){
         this.completeEarnings = data['response']
+      }else{
+        this.completeEarnings = ""
       }
     })
   }

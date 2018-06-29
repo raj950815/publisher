@@ -6,19 +6,19 @@
           <nb-action>
             <div class="earning-content text-center">
               <span>Yesterday's Earnings</span>
-              <span>${{yesterdayEarnings}} </span>
+              <span>${{totalEarnings.yesterday_earning}} </span>
           </div>
           </nb-action>
           <nb-action>
             <div class="earning-content text-center">
               <span>Earnings of this month</span>
-              <span>${{monthlyEarnings}} </span>
+              <span>${{totalEarnings.monthly_earning}} </span>
             </div>
           </nb-action>
           <nb-action>
             <div class="earning-content text-center">
               <span>Total Earnings</span>
-              <span>${{totalEarnings}} </span>
+              <span>${{totalEarnings.total_earning}} </span>
             </div>
           </nb-action>
         </nb-actions>
@@ -54,7 +54,7 @@
             </nb-card-body>
           </nb-card>
           <div class="table-responsive table-earnings">
-            <table class="table table-bordered table-striped table-fixed">
+            <table class="table table-bordered table-striped table-fixed" *ngIf="completeEarnings">
               <thead>
                 <tr>
                   <th>S.No.</th>
@@ -72,11 +72,14 @@
                 </tr>
               </tbody>
             </table>
+            <div class="text-center" *ngIf="!completeEarnings">
+                <label>No Data</label>
+              </div>
           </div>
         </nb-tab>
         <nb-tab tabTitle="Withdraw Earnings">
           <div class="table-responsive table-earnings">
-            <table class="table table-bordered table-striped table-fixed">
+            <table class="table table-bordered table-striped table-fixed" *ngIf="withdrawEarnings">
               <thead>
                 <tr>
                   <th>S.No.</th>
@@ -94,12 +97,15 @@
                 </tr>
               </tbody>
             </table>
+            <div class="text-center" *ngIf="!withdrawEarnings">
+                <label>No Data</label>
+            </div>
           </div>
         </nb-tab>
         <nb-tab tabTitle="Earnings Settings">
           <div class="container earning-settings">
             <legend>Agreement Information</legend>
-            <div class="row">
+            <div class="row" *ngIf="agreement">
               <div class="col-lg-3 text-right">
                 <label for="">Signatory:</label>
               </div>
@@ -142,6 +148,9 @@
               <div class="col-lg-9 text-left">
                 <label for="">{{agreement.email}}</label>
               </div>
+            </div>
+            <div class="text-center" *ngIf="!agreement">
+              <label>No Data</label>
             </div>
             <legend style="margin-top: 15px;">Payment information</legend>
             <div class="row">
@@ -192,7 +201,7 @@
               <div class="col-lg-9 text-left">
                 <label for="">{{message.acc_number}}</label>
               </div>
-            </div>
+          </div>
             <div class="text-center">
               <button class="btn btn-primary">Edit Details</button>
             </div>

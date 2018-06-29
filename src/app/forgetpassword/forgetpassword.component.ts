@@ -25,7 +25,7 @@ forgetSubmit(){
     this.auth.fogetPasswordRequest(this.model).subscribe(data=>{
       if(data["status"]){
         this.message=data["message"]
-       this.response=true
+        this.response=true
         // this.snotifyService.simple(message,"success");
       }else{
         this.response=false
