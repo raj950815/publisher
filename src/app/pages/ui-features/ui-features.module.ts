@@ -17,6 +17,7 @@ import {
   NgxPopoverTabsComponent,
 } from './popovers/popover-examples.component';
 import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
+import { MyDateRangePickerModule } from 'mydaterangepicker';
 
 const components = [
   UiFeaturesComponent,
@@ -41,6 +42,7 @@ const components = [
     UiFeaturesRoutingModule,
     ButtonsModule,
     SnotifyModule,
+    MyDateRangePickerModule
   ],
   declarations: [
     ...components,

@@ -31,7 +31,7 @@ export class ChartjsBarComponent implements OnDestroy {
         }],
       };
 
-      this.options = {
+      this.options = {        
         maintainAspectRatio: false,
         responsive: true,
         legend: {
@@ -42,6 +42,7 @@ export class ChartjsBarComponent implements OnDestroy {
         scales: {
           xAxes: [
             {
+              stacked:true,
               gridLines: {
                 display: false,
                 color: chartjs.axisLineColor,

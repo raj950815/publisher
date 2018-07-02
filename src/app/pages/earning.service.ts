@@ -22,15 +22,8 @@ export class EarningService {
     return this.http.post("http://192.168.2.34/publishers/earning/update_payment_info",data)
   }
 
-  // getYesterdayEarning():Observable<any>{
-  //   return this.http.get("http://192.168.2.34/publishers/earning/yesterday_earning")
-  // }
 
-  // getMonthlyEarning():Observable<any>{
-  //   return this.http.get("http://192.168.2.34/publishers/earning/monthly_earning")
-  // }
-
-  getTotalEarning():Observable<any>{
+  getEarningStats():Observable<any>{
     return this.http.get("http://192.168.2.34/publishers/earning/earnings")
   }
 
@@ -38,7 +31,10 @@ export class EarningService {
     return this.http.get("http://192.168.2.34/publishers/earning/withdraw_history")
   }
 
-  getCompleteInfo():Observable<any>{
-    return this.http.get("http://192.168.2.34/publishers/earning/datewise_earning")
+  dateWiseEarning(data:any):Observable<any>{
+    return this.http.post("http://192.168.2.34/publishers/earning/datewise_earning",data)
+  }
+  requestWithdrawAmount(data:any){
+    return this.http.post("http://192.168.2.34/publishers/earning/withdraw_amount",data)
   }
 }

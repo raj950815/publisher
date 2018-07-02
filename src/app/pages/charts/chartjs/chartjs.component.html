@@ -11,7 +11,8 @@
     <nb-card>
       <nb-card-header>Bar</nb-card-header>
       <nb-card-body>
-        <ngx-chartjs-bar></ngx-chartjs-bar>
+          <chart class="chart-body" type="bar" [data]="storyStatusData" [options]="storyStatusOption"></chart>
+        <!-- <ngx-chartjs-bar></ngx-chartjs-bar> -->
       </nb-card-body>
     </nb-card>
   </div>
