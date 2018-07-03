@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { componentRefresh } from '@angular/core/src/render3/instructions';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [{
   path: '',
@@ -17,8 +18,10 @@ const routes: Routes = [{
   {
     path:'reset',
     component:PasswordResetComponent
-  }
-  , {
+  }, {
+    path:'profile',
+    component:ProfileComponent
+  }, {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
   }, {

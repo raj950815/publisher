@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
-import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
+import { ProfileService } from '../../../pages/profile.service';
 
 @Component({
   selector: 'ngx-header',
@@ -15,18 +15,34 @@ export class HeaderComponent implements OnInit {
   @Input() position = 'normal';
 
   user: any;
+  profileInfo:any
+  pubisherImg
+
+  publisherDefaultIcon='../../../../../assets/images/user.png'
+  pubisherImgUrl='https://s3.amazonaws.com/one-feed/publisher/profile/'
 
   userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
-              private userService: UserService,
-              private analyticsService: AnalyticsService) {
+              private analyticsService: AnalyticsService,
+              private profile: ProfileService
+            ) {
   }
 
   ngOnInit() {
-    this.userService.getUsers()
-      .subscribe((users: any) => this.user = users.publisher);
+    this.getProfile();
+  }
+
+  getProfile(){
+    this.profile.getProfileInfo().subscribe(data=>{
+      this.profileInfo=data["response"]
+      if(this.profileInfo.profile_image==""){
+        this.pubisherImg=this.publisherDefaultIcon
+      }else{
+        this.pubisherImg=this.pubisherImgUrl+this.profileInfo.profile_image
+      }
+    })
   }
 
   toggleSidebar(): boolean {

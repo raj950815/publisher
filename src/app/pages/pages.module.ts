@@ -8,6 +8,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ProfileService } from './profile.service';
 import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
+import { ProfileComponent } from './profile/profile.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -24,6 +25,7 @@ const PAGES_COMPONENTS = [
   declarations: [
     ...PAGES_COMPONENTS,
     PasswordResetComponent,
+    ProfileComponent,
   ],
   providers:[
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
