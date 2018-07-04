@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SnotifyService } from 'ng-snotify';
-import { EarningService } from '../../earning.service';
+import { EarningService } from '../services/earning.service';
 import { IMyDrpOptions, IMyDateRangeModel } from 'mydaterangepicker';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContentService } from '../../content.service';
+import { ContentService } from '../services/content.service';
 import {  SnotifyService } from 'ng-snotify';
 
 @Component({

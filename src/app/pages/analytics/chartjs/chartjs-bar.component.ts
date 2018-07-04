@@ -1,6 +1,6 @@
 import { Component, OnDestroy,ViewChild } from '@angular/core';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
-import { AnalyticsService } from '../analytics.service';
+import { AnalyticsService } from '../services/analytics.service';
 import { ChartComponent } from 'angular2-chartjs';
 
 @Component({
