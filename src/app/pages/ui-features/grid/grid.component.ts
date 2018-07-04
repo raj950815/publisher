@@ -13,15 +13,16 @@ constructor(
   private snotify:SnotifyService
 ){}
 ngOnInit(){
+  this.model.category="Select Category"
+
   this.getFeedLinks()
 }
 model:any={};
 onSubmit(){
   this.content.addRss(this.model).subscribe(data=>{
     if (data["status"]) {
-      this.model={
-        feed_link:" "
-      }
+      this.model.category="Select Category"
+      this.model.feed_link=" "
       this.getFeedLinks();
       this.snotify.success(data["message"],"Success")
     } else {
@@ -50,17 +51,31 @@ deleteLink(linkId){
   let data={
     "link_id":linkId
   }
+  this.snotify.confirm("Are you want to delete this feed link ", "Confirm",{
+    buttons: [
+      {
+        text: 'Ok', action: () => {
+       
+        // debugger
+        this.snotify.remove(); 
+        this.content.deleteRssLink(data).subscribe(data=>{
+          if (data["status"]) {
+            this.getFeedLinks()
+            this.snotify.success(data["message"],"Success")
+          } else {
+            this.snotify.warning(data["message"],"Warning")
+          }
+          },err=>{
+            this.snotify.error("Something went wrong","failure")
+          })
+      }
+    },
+      {text: 'Cancel', action: () => {
+        console.log('Clicked: Cancel')
+        this.snotify.remove(); 
+      }},]
+  })
 
-this.content.deleteRssLink(data).subscribe(data=>{
-if (data["status"]) {
-  this.getFeedLinks()
-  this.snotify.success(data["message"],"Success")
-} else {
-  this.snotify.warning(data["message"],"Warning")
-}
-},err=>{
-  this.snotify.error("Something went wrong","failure")
-})
 
 }
 }

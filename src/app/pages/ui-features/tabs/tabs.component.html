@@ -38,6 +38,7 @@
             <my-date-range-picker name="mydaterange" [options]="myDateRangePickerOptions"
             [(ngModel)]="dateModel" (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
           </div>
+           <!--
           <nb-card class="earning-summary">
             <nb-card-body class="small-summary">
               <nb-actions size="medium">
@@ -52,9 +53,6 @@
                   </div>
                 </nb-action>
                 <nb-action>
-
-
-                  
                   <div class="earning-content">
                     <span>30 Days</span>
                   </div>
@@ -65,8 +63,8 @@
                   </div>
                 </nb-action>
               </nb-actions>
-            </nb-card-body>
-          </nb-card>
+            </nb-card-body> 
+          </nb-card>-->
           <div class="table-responsive table-earnings">
             <table *ngIf="dateWiseEarnings.length>0" class="table table-bordered table-striped table-fixed">
               <thead>
@@ -92,9 +90,9 @@
           </div>
         </nb-tab>
         <nb-tab tabTitle="Withdraw Earnings">
-          <div class="input-group input-group-sm mb-3 offset-md-10 col-md-2">
+          <div class="input-group input-group-sm mb-3 offset-md-9 col-md-3">
               <!-- <small>$</small> -->
-            <input type="text" class="form-control " [(ngModel)]="withdrawAmount" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+            <input type="text" class="form-control " placeholder="Enter amount to withdraw" [(ngModel)]="withdrawAmount" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroup-sizing-sm" (click)="withdrawAmountRequest()">Withdraw</span>
             </div>
@@ -228,12 +226,11 @@
               </div>
             </div> -->
           <div>
-                <form name="form" (ngSubmit)="f.form.valid && updateSubmit()" #f="ngForm" novalidate>                     
+                <form name="form" (ngSubmit)="f.form.valid && updateSubmit()" #f="ngForm" novalidate style="padding: 30px 30px;">                     
                   <div class="row">
-                    <div class="col-md-6 " style="background-color: rgb(234, 237, 245)">
-                      <img src="assets/images/choose_payment.png" alt="">
-                      <div class="form-group">
-                          <label class=" control-label">Payment Method</label>
+                    <div class="col-md-5 publisher_payment">
+                      <div class="publisher_box text-center">
+                          <label class=" control-label">Choose Payment Method</label>
                           <div class="">
                                 <div class="form-check-inline">
                                     <label class="custom-control custom-radio">
@@ -255,7 +252,7 @@
                     </div>
                     <div class="col-md-6">
                       <div class="text-center">
-                        <img src='assets/images/{{model?.payment_method}}.png' alt="">
+                        <img src='assets/images/{{model?.payment_method}}.png' alt="" height="69">
                       </div>
                       <div class="form-group">
                           <label class=" control-label">Payee Name</label>

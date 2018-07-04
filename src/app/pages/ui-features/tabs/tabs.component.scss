@@ -25,3 +25,20 @@
     }
   }
 }
+.publisher_payment{
+  border-right: 2px solid #efefef;
+    margin-right: 40px;
+  >.publisher_box{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    >label{
+      font-weight: 600;
+      font-size: 30px;
+      margin-bottom: 30px;
+      color: #757575;
+    }
+  }
+}

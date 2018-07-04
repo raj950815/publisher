@@ -131,27 +131,44 @@ export class TabsComponent {
   withdrawAmount: string = ""
   withdrawAmountRequest() {
     // alert(this.withdrawAmount)
-    let data = {
-      amount: this.withdrawAmount
-    }
-    // debugger
-    this.earning.requestWithdrawAmount(data).subscribe(data => {
-      // alert(data["status"])
-      if (data["status"]) {
+    this.snotify.confirm("Are you want to withdraw ", "Confirm",
+  {
+    buttons: [
+      {
+        text: 'Ok', action: () => {
+        let data = {
+          amount: this.withdrawAmount
+        }
         // debugger
-        this.withdrawEarningStats();
-        this.getEarnings();
-        this.withdrawAmount=''
-        this.snotify.success(data["message"], "Success")
-        // this.
-
-      } else {
-        alert()
-        this.snotify.warning(data["message"], "Warning")
+        this.snotify.remove(); 
+        this.earning.requestWithdrawAmount(data).subscribe(data => {
+          // alert(data["status"])
+          if (data["status"]) {
+            // debugger
+            this.withdrawEarningStats();
+            this.getEarnings();
+            this.withdrawAmount=''
+            this.snotify.success(data["message"], "Success")
+            // this.
+    
+          } else {
+            alert()
+            this.snotify.warning(data["message"], "Warning")
+          }
+        }, err => {
+          this.snotify.error("something went wrong", "Error")
+        })
       }
-    }, err => {
-      this.snotify.error("something went wrong", "Error")
-    })
+    },
+      {text: 'Cancel', action: () => {
+        console.log('Clicked: Cancel')
+        this.snotify.remove(); 
+      }},]
+  }
+  
+  )
+
+
   }
 
   getEarnings() {

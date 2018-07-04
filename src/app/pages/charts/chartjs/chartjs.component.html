@@ -1,38 +1,40 @@
 <div class="row">
   <div class="col-lg-6">
     <nb-card>
-      <nb-card-header>Pie</nb-card-header>
+      <nb-card-header> Weekly Earnings</nb-card-header>
       <nb-card-body>
-        <ngx-chartjs-pie></ngx-chartjs-pie>
+          <ngx-chartjs-multiple-xaxis></ngx-chartjs-multiple-xaxis>       
+        <!-- <chart class="chart-body" type="pie" [data]="countryData" [options]="countryOption"></chart> -->
       </nb-card-body>
     </nb-card>
   </div>
   <div class="col-lg-6">
     <nb-card>
-      <nb-card-header>Bar</nb-card-header>
+      <nb-card-header>Story Status</nb-card-header>
       <nb-card-body>
-          <chart class="chart-body" type="bar" [data]="storyStatusData" [options]="storyStatusOption"></chart>
-        <!-- <ngx-chartjs-bar></ngx-chartjs-bar> -->
+          <!-- <chart class="chart-body" type="bar" [data]="storyStatusData" [options]="storyStatusOption"></chart> -->
+        <ngx-chartjs-bar></ngx-chartjs-bar>
       </nb-card-body>
     </nb-card>
   </div>
-  <div class="col-lg-6">
+  <!-- <div class="col-lg-6">
     <nb-card>
       <nb-card-header>Line</nb-card-header>
       <nb-card-body>
         <ngx-chartjs-line></ngx-chartjs-line>
       </nb-card-body>
     </nb-card>
-  </div>
+  </div> -->
   <div class="col-lg-6">
     <nb-card>
-      <nb-card-header>Multiple x-axis</nb-card-header>
+      <nb-card-header>Country Wise Readers</nb-card-header>
       <nb-card-body>
-        <ngx-chartjs-multiple-xaxis></ngx-chartjs-multiple-xaxis>
+          <ngx-chartjs-pie></ngx-chartjs-pie>
+        <!-- <chart class="chart-body" type="line" [data]="collectiveData" [options]="collectiveOptions"></chart> -->
       </nb-card-body>
     </nb-card>
   </div>
-  <div class="col-lg-6">
+ <div class="col-lg-6">
     <nb-card>
       <nb-card-header>Bar Horizontal</nb-card-header>
       <nb-card-body>
@@ -40,6 +42,7 @@
       </nb-card-body>
     </nb-card>
   </div>
+   <!-- 
   <div class="col-lg-6">
     <nb-card>
       <nb-card-header>Radar</nb-card-header>
@@ -47,5 +50,5 @@
         <ngx-chartjs-radar></ngx-chartjs-radar>
       </nb-card-body>
     </nb-card>
-  </div>
+  </div> -->
 </div>
