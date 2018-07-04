@@ -1,25 +1,23 @@
 import { NgModule } from '@angular/core';
 
 import { ThemeModule } from '../../@theme/theme.module';
-import { UiFeaturesRoutingModule } from './ui-features-routing.module';
-import { UiFeaturesComponent } from './ui-features.component';
-import { GridComponent } from './grid/grid.component';
-import { TabsComponent } from './tabs/tabs.component';
+import { EarningsRoutingModule } from './earnings-routing.module';
+import { EarningsComponent } from './earnings.component';
+import { EarningComponent } from './earning/earning.component';
 import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
 import { MyDateRangePickerModule } from 'mydaterangepicker';
 
 const components = [
-  UiFeaturesComponent,
-  GridComponent,
+  EarningsComponent,
 
-  TabsComponent,
+  EarningComponent,
 
 ];
 
 @NgModule({
   imports: [
     ThemeModule,
-    UiFeaturesRoutingModule,
+    EarningsRoutingModule,
 
     SnotifyModule,
     MyDateRangePickerModule
@@ -35,4 +33,4 @@ const components = [
     SnotifyService,
   ]
 })
-export class UiFeaturesModule { }
+export class EarningsModule { }

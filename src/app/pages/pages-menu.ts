@@ -14,7 +14,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Content',
     icon: 'nb-edit',
-    link: '/pages/ui-features',
+    link: '/content',
     children: [
       // {
       //   title: 'RSS Feed',
@@ -22,11 +22,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
       // },
       {
         title: 'Sync',
-        link: '/pages/ui-features/grid',
+        link: '/pages/content/sync',
       },
       {
         title: 'Create Manually',
-        link: '/pages/editors/ckeditor',
+        link: '/pages/content/manual',
       },
       // {
       //   title: 'Icons',
@@ -57,7 +57,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Earnings',
     icon: 'ion-social-usd-outline',
-    link: 'ui-features/',
+    link: 'earnings',
     // children: [
     //   {
     //     title: 'Withdraws',

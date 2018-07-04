@@ -24,8 +24,11 @@ const routes: Routes = [{
     component: ProfileComponent
   },
   {
-    path: 'ui-features',
-    loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
+    path: 'earnings',
+    loadChildren: './earnings/earnings.module#EarningsModule',
+  }, {
+    path: 'content',
+    loadChildren: './content/content.module#ContentModule',
   }, {
     path: 'components',
     loadChildren: './components/components.module#ComponentsModule',

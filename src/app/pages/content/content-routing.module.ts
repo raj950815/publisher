@@ -1,26 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { UiFeaturesComponent } from './ui-features.component';
-import { TabsComponent } from './tabs/tabs.component';
+import { ContentComponent } from './content.component';
 import { GridComponent } from './grid/grid.component';
+import { CKEditorComponent } from './ckeditor/ckeditor.component';
 
 
 const routes: Routes = [{
   path: '',
-  component: UiFeaturesComponent,
+  component: ContentComponent,
   children: [ {
-    path: 'grid',
+    path: 'sync',
     component: GridComponent,
-  },  {
-    path: '',
-    component: TabsComponent,
+  }, 
+   {
+    path: 'manual',
+    component: CKEditorComponent,
 
-  }],
+  }
+],
 }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class UiFeaturesRoutingModule { }
+export class ContentRoutingModule { }

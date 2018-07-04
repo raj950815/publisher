@@ -4,11 +4,11 @@ import { EarningService } from '../../earning.service';
 import { IMyDrpOptions, IMyDateRangeModel } from 'mydaterangepicker';
 
 @Component({
-  selector: 'ngx-tabs',
-  styleUrls: ['./tabs.component.scss'],
-  templateUrl: './tabs.component.html',
+  selector: 'earning-tabs',
+  styleUrls: ['./earning.component.scss'],
+  templateUrl: './earning.component.html',
 })
-export class TabsComponent {
+export class EarningComponent {
 
   myDateRangePickerOptions: IMyDrpOptions = {
     // other options...
