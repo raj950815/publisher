@@ -108,7 +108,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Analytics',
     icon: 'nb-bar-chart',
-    link: '/pages/charts/chartjs',
+    link: '/pages/analytics/',
   //   children: [
   //     {
   //       title: 'Echarts',
