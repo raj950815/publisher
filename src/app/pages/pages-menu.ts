@@ -57,7 +57,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Earnings',
     icon: 'ion-social-usd-outline',
-    link: 'ui-features/tabs/tab1',
+    link: 'ui-features/',
     // children: [
     //   {
     //     title: 'Withdraws',
