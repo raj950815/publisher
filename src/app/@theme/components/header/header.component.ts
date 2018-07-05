@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
-import { UserService } from '../../../@core/data/users.service';
-import { AnalyticsService } from '../../../@core/utils/analytics.service';
-import { ProfileService } from '../../../pages/profile.service';
+import { ProfileService } from '../../../secure/profile.service';
 import { Router } from '@angular/router';
 
 
@@ -25,7 +23,7 @@ export class HeaderComponent implements OnInit {
 
   publisherDefaultIcon = '../../../../../assets/images/user.png'
   pubisherImgUrl = 'https://s3.amazonaws.com/one-feed/publisher/profile/'
-  userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
+ 
 
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,

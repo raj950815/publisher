@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class AnalyticsService {
+baseUrl=environment.baseUrl
 
   constructor(
     private http:HttpClient
@@ -14,19 +15,25 @@ export class AnalyticsService {
     let data={
 
     }
-    return this.http.post("http://192.168.2.34/publishers/analytics/stories_status",data)
+    return this.http.post(this.baseUrl+"stories_status",data)
   }
   countryWiseUniqueVisitors():Observable <any>{
     let data={
 
     }
-    return this.http.post("http://192.168.2.34/publishers/analytics/country_wise_stats",data)
+    return this.http.post(this.baseUrl+"country_wise_stats",data)
   }
 
   collectiveEarning():Observable <any>{
     let data={
 
     }
-    return this.http.post("http://192.168.2.34/publishers/analytics/collective_earning",data)
+    return this.http.post(this.baseUrl+"collective_earning",data)
+  }
+  monthlystats():Observable <any>{
+    let data={
+
+    }
+    return this.http.post(this.baseUrl+"monthly_counts",data)
   }
 }

@@ -40,42 +40,13 @@ const routes: Routes = [
     path :'verify',
     component:MailVerifyComponent
   },
-  { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule',
+  { path: '', loadChildren: 'app/secure/pages.module#PagesModule',
   canActivate: [AuthGuard],
   // runGuardsAndResolvers: 'always'
 
 },
-  // {
-  //   path: 'auth',
-  //   component: NbAuthComponent,
-  //   children: [
-  //     {
-  //       path: '',
-  //       component: NbLoginComponent,
-  //     },
-  //     {
-  //       path: 'login',
-  //       component: NbLoginComponent,
-  //     },
-  //     {
-  //       path: 'register',
-  //       component: NbRegisterComponent,
-  //     },
-  //     {
-  //       path: 'logout',
-  //       component: NbLogoutComponent,
-  //     },
-  //     {
-  //       path: 'request-password',
-  //       component: NbRequestPasswordComponent,
-  //     },
-  //     {
-  //       path: 'reset-password',
-  //       component: NbResetPasswordComponent,
-  //     },
-  //   ],
-  // },
-  { path: '', redirectTo: '/pages/dashboard', pathMatch: 'full' },
+ 
+  // { path: '', redirectTo: '/pages/dashboard', pathMatch: 'full' },
   // { path: '**', redirectTo: 'login' },
 ];
 

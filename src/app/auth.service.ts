@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  baseUrl=environment.baseUrl
+
+
+
+
   LoggedInStatus = false
   constructor(private http: HttpClient) { }
   setLoggedIn(value: boolean) {
@@ -19,23 +25,23 @@ export class AuthService {
     return localStorage.getItem("userToken");
   }
   getauthenticatedUserId() {
-    return this.http.get<any>("http://192.168.2.34/publishers/Api")
+    return this.http.get<any>(this.baseUrl+"/Api")
   }
   fogetPasswordRequest(data: any): Observable<any> {
-    return this.http.post("http://192.168.2.34/publishers/login/forgot_password", data)
+    return this.http.post(this.baseUrl+"forgot_password", data)
   }
-  getUserDetails(logData: any): Observable<any> {
-    return this.http.post("http://192.168.2.34/publishers/login/login_publisher", logData)
+  getUserDetails(data: any): Observable<any> {
+    return this.http.post(this.baseUrl+"login", data)
   }
 
   registerUser(data: any): Observable<any> {
-    return this.http.post("http://192.168.2.34/publishers/login/register", data)
+    return this.http.post(this.baseUrl+"register", data)
   }
   
   passwordReset(data:any): Observable<any> {
-    return this.http.post("http://192.168.2.34/publishers/login/reset", data)
+    return this.http.post(this.baseUrl+"reset_password", data)
   }
   mailConfirm(data:string):Observable<any> {
-    return this.http.get("http://192.168.2.34/publishers/login/verify_email?h="+data)
+    return this.http.get(this.baseUrl+"verify_email?h="+data)
   }
 }

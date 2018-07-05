@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         
         if (data["status"]) {
           localStorage.setItem('userToken',data["token"])
-          this.router.navigate(['/pages/dashboard'])
+          this.router.navigate(['dashboard'])
           
         } else {
           localStorage.removeItem('userToken')
