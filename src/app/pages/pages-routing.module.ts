@@ -32,21 +32,9 @@ const routes: Routes = [{
   }, {
     path: 'components',
     loadChildren: './components/components.module#ComponentsModule',
-  }, {
-    path: 'maps',
-    loadChildren: './maps/maps.module#MapsModule',
-  }, {
+  },  {
     path: 'analytics',
     loadChildren: './analytics/analytics.module#AnalyticsModule',
-  }, {
-    path: 'editors',
-    loadChildren: './editors/editors.module#EditorsModule',
-  }, {
-    path: 'forms',
-    loadChildren: './forms/forms.module#FormsModule',
-  }, {
-    path: 'tables',
-    loadChildren: './tables/tables.module#TablesModule',
   }, {
     path: 'miscellaneous',
     loadChildren: './miscellaneous/miscellaneous.module#MiscellaneousModule',

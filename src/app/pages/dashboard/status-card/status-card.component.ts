@@ -23,4 +23,5 @@ export class StatusCardComponent {
   @Input() title: string;
   @Input() type: string;
   @Input() val :string;
+  @Input() on = true;
 }
