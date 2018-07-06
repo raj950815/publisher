@@ -5,5 +5,5 @@
 
 export const environment = {
   production: true,
-  baseUrl: 'http://192.168.2.34/'
+  baseUrl: 'http://192.168.2.34/publishers/'
 };

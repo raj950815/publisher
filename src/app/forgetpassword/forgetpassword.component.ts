@@ -32,7 +32,7 @@ forgetSubmit(){
         this.snotifyService.warning(data["message"],"warning");
       }
     },err=>{
-      this.snotifyService.error("there is an issue","error");
+      this.snotifyService.error("Something went wrong. Try again later.","error");
 
     });
   }

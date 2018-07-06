@@ -43,7 +43,7 @@ registerSubmit() {
       ,err=>{
         // console.log("err",err);
         
-        this.snotifyService.error("Something went wrong.","Failure",)
+        this.snotifyService.error("Something went wrong. Try again later.","Failure",)
       }
     )
   }

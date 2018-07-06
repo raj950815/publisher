@@ -26,8 +26,9 @@ export class MailVerifyComponent implements OnInit {
       // body.classList.add('nb-theme-default');
       this.auth.mailConfirm(this.h).subscribe(
         data=>{
-          this.message=data['message']
+          this.message = data['message']
         },err=>{
+          this.message = "Something went wrong. Try again later."
         }
     )
     }

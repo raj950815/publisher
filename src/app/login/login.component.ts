@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         }
       },err=>{
         localStorage.removeItem('userToken')
-        this.snotifyService.error("email or password is incorrect","Unauthorized",)
+        this.snotifyService.error("Something went wrong. Try again later.","Unauthorized",)
       }
     )
   }

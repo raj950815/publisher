@@ -6,31 +6,31 @@
                     <small class="form-text sub-title mb-3"> Sign up with your official email</small>
                     <form name="form" (ngSubmit)="f.form.valid && registerSubmit()" #f="ngForm" novalidate>
                       <div class="form-group"> 
-                          <input placeholder="publisher"type="text" class="form-control" name="publisher_name" [(ngModel)]="model.publisher_name" #publisher_name="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && publisher_name.invalid }" required />
+                          <input placeholder="Publisher name"type="text" class="form-control" name="publisher_name" [(ngModel)]="model.publisher_name" #publisher_name="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && publisher_name.invalid }" required />
                           <div *ngIf="f.submitted && publisher_name.invalid" class="invalid-feedback">
-                              <div *ngIf="publisher_name.errors.required">publisher is required</div>
+                              <div *ngIf="publisher_name.errors.required" class="pull-left">* Name is required</div>
                           </div>
                       </div>   
                       <div class="form-group">                            
                             <input placeholder="Email"type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && email.invalid }" required email />
                             <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                                <div *ngIf="email.errors.required">Email is required</div>
-                                <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                                <div *ngIf="email.errors.required" class="pull-left">* Email is required</div>
+                                <div *ngIf="email.errors.email" class="pull-left">Email must be a valid email address</div>
                             </div>
                       </div>
                       <div class="form-group">                            
                           <input placeholder="Website Url" type="url"   class="form-control" name="url" [(ngModel)]="model.url" #url="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && url.invalid }" required url   />
                         
                           <div *ngIf="f.submitted && url.invalid" class="invalid-feedback">
-                              <div *ngIf="url.errors.required">url is required</div>
-                              <div *ngIf="url.errors.url">url is not valid</div>
+                              <div *ngIf="url.errors.required" class="pull-left">* Url is required</div>
+                              <div *ngIf="url.errors.url" class="pull-left">Url is not valid</div>
                           </div>
                       </div>
                         <div class="form-group"> 
-                            <input placeholder="password"type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" minlength="6" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && password.invalid }" required />
+                            <input placeholder="Password"type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" minlength="6" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && password.invalid }" required />
                             <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
-                                <div *ngIf="password.errors.required">password is required</div>
-                                <div *ngIf="password.errors.minlength">password should be greater than 6 character </div>
+                                <div *ngIf="password.errors.required" class="pull-left">* Password is required</div>
+                                <div *ngIf="password.errors.minlength" class="pull-left">Password should be greater than or equal to 6 characters </div>
 
                             </div>
                         </div>
@@ -38,6 +38,7 @@
                         <div class="form-group">
                             <button class="btn btn-block btn-hero-success">Sign Up</button>
                         </div>
+                        <a [routerLink] ="['/login']"> Already have an account? Login now.</a>
                     </form>
                 </div>
            
