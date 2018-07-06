@@ -6,13 +6,18 @@ import { ChartComponent } from 'angular2-chartjs';
 @Component({
   selector: 'ngx-chartjs-multiple-xaxis',
   template: `
-    <chart type="line" [data]="data" [options]="options"></chart>
+    <chart type="line" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
+    <div class="no-data-available" *ngIf="dataStatus==false">
+      No Data Available
+    </div>
   `,
+  styleUrls:['./chartjs.component.scss'],
 })
 export class ChartjsMultipleXaxisComponent implements OnDestroy {
   data: any;
   options: any;
   themeSubscription: any;
+  dataStatus:boolean=false;
   @ViewChild(ChartComponent) chart: ChartComponent; 
 
   constructor(private theme: NbThemeService,
@@ -120,6 +125,7 @@ export class ChartjsMultipleXaxisComponent implements OnDestroy {
   getCollectiveEarning(){
     this.analyticsService.collectiveEarning().subscribe(data=>{
       if (data["status"]) {
+        this.dataStatus=true
         let response=data["response"]
         console.log(response);
         let dateCollectionLabels=[]
@@ -139,7 +145,7 @@ export class ChartjsMultipleXaxisComponent implements OnDestroy {
         this.chart.chart.update()
         // debugger
       } else {
-        
+        this.dataStatus=false
       }
     },err=>{
   

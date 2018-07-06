@@ -5,12 +5,17 @@ import { ChartComponent } from 'angular2-chartjs';
 @Component({
   selector: 'ngx-chartjs-pie',
   template: `
-    <chart type="pie" [data]="dataPie" [options]="options"></chart>
+    <chart type="pie" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
+    <div class="no-data-available" *ngIf="dataStatus==false">
+       No Data Available
+    </div>
   `,
+  styleUrls:['./chartjs.component.scss'],
 })
 export class ChartjsPieComponent implements OnDestroy {
-  // dataPie: any;
+  // data: any;
   // options: any;
+  dataStatus:boolean=false
   themeSubscription: any;
   @ViewChild(ChartComponent) chart: ChartComponent; 
   constructor(private theme: NbThemeService,
@@ -24,7 +29,7 @@ export class ChartjsPieComponent implements OnDestroy {
       
     });
   }
-  dataPie = {
+  data = {
   labels: [],
   datasets: [{
     data: [],
@@ -63,6 +68,7 @@ getCountrywiseUniqueVistors(){
     // console.log("data",data);
     // debugger
     if (data["status"]) {
+      this.dataStatus=true
       let response=data["response"]
       let unique_count=[]
       let labels=[]
@@ -72,12 +78,12 @@ getCountrywiseUniqueVistors(){
        labels.push(key)
       })
 
-      this.dataPie.datasets[0].data=unique_count
-      this.dataPie.labels=labels
+      this.data.datasets[0].data=unique_count
+      this.data.labels=labels
       this.chart.chart.update();
       // debugger
     } else {
-      
+      this.dataStatus=false
     }
   },err=>{
 

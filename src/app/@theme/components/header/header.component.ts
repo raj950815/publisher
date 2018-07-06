@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
   }
   profileNavigate() {
     this.menushow ? this.menushow = false : this.menushow = true
-    this.router.navigate(['pages/profile'])
+    this.router.navigate(['profile'])
   }
 
   getProfile() {
