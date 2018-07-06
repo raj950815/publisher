@@ -28,11 +28,11 @@
     height: 100%;
     width: 100%;
   }
-
-  .no-data-available {
-    position: absolute;
-    top: 49%;
-    right: 45%;
-  }
-
+}
+.no-data-available {
+  position: absolute;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 150px;
 }

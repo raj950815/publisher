@@ -6,9 +6,12 @@ import { ChartComponent } from 'angular2-chartjs';
 @Component({
   selector: 'ngx-chartjs-bar',
   template: `
-    <chart type="bar" [data]="data" [options]="options"></chart>
-    <b class="no-data-available" *ngIf="!data">No Data Available</b>
+    <chart type="bar" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
+    <div class="no-data-available" *ngIf="dataStatus==false">
+      No Data Available
+    </div>
   `,
+  styleUrls:['./chartjs.component.scss'],
 })
 export class ChartjsBarComponent implements OnDestroy {
   @ViewChild(ChartComponent) chart: ChartComponent; 
@@ -16,6 +19,7 @@ export class ChartjsBarComponent implements OnDestroy {
   data: any;
   options: any;
   themeSubscription: any;
+  dataStatus:boolean= false;
 
   constructor(
     private theme: NbThemeService,
@@ -84,6 +88,7 @@ getStoryStatus(){
     console.log("data",data);
     
     if (data["status"]) {
+      this.dataStatus=true
       let rejected=[]
       let approved=[]
       let response=data["response"]
@@ -105,7 +110,7 @@ getStoryStatus(){
       
       // this.chart.chart
     } else {
-      
+      this.dataStatus=false
     }
 
     // debugger
