@@ -9,6 +9,7 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
 import { ProfileService } from './profile.service';
 import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
 import { ProfileComponent } from './profile/profile.component';
+import { CustomFormsModule } from 'ng4-validators';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -18,6 +19,7 @@ const PAGES_COMPONENTS = [
   imports: [
     PagesRoutingModule,
     ThemeModule,
+    CustomFormsModule,
     DashboardModule,
     MiscellaneousModule,
     SnotifyModule

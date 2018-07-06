@@ -47,6 +47,7 @@ export class ProfileComponent implements OnInit {
   updateSubmit(){
     this.profile.updateProfile(this.model).subscribe(data=>{
       if (data["status"]) {
+        this.profile.change.emit(true)
         this.snotify.success(data["message"], "Success")
       } else {
         this.snotify.warning(data["message"], "Warning")
@@ -74,6 +75,8 @@ export class ProfileComponent implements OnInit {
     this.profile.uploadProfilePicture(input).subscribe(data=>{
       if(data["status"]){
         this.getProfile()
+        this.profile.change.emit(true)
+
         this.snotify.success(data["message"], "Success")
        
       }else{

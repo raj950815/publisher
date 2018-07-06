@@ -35,6 +35,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.profile.change.subscribe(change=>{
+    this.getProfile()
+      
+    })
     this.getProfile()
   }
 
