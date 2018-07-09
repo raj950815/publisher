@@ -18,34 +18,35 @@ import { MailVerifyComponent } from './mail-verify/mail-verify.component';
 
 const routes: Routes = [
   {
-    path :'login',
-    component:LoginComponent,
-    
-  },
-  {
-    path :'forget',
-    component:ForgetpasswordComponent,
-    
-  },
-  {
-    path :'register',
-    component:RegisterComponent,
-    
-  },
-  {
-    path :'forgotReset',
-    component:PasswordResetComponent
-  },
-  {
-    path :'verify',
-    component:MailVerifyComponent
-  },
-  { path: '', loadChildren: 'app/secure/pages.module#PagesModule',
-  canActivate: [AuthGuard],
-  // runGuardsAndResolvers: 'always'
+    path: 'login',
+    component: LoginComponent,
 
-},
- 
+  },
+  {
+    path: 'forget',
+    component: ForgetpasswordComponent,
+
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+
+  },
+  {
+    path: 'forgotReset',
+    component: PasswordResetComponent
+  },
+  {
+    path: 'verify',
+    component: MailVerifyComponent
+  },
+  {
+    path: '', loadChildren: 'app/secure/pages.module#PagesModule',
+    canActivate: [AuthGuard],
+    // runGuardsAndResolvers: 'always'
+
+  },
+
   // { path: '', redirectTo: '/pages/dashboard', pathMatch: 'full' },
   // { path: '**', redirectTo: 'login' },
 ];
@@ -57,7 +58,7 @@ const config: ExtraOptions = {
 @NgModule({
   imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule],
-  providers:[AuthGuard]
+  providers: [AuthGuard]
 })
 export class AppRoutingModule {
 }

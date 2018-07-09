@@ -49,7 +49,7 @@ export class PasswordResetComponent implements OnInit {
  
       }
     },err=>{
-      this.snotifyService.error("Something went to wrong")
+      this.snotifyService.error("Something went wrong. Try again later.")
     })
   }
 
