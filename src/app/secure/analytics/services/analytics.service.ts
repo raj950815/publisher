@@ -36,4 +36,7 @@ baseUrl = environment.baseUrl
     }
     return this.http.post(this.baseUrl + 'monthly_counts', data)
   }
+  updateTrack(data:any): Observable <any> {
+    return this.http.post(this.baseUrl + '', data)
+  }
 }

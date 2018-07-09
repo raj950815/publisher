@@ -74,7 +74,7 @@ export class HeaderComponent implements OnInit {
 
 
   goToHome() {
-    this.menuService.navigateHome();
+    this.router.navigate(['/']);
   }
 
   // startSearch() {

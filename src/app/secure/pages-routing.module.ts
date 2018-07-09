@@ -6,12 +6,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TrackingComponent } from './tracking/tracking.component';
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [{
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent,
   },
   {
@@ -38,6 +39,9 @@ const routes: Routes = [{
   }, {
     path: 'miscellaneous',
     loadChildren: './miscellaneous/miscellaneous.module#MiscellaneousModule',
+  }, {
+    path: 'tracking',
+    component: TrackingComponent,
   },
   //  {
   //   path: '',
