@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EarningService } from '../earnings/services/earning.service';
 import { DashboardService } from './services/dashboard.service';
 
@@ -9,12 +9,12 @@ import { DashboardService } from './services/dashboard.service';
   styleUrls: ['./dashboard.component.scss'],
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   earningObj: any
   constructor(
 
     private earning: EarningService,
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
   ) { }
 
 
@@ -37,8 +37,8 @@ export class DashboardComponent {
 
   getcards() {
     this.dashboardService.getStoryCards().subscribe(data => {
-      if (data["status"]) {
-        this.values = data["response"]
+      if (data['status']) {
+        this.values = data['response']
       } else {
       }
     }, err => {

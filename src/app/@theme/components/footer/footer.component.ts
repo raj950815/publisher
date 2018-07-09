@@ -4,9 +4,17 @@ import { Component } from '@angular/core';
   selector: 'ngx-footer',
   styleUrls: ['./footer.component.scss'],
   template: `
-    <span class="created-by">Created with ♥ by <b><a href="https://onefeed.ai" target="_blank">Onefeed</a></b> 2018</span>
+    <span class="created-by">
+      Created with ♥ by
+        <b>
+          <a href="https://onefeed.ai" target="_blank">
+            Onefeed
+          </a>
+        </b>
+        2018
+    </span>
     <div class="socials">
-      
+
       <a href="#" target="_blank" class="ion ion-social-facebook"></a>
       <a href="#" target="_blank" class="ion ion-social-twitter"></a>
       <a href="#" target="_blank" class="ion ion-social-linkedin"></a>

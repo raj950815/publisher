@@ -22,7 +22,7 @@ import 'ckeditor';
             <div class="col-sm-2">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-       </div>   
+       </div>
       </nb-card-body>
     </nb-card>
   `,

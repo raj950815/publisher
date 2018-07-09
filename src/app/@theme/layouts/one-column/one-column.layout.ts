@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
       </nb-layout-header>
 
       <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
-        
+
         <ng-content select="nb-menu"></ng-content>
       </nb-sidebar>
 

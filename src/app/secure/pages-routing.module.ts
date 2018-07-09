@@ -16,16 +16,17 @@ const routes: Routes = [{
   },
   {
     path: 'reset',
-    component: PasswordResetComponent
+    component: PasswordResetComponent,
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
   },
+  // {
+  //   path: 'earnings',
+  //   loadChildren: './earnings/earnings.module#EarningsModule',
+  // },
   {
-    path: 'earnings',
-    loadChildren: './earnings/earnings.module#EarningsModule',
-  }, {
     path: 'content',
     loadChildren: './content/content.module#ContentModule',
   }, {
@@ -42,11 +43,11 @@ const routes: Routes = [{
   //   path: '',
   //   redirectTo: 'dashboard',
   //   pathMatch: 'full',
-  // }, 
+  // },
   {
     path: '**',
     component: NotFoundComponent,
-  }
+  },
   ],
 }];
 

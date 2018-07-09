@@ -26,7 +26,14 @@ import { MailVerifyComponent } from './mail-verify/mail-verify.component';
 import { MyDateRangePickerModule } from 'mydaterangepicker';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ForgetpasswordComponent, RegisterComponent, PasswordResetComponent, MailVerifyComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    ForgetpasswordComponent,
+    RegisterComponent,
+    PasswordResetComponent,
+    MailVerifyComponent,
+  ],
   bootstrap: [AppComponent],
     imports: [
     BrowserModule,
@@ -39,17 +46,17 @@ import { MyDateRangePickerModule } from 'mydaterangepicker';
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
     SnotifyModule,
-    MyDateRangePickerModule
+    MyDateRangePickerModule,
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
     SnotifyService,
     {
-      provide:HTTP_INTERCEPTORS,
-      useClass:AuthInterceptor,
-      multi:true
-    }
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
 })
 export class AppModule {

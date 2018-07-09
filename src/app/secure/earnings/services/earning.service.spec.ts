@@ -5,7 +5,7 @@ import { EarningService } from './earning.service';
 describe('EarningService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [EarningService]
+      providers: [EarningService],
     });
   });
 

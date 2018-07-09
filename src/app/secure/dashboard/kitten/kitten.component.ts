@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input } from '@angular/core';
+import { Component, OnDestroy, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 // import { NbThemeService } from '@nebular/theme';
 
@@ -7,13 +7,13 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./kitten.component.scss'],
   templateUrl: './kitten.component.html',
 })
-export class KittenComponent implements OnDestroy {
+export class KittenComponent implements OnInit, OnDestroy {
 
   // currentTheme: string;
   // themeSubscription: any;
 
   constructor(
-    private _sanitizer: DomSanitizer
+    private _sanitizer: DomSanitizer,
     // private themeService: NbThemeService
   ) {
     // this.themeSubscription = this.themeService.getJsTheme().subscribe(theme => {
@@ -21,12 +21,12 @@ export class KittenComponent implements OnDestroy {
     // });
   }
   @Input() storyCard: any;
-  image:any
+  image: any
   ngOnDestroy() {
     // this.themeSubscription.unsubscribe();
   }
-  ngOnInit(){
-    
-    this.image = this._sanitizer.bypassSecurityTrustStyle(`url(${this.storyCard["cover_image"]})`);
+  ngOnInit() {
+
+    this.image = this._sanitizer.bypassSecurityTrustStyle(`url(${this.storyCard['cover_image']})`);
   }
 }

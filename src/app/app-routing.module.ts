@@ -1,14 +1,6 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
 import { NgModule } from '@angular/core';
-import {
-  NbAuthComponent,
-  NbLoginComponent,
-  NbLogoutComponent,
-  NbRegisterComponent,
-  NbRequestPasswordComponent,
-  NbResetPasswordComponent,
-} from '@nebular/auth';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
@@ -34,11 +26,11 @@ const routes: Routes = [
   },
   {
     path: 'forgotReset',
-    component: PasswordResetComponent
+    component: PasswordResetComponent,
   },
   {
     path: 'verify',
-    component: MailVerifyComponent
+    component: MailVerifyComponent,
   },
   {
     path: '', loadChildren: 'app/secure/pages.module#PagesModule',
@@ -58,7 +50,7 @@ const config: ExtraOptions = {
 @NgModule({
   imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [AuthGuard],
 })
 export class AppRoutingModule {
 }

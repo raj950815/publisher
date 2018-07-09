@@ -24,23 +24,23 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Sync',
         link: '/content/sync',
       },
-      {
-        title: 'Create Manually',
-        link: '/content/manual',
-      },
- 
+      // {
+      //   title: 'Create Manually',
+      //   link: '/content/manual',
+      // },
+
     ],
   },
-  {
-    title: 'Earnings',
-    icon: 'ion-social-usd-outline',
-    link: '/earnings',
+  // {
+  //   title: 'Earnings',
+  //   icon: 'ion-social-usd-outline',
+  //   link: '/earnings',
 
-  },
+  // },
 
   {
     title: 'Analytics',
     icon: 'nb-bar-chart',
     link: '/analytics/',
-  }
+  },
 ];

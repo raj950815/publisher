@@ -12,12 +12,12 @@ const routes: Routes = [{
   children: [ {
     path: 'sync',
     component: GridComponent,
-  }, 
+  },
    {
     path: 'manual',
     component: CKEditorComponent,
 
-  }
+  },
 ],
 }];
 

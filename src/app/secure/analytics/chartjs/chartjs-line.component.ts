@@ -9,13 +9,13 @@ import { NbThemeService, NbColorHelper } from '@nebular/theme';
       No Data Available
   </div>
   `,
-  styleUrls:['./chartjs.component.scss'],
+  styleUrls: ['./chartjs.component.scss'],
 })
 export class ChartjsLineComponent implements OnDestroy {
   data: any;
   options: any;
   themeSubscription: any;
-  dataStatus:boolean=false;
+  dataStatus: boolean = false;
 
   constructor(private theme: NbThemeService) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {

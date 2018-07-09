@@ -5,7 +5,7 @@ import { ContentService } from './content.service';
 describe('ContentService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ContentService]
+      providers: [ContentService],
     });
   });
 

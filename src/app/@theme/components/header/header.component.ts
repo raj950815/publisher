@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
 
   publisherDefaultIcon = '../../../../../assets/images/user.png'
   pubisherImgUrl = 'https://s3.amazonaws.com/one-feed/publisher/profile/'
- 
+
 
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
@@ -35,9 +35,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.profile.change.subscribe(change=>{
+    this.profile.change.subscribe(change => {
     this.getProfile()
-      
+
     })
     this.getProfile()
   }
@@ -45,12 +45,11 @@ export class HeaderComponent implements OnInit {
 
   menushow: boolean = false
   offClickHandler(a: any) {
-        a.target.id=="name"||  a.target.id=="picture" ? this.menushow=!this.menushow : this.menushow=false
+        a.target.id === 'name' ||  a.target.id === 'picture' ? this.menushow = !this.menushow : this.menushow = false
   }
   logout() {
-    localStorage.removeItem("userToken");
+    localStorage.removeItem('userToken');
     this.router.navigate(['login'])
-    console.log("logout");
   }
   profileNavigate() {
     this.menushow ? this.menushow = false : this.menushow = true
@@ -59,8 +58,8 @@ export class HeaderComponent implements OnInit {
 
   getProfile() {
     this.profile.getProfileInfo().subscribe(data => {
-      this.profileInfo = data["response"]
-      if (this.profileInfo.profile_image == "") {
+      this.profileInfo = data['response']
+      if (this.profileInfo.profile_image === '') {
         this.pubisherImg = this.publisherDefaultIcon
       } else {
         this.pubisherImg = this.pubisherImgUrl + this.profileInfo.profile_image

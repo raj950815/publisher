@@ -8,7 +8,7 @@ import {IMyDrpOptions} from 'mydaterangepicker';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   myDateRangePickerOptions: IMyDrpOptions = {
@@ -22,11 +22,11 @@ export class LoginComponent implements OnInit {
                          endDate: {year: 2018, month: 10, day: 19}};
 
   constructor(
-    private router:Router,
-    private auth:AuthService,
-    private snotifyService: SnotifyService
+    private router: Router,
+    private auth: AuthService,
+    private snotifyService: SnotifyService,
   ) { }
-  
+
   ngOnInit() {
     // const body = document.getElementsByTagName('body')[0];
     // body.classList.add('nb-theme-default');
@@ -36,22 +36,20 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
 
-    this.auth.getUserDetails(this.model).subscribe(   
-      (data)=>{
-        console.log(data);
-        
-        if (data["status"]) {
-          localStorage.setItem('userToken',data["token"])
+    this.auth.getUserDetails(this.model).subscribe(
+      (data) => {
+        if (data['status']) {
+          localStorage.setItem('userToken', data['token'])
           this.router.navigate(['dashboard'])
-          
+
         } else {
           localStorage.removeItem('userToken')
-          this.snotifyService.warning(data["message"],"Warning")
+          this.snotifyService.warning(data['message'], 'Warning')
         }
-      },err=>{
+      }, err => {
         localStorage.removeItem('userToken')
-        this.snotifyService.error("Something went wrong. Try again later.","Unauthorized",)
-      }
+        this.snotifyService.error('Something went wrong. Try again later.', 'Unauthorized')
+      },
     )
   }
 }
