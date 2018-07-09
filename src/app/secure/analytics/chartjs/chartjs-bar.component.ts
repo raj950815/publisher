@@ -1,7 +1,7 @@
 import { Component, OnDestroy,ViewChild } from '@angular/core';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
 import { AnalyticsService } from '../services/analytics.service';
-import { ChartComponent } from 'angular2-chartjs';
+
 
 @Component({
   selector: 'ngx-chartjs-bar',
@@ -14,7 +14,7 @@ import { ChartComponent } from 'angular2-chartjs';
   styleUrls:['./chartjs.component.scss'],
 })
 export class ChartjsBarComponent implements OnDestroy {
-  @ViewChild(ChartComponent) chart: ChartComponent; 
+
  
   data: any;
   options: any;
@@ -105,8 +105,7 @@ getStoryStatus(){
       this.data.labels          =Object.keys(response)
       this.data.datasets[0].data=approved
       this.data.datasets[1].data=rejected
-      this.chart.chart.update()
-      console.log("methods",this.chart.chart);
+     
       
       // this.chart.chart
     } else {
