@@ -1,7 +1,7 @@
 import { Component, OnDestroy,ViewChild } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { AnalyticsService } from '../services/analytics.service';
-import { ChartComponent } from 'angular2-chartjs';
+
 @Component({
   selector: 'ngx-chartjs-pie',
   template: `
@@ -17,7 +17,7 @@ export class ChartjsPieComponent implements OnDestroy {
   // options: any;
   dataStatus:boolean=false
   themeSubscription: any;
-  @ViewChild(ChartComponent) chart: ChartComponent; 
+  
   constructor(private theme: NbThemeService,
   private analyticsService:AnalyticsService
   ) {
@@ -80,7 +80,7 @@ getCountrywiseUniqueVistors(){
 
       this.data.datasets[0].data=unique_count
       this.data.labels=labels
-      this.chart.chart.update();
+      
       // debugger
     } else {
       this.dataStatus=false

@@ -1,7 +1,7 @@
 import { Component, OnDestroy,ViewChild } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { AnalyticsService } from '../services/analytics.service';
-import { ChartComponent } from 'angular2-chartjs';
+
 
 @Component({
   selector: 'ngx-chartjs-multiple-xaxis',
@@ -18,7 +18,7 @@ export class ChartjsMultipleXaxisComponent implements OnDestroy {
   options: any;
   themeSubscription: any;
   dataStatus:boolean=false;
-  @ViewChild(ChartComponent) chart: ChartComponent; 
+  
 
   constructor(private theme: NbThemeService,
   private analyticsService:AnalyticsService
@@ -142,7 +142,7 @@ export class ChartjsMultipleXaxisComponent implements OnDestroy {
         
         this.data.labels=earningCollectionData
         this.data.datasets[0].data= dateCollectionLabels
-        this.chart.chart.update()
+        
         // debugger
       } else {
         this.dataStatus=false
