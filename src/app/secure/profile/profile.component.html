@@ -1,6 +1,6 @@
 <nb-card>
     <nb-card-header>Publisher Profile</nb-card-header>
-    <ng-snotify class="simple"></ng-snotify>
+    <ng-snotify class="material"></ng-snotify>
       <nb-card-body>
         <form name="form" (ngSubmit)="f.form.valid && updateSubmit()" #f="ngForm" novalidate>
           <div class="row">
@@ -11,7 +11,7 @@
                             <div class="publisher_profile_img">
                                 <img [src]="pubisherImg" alt="pubisher_img" class="image-style" (click)="userfile.click()"/>
                                 <div class="publisher_profile_overlay" (click)="userfile.click()">
-                                    <i _ngcontent-c34="" class="nb-plus-circled"></i>
+                                    <i class="nb-plus-circled"></i>
                                 </div>
                             </div>
                           <div style="margin-top:15px;">
@@ -31,10 +31,10 @@
                         </div>
                         <div class="form-group col-md-12">
                           <label class=" control-label">Website URL</label>
-                          <input placeholder="Website Url" type="url" class="form-control" name="asset_url"  [(ngModel)]="model.asset_url" #asset_url="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && asset_url.invalid }" required url />
+                          <input placeholder="Website Url" type="url" class="form-control" name="asset_url"  [(ngModel)]="model.asset_url" #asset_url="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && asset_url.invalid }" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" required />
                           <div *ngIf="f.submitted && asset_url.invalid" class="invalid-feedback">
                             <div *ngIf="asset_url.errors.required">* Website URL is required</div>
-                            <div *ngIf="asset_url.errors.url">url is not valid</div>
+                            <div *ngIf="asset_url.errors?.pattern">url is not valid</div>
                           </div>
                         </div>  
                         <div class="form-group text-center">
@@ -44,6 +44,12 @@
                    
                 </div>
             </div>
+          </div>
+          <div class="pull-left">
+            <a routerLink="/tracking">Update your Tracking Scripts</a>
+          </div>
+          <div class="pull-right">
+            <a routerLink="/reset">Change Your Password</a>
           </div>
         </form>
       </nb-card-body>

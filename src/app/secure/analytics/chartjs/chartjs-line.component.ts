@@ -6,7 +6,7 @@ import { NbThemeService, NbColorHelper } from '@nebular/theme';
   template: `
     <chart type="line" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">
-      No Data Available
+      No Data Available.
   </div>
   `,
   styleUrls: ['./chartjs.component.scss'],

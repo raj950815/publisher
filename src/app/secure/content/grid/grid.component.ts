@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentService } from '../services/content.service';
-import {  SnotifyService } from 'ng-snotify';
+import {  SnotifyService, SnotifyPosition } from 'ng-snotify';
 
 @Component({
   selector: 'ngx-grid',
@@ -8,6 +8,13 @@ import {  SnotifyService } from 'ng-snotify';
   templateUrl: './grid.component.html',
 })
 export class GridComponent implements OnInit {
+  model: any = {};
+
+  snotifyConfig = {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
+  }
+
 constructor(
   private content: ContentService,
   private snotify: SnotifyService,
@@ -17,20 +24,19 @@ ngOnInit() {
 
   this.getFeedLinks()
 }
-model: any = {};
 onSubmit() {
   this.content.addRss(this.model).subscribe(data => {
     if (data['status']) {
-      this.model.category = 'Select Category'
-      this.model.feed_link = ' '
+      // this.model.category = 'Select Category'
+      // this.model.feed_link = ''
       this.getFeedLinks();
-      this.snotify.success(data['message'], 'Success')
+      this.snotify.success(data['message'], 'Success', this.snotifyConfig)
     } else {
-      this.snotify.warning(data['message'], 'Warning')
+      this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
 
     }
   }, err => {
-    this.snotify.error('Something went wrong', 'failure')
+    this.snotify.error('Something went wrong', 'failure', this.snotifyConfig)
   })
 }
 listRss = []
@@ -40,10 +46,10 @@ getFeedLinks() {
       if (data['status']) {
        this.listRss = data['response']
       } else {
-        this.snotify.warning(data['message'], 'Warning')
+        this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
       }
     }, err => {
-      this.snotify.error('Something went wrong', 'failure')
+      this.snotify.error('Something went wrong', 'failure', this.snotifyConfig)
     },
   )
 }
@@ -51,7 +57,9 @@ deleteLink(linkId) {
   const deleteLinkData = {
     'link_id': linkId,
   }
-  this.snotify.confirm('Are you want to delete this feed link ', 'Confirm', {
+  this.snotify.confirm('Are you sure you want to delete this feed link?', 'Confirm', {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
     buttons: [
       {
         text: 'Ok', action: () => {
@@ -61,12 +69,12 @@ deleteLink(linkId) {
         this.content.deleteRssLink(deleteLinkData).subscribe(data => {
           if (data['status']) {
             this.getFeedLinks()
-            this.snotify.success(data['message'], 'Success')
+            this.snotify.success(data['message'], 'Success', this.snotifyConfig)
           } else {
-            this.snotify.warning(data['message'], 'Warning')
+            this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
           }
           }, err => {
-            this.snotify.error('Something went wrong', 'failure')
+            this.snotify.error('Something went wrong', 'failure', this.snotifyConfig)
           })
       },
     },
@@ -74,7 +82,5 @@ deleteLink(linkId) {
         this.snotify.remove();
       }}],
   })
-
-
 }
 }

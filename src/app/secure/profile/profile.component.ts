@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../profile.service';
-import { SnotifyService } from 'ng-snotify';
+import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'profile',
@@ -15,6 +15,12 @@ export class ProfileComponent implements OnInit {
   form: FormGroup
   userfile: null
   pubisherImg
+  message
+
+  snotifyConfig = {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
+  }
 
   publisherDefaultIcon = '../assets/images/user.png'
   pubisherImgUrl = 'https://s3.amazonaws.com/one-feed/publisher/profile/'
@@ -46,12 +52,12 @@ export class ProfileComponent implements OnInit {
     this.profile.updateProfile(this.model).subscribe(data => {
       if (data['status']) {
         this.profile.change.emit(true)
-        this.snotify.success(data['message'], 'Success')
+        this.snotify.success(data['message'], 'Success', this.snotifyConfig)
       } else {
-        this.snotify.warning(data['message'], 'Warning')
+        this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
       }
     }, err => {
-      this.snotify.error('Something Went to Wrong', 'Error')
+      this.snotify.error('Something Went to Wrong', 'Error', this.snotifyConfig)
     })
   }
 
@@ -63,7 +69,12 @@ export class ProfileComponent implements OnInit {
 
   onFileChange(event) {
     const file = event.target.files[0]
-    this.form.get('userfile').setValue(file)
+    if (file.size > 1024 * 1024) {
+      this.snotify.warning('File Size Must be less than 1MB', 'Warning', this.snotifyConfig)
+      event.stopPropagation();
+    } else {
+      this.form.get('userfile').setValue(file)
+    }
   }
 
   onUpload() {
@@ -75,13 +86,13 @@ export class ProfileComponent implements OnInit {
         this.getProfile()
         this.profile.change.emit(true)
 
-        this.snotify.success(data['message'], 'Success')
+        this.snotify.success(data['message'], 'Success', this.snotifyConfig)
 
       } else {
-        this.snotify.warning(data['message'], 'Warning')
+        this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
       }
     }, err => {
-      this.snotify.error('Something Went to Wrong', 'Error')
+      this.snotify.error('Something Went to Wrong', 'Error', this.snotifyConfig)
     })
   }
 

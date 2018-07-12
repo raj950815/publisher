@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {  Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import {SnotifyService} from 'ng-snotify';
+import {SnotifyService, SnotifyPosition} from 'ng-snotify';
 // import { ThemeModule } from '../@theme/theme.module';
 import {IMyDrpOptions} from 'mydaterangepicker';
 @Component({
@@ -11,6 +11,12 @@ import {IMyDrpOptions} from 'mydaterangepicker';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+
+  snotifyConfig = {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
+  }
+
   myDateRangePickerOptions: IMyDrpOptions = {
     // other options...
     dateFormat: 'dd.mm.yyyy',
@@ -40,15 +46,15 @@ export class LoginComponent implements OnInit {
       (data) => {
         if (data['status']) {
           localStorage.setItem('userToken', data['token'])
-          this.router.navigate(['dashboard'])
+          this.router.navigate(['/'])
 
         } else {
           localStorage.removeItem('userToken')
-          this.snotifyService.warning(data['message'], 'Warning')
+          this.snotifyService.warning(data['message'], 'Warning', this.snotifyConfig)
         }
       }, err => {
         localStorage.removeItem('userToken')
-        this.snotifyService.error('Something went wrong. Try again later.', 'Unauthorized')
+        this.snotifyService.error('Something went wrong. Try again later.', 'Unauthorized', this.snotifyConfig)
       },
     )
   }

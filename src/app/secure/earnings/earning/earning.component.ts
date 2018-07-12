@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SnotifyService } from 'ng-snotify';
+import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { EarningService } from '../services/earning.service';
 import { IMyDrpOptions, IMyDateRangeModel } from 'mydaterangepicker';
 
@@ -9,6 +9,10 @@ import { IMyDrpOptions, IMyDateRangeModel } from 'mydaterangepicker';
   templateUrl: './earning.component.html',
 })
 export class EarningComponent implements OnInit {
+  snotifyConfig = {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
+  }
 
   myDateRangePickerOptions: IMyDrpOptions = {
     // other options...
@@ -93,12 +97,12 @@ export class EarningComponent implements OnInit {
   updateSubmit() {
     this.earning.updateBank(this.model).subscribe(data => {
       if (data['status']) {
-        this.snotify.success(data['message'], 'Success')
+        this.snotify.success(data['message'], 'Success', this.snotifyConfig)
       } else {
-        this.snotify.warning(data['message'], 'Warning')
+        this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
       }
     }, err => {
-      this.snotify.error('Something Went to Wrong', 'Error')
+      this.snotify.error('Something Went to Wrong', 'Error', this.snotifyConfig)
     })
   }
   withdrawAmount: string = ''
@@ -106,6 +110,8 @@ export class EarningComponent implements OnInit {
     // alert(this.withdrawAmount)
     this.snotify.confirm('Are you want to withdraw ', 'Confirm',
   {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
     buttons: [
       {
         text: 'Ok', action: () => {
@@ -121,15 +127,15 @@ export class EarningComponent implements OnInit {
             this.withdrawEarningStats();
             this.getEarnings();
             this.withdrawAmount = ''
-            this.snotify.success(data['message'], 'Success')
+            this.snotify.success(data['message'], 'Success', this.snotifyConfig)
             // this.
 
           } else {
             alert()
-            this.snotify.warning(data['message'], 'Warning')
+            this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
           }
         }, err => {
-          this.snotify.error('something went wrong', 'Error')
+          this.snotify.error('something went wrong', 'Error', this.snotifyConfig)
         })
       },
     },
@@ -171,7 +177,4 @@ export class EarningComponent implements OnInit {
     });
 
   }
-
-
-
 }

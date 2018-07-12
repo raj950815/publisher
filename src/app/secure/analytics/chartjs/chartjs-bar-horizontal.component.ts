@@ -6,7 +6,7 @@ import { NbThemeService } from '@nebular/theme';
   template: `
     <chart type="horizontalBar" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">
-      No Data Available
+      No Data Available.
    </div>
   `,
   styleUrls: ['./chartjs.component.scss'],

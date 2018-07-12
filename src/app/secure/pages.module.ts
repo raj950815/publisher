@@ -6,10 +6,11 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
-import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { ProfileComponent } from './profile/profile.component';
 import { CustomFormsModule } from 'ng4-validators';
 import { TrackingComponent } from './tracking/tracking.component';
+import { FormsModule } from '@angular/forms';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -23,6 +24,7 @@ const PAGES_COMPONENTS = [
     DashboardModule,
     MiscellaneousModule,
     SnotifyModule,
+    FormsModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,

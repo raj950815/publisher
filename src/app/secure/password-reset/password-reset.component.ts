@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {SnotifyService} from 'ng-snotify';
+import {SnotifyService, SnotifyPosition} from 'ng-snotify';
 import { ProfileService } from '../profile.service';
 
 @Component({
@@ -9,6 +9,10 @@ import { ProfileService } from '../profile.service';
   styleUrls: ['./password-reset.component.scss'],
 })
 export class PasswordResetComponent implements OnInit {
+  snotifyConfig = {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
+  }
 
   constructor(
     private profile: ProfileService,
@@ -24,18 +28,18 @@ export class PasswordResetComponent implements OnInit {
 
     this.profile.resetPassword(this.model).subscribe(data => {
       if (data['status']) {
-        this.snotifyService.success(data['message'], 'Success')
+        this.snotifyService.success(data['message'], 'Success', this.snotifyConfig)
         // this.model={}
         // this.f.submitted=false
         setTimeout(() => {
 
+          this.router.navigate(['/profile']);
         }, 3000);
-        this.router.navigate(['pages/dashboard']);
         } else {
-          this.snotifyService.warning(data['message'], 'Warning')
+          this.snotifyService.warning(data['message'], 'Warning', this.snotifyConfig)
         }
       }, err => {
-        this.snotifyService.error('Something went to wrong')
+        this.snotifyService.error('Something went to wrong', this.snotifyConfig)
     })
   }
 }

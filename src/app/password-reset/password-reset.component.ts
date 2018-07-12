@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SnotifyService } from 'ng-snotify';
+import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 
 @Component({
   selector: 'password-reset',
@@ -11,6 +11,12 @@ import { SnotifyService } from 'ng-snotify';
 export class PasswordResetComponent implements OnInit {
    model: any = {}
    resetToken: string = ''
+
+   snotifyConfig = {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
+  }
+
   constructor(
     private auth: AuthService,
     private route: ActivatedRoute,
@@ -36,18 +42,18 @@ export class PasswordResetComponent implements OnInit {
     this.auth.passwordReset(passwordResetData).subscribe(data => {
       if (data['status']) {
 
-      this.snotifyService.success(data['message'], 'Success')
+      this.snotifyService.success(data['message'], 'Success', this.snotifyConfig)
         setTimeout(() => {
 
           this.router.navigate(['/login'])
         }, 5000);
       // console.log(data);
       } else {
-      this.snotifyService.warning(data['message'], 'Warning')
+      this.snotifyService.warning(data['message'], 'Warning', this.snotifyConfig)
 
       }
     }, err => {
-      this.snotifyService.error('Something went wrong. Try again later.')
+      this.snotifyService.error('Something went wrong. Try again later.', this.snotifyConfig)
     })
   }
 

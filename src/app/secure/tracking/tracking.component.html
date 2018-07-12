@@ -1,6 +1,6 @@
 <nb-card>
   <nb-card-header>Tracking Tools</nb-card-header>
-  <ng-snotify class="simple"></ng-snotify>
+  <ng-snotify class="material"></ng-snotify>
     <nb-card-body>
       <form name="form" (ngSubmit)="trackUpdate()" #f="ngForm" novalidate>
         <div class="row">
@@ -22,7 +22,7 @@
                 <textarea class="form-control" placeholder="Enter Cuberoot Script..." name="cuberoot_analytics" rows="4" [(ngModel)]="model.cuberoot_analytics"></textarea>              
               </div> 
             <div class="form-group text-center">
-                <button class="btn btn-hero-success">Add</button>
+                <button class="btn btn-hero-success">{{addButton}}</button>
             </div>
           </div>
         </div>

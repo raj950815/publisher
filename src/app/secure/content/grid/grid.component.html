@@ -7,21 +7,24 @@
         <nb-card-body>
             <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>                     
                 <div class="form-group">                            
-                    <input placeholder="RSS Link"type="text" class="form-control" name="feed_link" [(ngModel)]="model.feed_link" #feed="ngModel" [ngClass]="{ 'is-invalid': f.submitted && feed.invalid }" required  />
-                    <div *ngIf="f.submitted && feed.invalid" class="invalid-feedback">
-                        <div *ngIf="feed.errors.required">Feed link is required</div>
-                        <!-- <div *ngIf="email.errors.email">Email must be a valid email address</div> -->
+                    <input placeholder="RSS Link" type="text" class="form-control" name="feed_link" [(ngModel)]="model.feed_link" #feed_link="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && feed_link.invalid }" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" required  />
+                    <div *ngIf="f.submitted && feed_link.invalid" class="invalid-feedback">
+                        <div *ngIf="feed_link?.errors.required">* Feed link is required</div>
+                        <div *ngIf="feed_link?.errors.pattern">url is not valid</div>
                     </div>
                 </div>
                 <div class="input-group">
-                    <select class="form-control col-md-4" name="category" [(ngModel)]="model.category" >
+                    <select class="form-control col-md-4" name="category" [(ngModel)]="model.category" #category="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && category.invalid }" required>
                        <option >Select Category</option>
                        <option>Technology</option>
                        <option>History</option>
                        <option>Humor</option>
                        <option>Entertainment</option>
                        <option>Sports</option>
-                     </select>                  
+                     </select>
+                     <div *ngIf="f.submitted && category.invalid" class="invalid-feedback">
+                      <div *ngIf="category?.errors.required">* Category is required</div>
+                    </div>                 
                      <button type="submit" class="offset-md-6 btn btn-primary">Submit Link</button>
              </div>
             </form>
@@ -56,7 +59,7 @@
             <tbody>
               <tr *ngFor="let link of listRss">
                 <td>rss</td>
-                <td ><a [attr.href]="link?.link">{{link["link"]}}</a></td>
+                <td ><a [attr.href]="link?.link" target="_blank">{{link["link"]}}</a></td>
                 <td>{{link["category"]}}</td>
 
                 <td>{{link["status"]}}</td>
@@ -69,5 +72,5 @@
       </nb-card-body>
     </nb-card>
   </div>
-  <ng-snotify class="simple"></ng-snotify>
+  <ng-snotify class="material"></ng-snotify>
 </div>

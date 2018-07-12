@@ -7,7 +7,7 @@ import { AnalyticsService } from '../services/analytics.service';
   template: `
     <chart type="pie" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">
-       No Data Available
+       No Data Available.
     </div>
   `,
   styleUrls: ['./chartjs.component.scss'],
