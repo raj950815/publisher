@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   profileInfo: any
   pubisherImg
 
-  publisherDefaultIcon = '../../../../../assets/images/user.png'
+  publisherDefaultIcon = 'assets/images/user.png'
   pubisherImgUrl = 'https://s3.amazonaws.com/one-feed/publisher/profile/'
 
 
