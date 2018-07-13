@@ -20,7 +20,7 @@ constructor(
   private snotify: SnotifyService,
 ) {}
 ngOnInit() {
-  this.model.category = 'Select Category'
+  this.model.category = null
 
   this.getFeedLinks()
 }

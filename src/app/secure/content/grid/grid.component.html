@@ -15,17 +15,17 @@
                 </div>
                 <div class="input-group">
                     <select class="form-control col-md-4" name="category" [(ngModel)]="model.category" #category="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && category.invalid }" required>
-                       <option >Select Category</option>
+                       <option [ngValue]="null">Select Category</option>
                        <option>Technology</option>
                        <option>History</option>
                        <option>Humor</option>
                        <option>Entertainment</option>
                        <option>Sports</option>
                      </select>
+                     <button type="submit" class="offset-md-6 btn btn-primary">Submit Link</button>
                      <div *ngIf="f.submitted && category.invalid" class="invalid-feedback">
                       <div *ngIf="category?.errors.required">* Category is required</div>
                     </div>                 
-                     <button type="submit" class="offset-md-6 btn btn-primary">Submit Link</button>
              </div>
             </form>
 
