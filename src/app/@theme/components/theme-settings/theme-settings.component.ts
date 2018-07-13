@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { StateService } from '../../../@core/data/state.service';
+
 
 @Component({
   selector: 'ngx-theme-settings',
@@ -38,14 +38,34 @@ import { StateService } from '../../../@core/data/state.service';
 export class ThemeSettingsComponent {
 
   layouts = [];
-  sidebars = [];
+  sidebars :any;
 
-  constructor(protected stateService: StateService) {
-    this.stateService.getLayoutStates()
-      .subscribe((layouts: any[]) => this.layouts = layouts);
+  layout : any = [
+    {
+      name: 'Center Column',
+      icon: 'nb-layout-two-column',
+      id: 'two-column',
+      selected:true
+    }
+  ]
 
-    this.stateService.getSidebarStates()
-      .subscribe((sidebars: any[]) => this.sidebars = sidebars);
+  // sidebar: any = 
+
+  constructor() {
+    this.layouts=this.layout
+    this.sidebars=[
+      {
+        name: 'Sidebar at layout start',
+        icon: 'nb-layout-sidebar-left',
+        id: 'start',
+        selected:true
+      }
+    ]
+    // this.stateService.getLayoutStates()
+    //   .subscribe((layouts: any[]) => this.layouts = layouts);
+
+    // this.stateService.getSidebarStates()
+    //   .subscribe((sidebars: any[]) => this.sidebars = sidebars);
   }
 
   layoutSelect(layout: any): boolean {
@@ -55,7 +75,7 @@ export class ThemeSettingsComponent {
     });
 
     layout.selected = true;
-    this.stateService.setLayoutState(layout);
+    // this.stateService.setLayoutState(layout);
     return false;
   }
 
@@ -66,7 +86,7 @@ export class ThemeSettingsComponent {
     });
 
     sidebars.selected = true;
-    this.stateService.setSidebarState(sidebars);
+    // this.stateService.setSidebarState(sidebars);
     return false;
   }
 }

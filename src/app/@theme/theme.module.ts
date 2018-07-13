@@ -19,7 +19,7 @@ import {
   NbContextMenuModule,
 } from '@nebular/theme';
 
-import { NbSecurityModule } from '@nebular/security';
+
 
 import {
   FooterComponent,
@@ -57,7 +57,6 @@ const NB_MODULES = [
   NbPopoverModule,
   NbContextMenuModule,
   NgbModule,
-  NbSecurityModule, // *nbIsGranted directive
 ];
 
 const COMPONENTS = [

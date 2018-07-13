@@ -10,7 +10,7 @@ import {
   NbThemeService,
 } from '@nebular/theme';
 
-import { StateService } from '../../../@core/data/state.service';
+// import { StateService } from '../../../@core/data/state.service';
 
 // TODO: move layouts into the framework
 @Component({
@@ -106,18 +106,18 @@ export class SampleLayoutComponent implements OnDestroy {
   protected sidebarState$: Subscription;
   protected menuClick$: Subscription;
 
-  constructor(protected stateService: StateService,
+  constructor(
               protected menuService: NbMenuService,
               protected themeService: NbThemeService,
               protected bpService: NbMediaBreakpointsService,
               protected sidebarService: NbSidebarService) {
-    this.layoutState$ = this.stateService.onLayoutState()
-      .subscribe((layout: string) => this.layout = layout);
+    // this.layoutState$ = this.stateService.onLayoutState()
+    //   .subscribe((layout: string) => this.layout = layout);
 
-    this.sidebarState$ = this.stateService.onSidebarState()
-      .subscribe((sidebar: string) => {
-        this.sidebar = sidebar;
-      });
+    // this.sidebarState$ = this.stateService.onSidebarState()
+    //   .subscribe((sidebar: string) => {
+    //     this.sidebar = sidebar;
+    //   });
 
     const isBp = this.bpService.getByName('is');
     this.menuClick$ = this.menuService.onItemSelect()
@@ -134,8 +134,8 @@ export class SampleLayoutComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.layoutState$.unsubscribe();
-    this.sidebarState$.unsubscribe();
+    // this.layoutState$.unsubscribe();
+    // this.sidebarState$.unsubscribe();
     this.menuClick$.unsubscribe();
   }
 }

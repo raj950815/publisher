@@ -30,10 +30,8 @@ const routes: Routes = [{
   {
     path: 'content',
     loadChildren: './content/content.module#ContentModule',
-  }, {
-    path: 'components',
-    loadChildren: './components/components.module#ComponentsModule',
-  },  {
+  }, 
+  {
     path: 'analytics',
     loadChildren: './analytics/analytics.module#AnalyticsModule',
   }, {

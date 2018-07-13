@@ -1,4 +1,4 @@
-<div class="header-container" [class.left]="position === 'normal'" [class.right]="position === 'inverse'">
+<div class="header-container" [class.left]="position === 'inverse'" [class.right]="position === 'normal'">
   <div class="logo-containter">
     <a (click)="toggleSidebar()" href="#" class="navigation">
       <i class="nb-menu"></i>
@@ -12,9 +12,9 @@
   <ngx-layout-direction-switcher></ngx-layout-direction-switcher> -->
 </div>
 
-<nb-actions size="medium" class="header-container" [class.right]="position === 'normal'" [class.left]="position === 'inverse'">
+<nb-actions size="medium" class="header-container" [class.right]="position === 'inverse'" [class.left]="position === 'normal'">
   <!-- <nb-action icon="nb-gear" class="toggle-layout" ></nb-action> -->
-  <nb-action *nbIsGranted="['view', 'user']" class="dropdown">
+  <nb-action  class="dropdown">
     <div class= "user-container user-profile " id="dropdownMenuButton"  >
         <div  class="user-picture image" >
           <!-- {{pubisherImg}} -->

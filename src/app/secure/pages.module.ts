@@ -8,7 +8,6 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { ProfileComponent } from './profile/profile.component';
-import { CustomFormsModule } from 'ng4-validators';
 import { TrackingComponent } from './tracking/tracking.component';
 import { FormsModule } from '@angular/forms';
 
@@ -20,7 +19,6 @@ const PAGES_COMPONENTS = [
   imports: [
     PagesRoutingModule,
     ThemeModule,
-    CustomFormsModule,
     DashboardModule,
     MiscellaneousModule,
     SnotifyModule,
