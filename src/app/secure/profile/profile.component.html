@@ -9,9 +9,10 @@
                     <div class="col-md-4 text-center" style="border-right: 2px solid #ebeef2;">
                         <form (change)="onUpload()">
                             <div class="publisher_profile_img">
-                                <img [src]="pubisherImg" alt="pubisher_img" class="image-style" (click)="userfile.click()"/>
+                              <i class="fas fa-user-circle default-icon" *ngIf="!pubisherImg"></i>
+                              <img [src]="pubisherImg" alt="pubisher_img" *ngIf="pubisherImg" class="image-style" (click)="userfile.click()"/>
                                 <div class="publisher_profile_overlay" (click)="userfile.click()">
-                                    <i class="nb-plus-circled"></i>
+                                    <i class="fa fa-plus-circle fa-3x overlay-icon"></i>
                                 </div>
                             </div>
                           <div style="margin-top:15px;">

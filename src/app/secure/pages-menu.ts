@@ -3,7 +3,7 @@ import { NbMenuItem } from '@nebular/theme';
 export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Home',
-    icon: 'nb-home',
+    icon: 'fa fa-home',
     link: '/',
     home: true,
   },
@@ -13,7 +13,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   // },
   {
     title: 'Content',
-    icon: 'nb-edit',
+    icon: 'fa fa-pencil',
     link: '/content',
     children: [
       // {
@@ -22,6 +22,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       // },
       {
         title: 'Sync',
+        icon: 'fa fa-sync',
         link: '/content/sync',
       },
       // {
@@ -40,7 +41,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
 
   {
     title: 'Analytics',
-    icon: 'nb-bar-chart',
+    icon: 'fa fa-chart-line',
     link: '/analytics/',
   },
 ];

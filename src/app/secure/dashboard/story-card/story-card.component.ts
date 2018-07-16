@@ -3,11 +3,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 // import { NbThemeService } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-kitten',
-  styleUrls: ['./kitten.component.scss'],
-  templateUrl: './kitten.component.html',
+  selector: 'ngx-story-card',
+  styleUrls: ['./story-card.component.scss'],
+  templateUrl: './story-card.component.html',
 })
-export class KittenComponent implements OnInit, OnDestroy {
+export class StoryCardComponent implements OnInit, OnDestroy {
 
   // currentTheme: string;
   // themeSubscription: any;

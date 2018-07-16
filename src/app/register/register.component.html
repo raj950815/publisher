@@ -1,6 +1,9 @@
  <div class="scrollable-container login-form">
     <div class="layout">
-        <div class="layout-container">  
+        <div class="layout-container form-layout">
+                <div class="content">
+                        <div class="columns">
+                          <nb-layout-column>
                 <div class="flex-centered col-xl-4 col-lg-6 col-md-8 col-sm-12 text-center">
                     <h2 class="title"> Onefeed </h2>
                     <small class="form-text sub-title mb-3"> Sign up with your official email</small>
@@ -12,10 +15,10 @@
                           </div>
                       </div>   
                       <div class="form-group">                            
-                            <input placeholder="Email"type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && email.invalid }" required email />
+                            <input placeholder="Email"type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && email.invalid }" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required />
                             <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                                <div *ngIf="email.errors.required" class="pull-left">* Email is required</div>
-                                <div *ngIf="email.errors.email" class="pull-left">Email must be a valid email address</div>
+                                <div *ngIf="email.errors?.required" class="pull-left">* Email is required</div>
+                                <div *ngIf="email.errors?.pattern" class="pull-left">Email must be a valid email address</div>
                             </div>
                       </div>
                       <div class="form-group">                            
@@ -41,7 +44,9 @@
                         <a [routerLink] ="['/login']"> Already have an account? Login now.</a>
                     </form>
                 </div>
-           
+            </nb-layout-column>
+           </div>
+           </div>
         </div>
     </div>
   <ng-snotify class="material"></ng-snotify>

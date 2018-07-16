@@ -22,7 +22,6 @@ import {
 
 
 import {
-  FooterComponent,
   HeaderComponent,
 } from './components';
 import {
@@ -50,7 +49,6 @@ const NB_MODULES = [
 
 const COMPONENTS = [
   HeaderComponent,
-  FooterComponent,
   SampleLayoutComponent,
 ];
 

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { NbMenuService, NbSidebarService } from '@nebular/theme';
-import { ProfileService } from '../../../secure/profile.service';
+import { NbSidebarService } from '@nebular/theme';
+import { ProfileService } from '../../../secure/profile/services/profile.service';
 import { Router } from '@angular/router';
 
 
@@ -15,18 +15,14 @@ export class HeaderComponent implements OnInit {
 
   @Input() position = 'normal';
 
-
-
   user: any;
   profileInfo: any
   pubisherImg
 
-  publisherDefaultIcon = 'assets/images/user.png'
   pubisherImgUrl = 'https://s3.amazonaws.com/one-feed/publisher/profile/'
 
 
   constructor(private sidebarService: NbSidebarService,
-    private menuService: NbMenuService,
     private profile: ProfileService,
     private router: Router,
 
@@ -60,7 +56,7 @@ export class HeaderComponent implements OnInit {
     this.profile.getProfileInfo().subscribe(data => {
       this.profileInfo = data['response']
       if (this.profileInfo.profile_image === '') {
-        this.pubisherImg = this.publisherDefaultIcon
+        this.pubisherImg = ''
       } else {
         this.pubisherImg = this.pubisherImgUrl + this.profileInfo.profile_image
       }

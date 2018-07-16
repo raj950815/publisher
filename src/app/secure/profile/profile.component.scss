@@ -8,6 +8,9 @@
     width: 200px;
     height: 200px;
     margin: auto;
+    .default-icon{
+        font-size: 200px;
+    }
     &:hover .publisher_profile_overlay{
         display: block;
     }
@@ -25,13 +28,14 @@
         bottom: 0;
         background-color: rgba(0, 0, 0, 0.6);
         display: none;
-        i{
-            font-size: 50px;
+        .overlay-icon {
+            // font-size: 40px;
             color: #ffffff;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            opacity: 0.7;
         }
     }
 }

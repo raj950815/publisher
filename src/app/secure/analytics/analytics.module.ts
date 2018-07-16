@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartModule } from 'angular2-chartjs';
 
 import { ThemeModule } from '../../@theme/theme.module';
@@ -23,7 +22,7 @@ const components = [
 ];
 
 @NgModule({
-  imports: [ThemeModule, AnalyticsRoutingModule, NgxChartsModule, ChartModule],
+  imports: [ThemeModule, AnalyticsRoutingModule, ChartModule],
   declarations: [...routedComponents, ...components],
 })
 export class AnalyticsModule {}

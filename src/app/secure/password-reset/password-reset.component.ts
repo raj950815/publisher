@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {SnotifyService, SnotifyPosition} from 'ng-snotify';
-import { ProfileService } from '../profile.service';
+import { ProfileService } from '../profile/services/profile.service';
 
 @Component({
   selector: 'password-reset',
