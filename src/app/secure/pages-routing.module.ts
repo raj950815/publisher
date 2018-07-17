@@ -30,14 +30,12 @@ const routes: Routes = [{
   {
     path: 'content',
     loadChildren: './content/content.module#ContentModule',
-  }, 
+  },
   {
     path: 'analytics',
     loadChildren: './analytics/analytics.module#AnalyticsModule',
-  }, {
-    path: 'miscellaneous',
-    loadChildren: './miscellaneous/miscellaneous.module#MiscellaneousModule',
-  }, {
+  },
+  {
     path: 'tracking',
     component: TrackingComponent,
   },

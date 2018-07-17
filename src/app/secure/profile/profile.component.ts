@@ -40,7 +40,7 @@ export class ProfileComponent implements OnInit {
         this.model = { ...this.profileInfo }
         if (this.model.profile_image === '') {
           // this.pubisherImg = this.publisherDefaultIcon
-          this.pubisherImg=''
+          this.pubisherImg = ''
         } else {
           this.pubisherImg = this.pubisherImgUrl + this.model.profile_image
         }

@@ -42,7 +42,7 @@ import {
       </nb-layout-column>
 
       <nb-layout-footer fixed>
-        
+
       </nb-layout-footer>
 
       <nb-sidebar class="settings-sidebar"

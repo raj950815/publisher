@@ -7,7 +7,8 @@
                 <div class="columns">
                   <nb-layout-column>
                     <div class="col-md-4 offset-md-4 text-center">
-                        <h2 class="title"> Onefeed </h2>
+                        <!-- <h2 class="title"> Onefeed </h2> -->
+                        <img src="assets/images/logo.png" alt="OneFeed">
                         <small class="form-text sub-title mb-3">Hello! Sign in with your email</small>
                         <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>                     
                             <div class="form-group">                            
@@ -25,7 +26,7 @@
                             </div>
                             <div class="form-group accept-group col-sm-12">
                                 <nb-checkbox name="remember_me" [(ngModel)]="model.remember_me">Remember me</nb-checkbox>
-                                <a class="forgot-password" routerLink="/forget">Forgot Password?</a>
+                                <a class="forgot-password" routerLink="/forgot">Forgot Password?</a>
                             </div>                        
                             <div class="form-group">
                                 <button class="btn btn-block btn-hero-success">Login</button>

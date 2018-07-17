@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import {SnotifyService, SnotifyPosition} from 'ng-snotify';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'register',
