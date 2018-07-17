@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ContentComponent } from './content.component';
-import { GridComponent } from './grid/grid.component';
 import { CKEditorComponent } from './ckeditor/ckeditor.component';
+import { SyncComponent } from './sync/sync.component';
 
 
 const routes: Routes = [{
@@ -11,7 +11,7 @@ const routes: Routes = [{
   component: ContentComponent,
   children: [ {
     path: 'sync',
-    component: GridComponent,
+    component: SyncComponent,
   },
    {
     path: 'manual',

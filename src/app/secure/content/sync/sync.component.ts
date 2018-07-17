@@ -3,11 +3,11 @@ import { ContentService } from '../services/content.service';
 import {  SnotifyService, SnotifyPosition } from 'ng-snotify';
 
 @Component({
-  selector: 'ngx-grid',
-  styleUrls: ['./grid.component.scss'],
-  templateUrl: './grid.component.html',
+  selector: 'ngx-sync',
+  styleUrls: ['./sync.component.scss'],
+  templateUrl: './sync.component.html',
 })
-export class GridComponent implements OnInit {
+export class SyncComponent implements OnInit {
   model: any = {};
 
   snotifyConfig = {
