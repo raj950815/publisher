@@ -18,10 +18,9 @@
                                 </div>
                             </div>
                             <div class="form-group"> 
-                                <input placeholder="Password" type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" minlength="6" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required />
+                                <input placeholder="Password" type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required />
                                 <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
                                     <div *ngIf="password.errors.required" class="pull-left">* Password is required</div>
-                                    <div *ngIf="password.errors.minlength" class="pull-left">Password should be greater than or equal to 6 characters </div>
                                 </div>
                             </div>
                             <div class="form-group accept-group col-sm-12">

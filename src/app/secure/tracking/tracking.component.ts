@@ -35,7 +35,7 @@ export class TrackingComponent implements OnInit {
         this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
       }
     }, err => {
-      this.snotify.error('Something Went to Wrong', 'Error', this.snotifyConfig)
+      this.snotify.error('Something went wrong. Try again later.', 'Error', this.snotifyConfig)
     })
   }
   getTrackDetails() {

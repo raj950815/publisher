@@ -18,12 +18,11 @@
                             <input placeholder="Email"type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && email.invalid }" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required />
                             <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
                                 <div *ngIf="email.errors?.required" class="pull-left">* Email is required</div>
-                                <div *ngIf="email.errors?.pattern" class="pull-left">Email must be a valid email address</div>
+                                <div *ngIf="email.errors?.pattern" class="pull-left">Enter must be a valid email address</div>
                             </div>
                       </div>
                       <div class="form-group">                            
                           <input placeholder="Website Url" type="url"   class="form-control" name="url" [(ngModel)]="model.url" #url="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && url.invalid }" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" required />
-                        
                           <div *ngIf="f.submitted && url.invalid" class="invalid-feedback">
                               <div *ngIf="url.errors.required" class="pull-left">* Url is required</div>
                               <div *ngIf="url.errors.pattern" class="pull-left">Url is not valid</div>
