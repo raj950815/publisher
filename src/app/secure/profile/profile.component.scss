@@ -1,26 +1,26 @@
-.image-style{
+.image-style {
     height: 200px;
-    width: 200px
+    width: 200px;
 }
 
-.publisher_profile_img{
+.publisher_profile_img {
     position: relative;
     width: 200px;
     height: 200px;
     margin: auto;
-    .default-icon{
+    .default-icon {
         font-size: 200px;
     }
-    &:hover .publisher_profile_overlay{
+    &:hover .publisher_profile_overlay {
         display: block;
     }
-    .pubisher_img{
+    .pubisher_img {
         height: 200px;
         width: 200px;
         margin: auto;
         float: none;
     }
-    .publisher_profile_overlay{
+    .publisher_profile_overlay {
         position: absolute;
         top: 0;
         left: 0;

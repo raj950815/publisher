@@ -1,11 +1,11 @@
 .material {
-  @import "~ng-snotify/styles/material";
+  @import '~ng-snotify/styles/material';
 }
 .simple {
-  @import "~ng-snotify/styles/simple";
+  @import '~ng-snotify/styles/simple';
 }
 .dark {
-  @import "~ng-snotify/styles/dark";
+  @import '~ng-snotify/styles/dark';
 }
 
 .snotify-icon {
@@ -40,7 +40,7 @@
     border-radius: 50%; // TODO: quickfix for https://github.com/akveo/nebular/issues/275
   }
 };
- .form-layout{
+ .form-layout {
   min-height: 550px;
-  padding-top: 60px
+  padding-top: 60px;
  }
