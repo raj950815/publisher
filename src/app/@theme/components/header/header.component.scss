@@ -64,13 +64,13 @@
         }
     }
 
-    ngx-layout-direction-switcher,
-    ngx-theme-switcher {
+    pub-layout-direction-switcher,
+    pub-theme-switcher {
         margin: 0 1em;
     }
 
     @include media-breakpoint-down(xl) {
-        ngx-layout-direction-switcher {
+        pub-layout-direction-switcher {
             display: none;
         }
     }
@@ -153,8 +153,8 @@
             padding: 0;
         }
 
-        ngx-layout-direction-switcher,
-        ngx-theme-switcher {
+        pub-layout-direction-switcher,
+        pub-theme-switcher {
             display: none;
         }
     }

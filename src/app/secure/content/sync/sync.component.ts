@@ -3,7 +3,7 @@ import { ContentService } from '../services/content.service';
 import {  SnotifyService, SnotifyPosition } from 'ng-snotify';
 
 @Component({
-  selector: 'ngx-sync',
+  selector: 'pub-sync',
   styleUrls: ['./sync.component.scss'],
   templateUrl: './sync.component.html',
 })

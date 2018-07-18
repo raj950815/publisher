@@ -1,17 +1,17 @@
-[![Build Status](https://travis-ci.org/akveo/ngx-admin.svg?branch=master)](https://travis-ci.org/akveo/ngx-admin)
+[![Build Status](https://travis-ci.org/akveo/pub-admin.svg?branch=master)](https://travis-ci.org/akveo/pub-admin)
 [![Join the chat at https://gitter.im/ng2-admin/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng2-admin/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Dependency Status](https://david-dm.org/akveo/ngx-admin/status.svg)](https://david-dm.org/akveo/ng2-admin)
+[![Dependency Status](https://david-dm.org/akveo/pub-admin/status.svg)](https://david-dm.org/akveo/ng2-admin)
 
-[Who uses ngx-admin?](https://github.com/akveo/ngx-admin/issues/1645)
+[Who uses pub-admin?](https://github.com/akveo/pub-admin/issues/1645)
 
 # Admin template based on Angular 6+, Bootstrap 4 and <a href="https://github.com/akveo/nebular">Nebular</a>
-<a target="_blank" href="http://akveo.com/ngx-admin/#/pages/dashboard?utm_source=github&utm_medium=ngx_admin_readme&utm_campaign=demo"><img src="https://i.imgur.com/XoJtfvK.gif"/></a>
+<a target="_blank" href="http://akveo.com/pub-admin/#/pages/dashboard?utm_source=github&utm_medium=pub_admin_readme&utm_campaign=demo"><img src="https://i.imgur.com/XoJtfvK.gif"/></a>
 
 ### Two themes available:
 
 | Cosmic Theme | Business Theme |
 |:------------:|:--------------:|
-|<a target="_blank" href="http://akveo.com/ngx-admin/#/pages/dashboard?theme=cosmic&utm_source=github&utm_medium=ngx_admin_readme&utm_campaign=themes"><img src="https://i.imgur.com/FgRZcqL.png"/></a>|<a target="_blank" href="http://akveo.com/ngx-admin/#/pages/dashboard?theme=default&utm_source=github&utm_medium=ngx_admin_readme&utm_campaign=themes"><img src="https://i.imgur.com/fozHlRJ.png"/></a>|
+|<a target="_blank" href="http://akveo.com/pub-admin/#/pages/dashboard?theme=cosmic&utm_source=github&utm_medium=pub_admin_readme&utm_campaign=themes"><img src="https://i.imgur.com/FgRZcqL.png"/></a>|<a target="_blank" href="http://akveo.com/pub-admin/#/pages/dashboard?theme=default&utm_source=github&utm_medium=pub_admin_readme&utm_campaign=themes"><img src="https://i.imgur.com/fozHlRJ.png"/></a>|
 
 ### What's included:
 
@@ -41,16 +41,16 @@ And many more!
 
 ### Demo
 
-<a target="_blank" href="http://akveo.com/ngx-admin/">Live Demo</a>
+<a target="_blank" href="http://akveo.com/pub-admin/">Live Demo</a>
 
 ## Documentation
-This template is using [Nebular](https://github.com/akveo/nebular) modules set, [here you can find documentation and other useful articles](https://akveo.github.io/nebular/#/docs/installation/based-on-starter-kit-ngxadmin).
+This template is using [Nebular](https://github.com/akveo/nebular) modules set, [here you can find documentation and other useful articles](https://akveo.github.io/nebular/#/docs/installation/based-on-starter-kit-pubadmin).
 
 ### ng2-admin
-We will continue supporting [ng2-admin](https://github.com/akveo/ngx-admin/tree/ng2-admin) version, but if you are starting from scratch we recommend using `ngx-admin`. Unfortunately, there is no way to automatically update from ng2-admin to ngx-admin, but some parts (Nebular components) could be manually included.
+We will continue supporting [ng2-admin](https://github.com/akveo/pub-admin/tree/ng2-admin) version, but if you are starting from scratch we recommend using `pub-admin`. Unfortunately, there is no way to automatically update from ng2-admin to pub-admin, but some parts (Nebular components) could be manually included.
 
 ### Empty starter kit
-Don't need all the pages and modules and just looking for an empty starter kit for your next project? Check out our [starter-kit branch](https://github.com/akveo/ngx-admin/tree/starter-kit).
+Don't need all the pages and modules and just looking for an empty starter kit for your next project? Check out our [starter-kit branch](https://github.com/akveo/pub-admin/tree/starter-kit).
 
 ### AngularJS 1.x version
 Here you can find AngularJS 1.x based version: [Blur Admin](http://akveo.github.io/blur-admin/)

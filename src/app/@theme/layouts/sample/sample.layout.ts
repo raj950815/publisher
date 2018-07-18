@@ -13,12 +13,12 @@ import {
 
 // TODO: move layouts into the framework
 @Component({
-  selector: 'ngx-sample-layout',
+  selector: 'pub-sample-layout',
   styleUrls: ['./sample.layout.scss'],
   template: `
     <nb-layout [center]="layout.id === 'center-column'" windowMode>
       <nb-layout-header fixed>
-        <ngx-header [position]="sidebar.id === 'start' ? 'normal': 'inverse'"></ngx-header>
+        <pub-header [position]="sidebar.id === 'start' ? 'normal': 'inverse'"></pub-header>
       </nb-layout-header>
 
       <nb-sidebar class="menu-sidebar"
@@ -41,9 +41,7 @@ import {
         <nb-menu [items]="subMenu"></nb-menu>
       </nb-layout-column>
 
-      <nb-layout-footer fixed>
 
-      </nb-layout-footer>
 
       <nb-sidebar class="settings-sidebar"
                    tag="settings-sidebar"

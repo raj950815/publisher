@@ -6,7 +6,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-app',
+  selector: 'pub-app',
   template: '<router-outlet></router-outlet>',
 })
 export class AppComponent implements OnInit {

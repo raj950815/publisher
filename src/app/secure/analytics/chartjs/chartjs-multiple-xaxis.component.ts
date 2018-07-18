@@ -4,7 +4,7 @@ import { AnalyticsService } from '../services/analytics.service';
 
 
 @Component({
-  selector: 'ngx-chartjs-multiple-xaxis',
+  selector: 'pub-chartjs-multiple-xaxis',
   template: `
     <chart type="line" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">

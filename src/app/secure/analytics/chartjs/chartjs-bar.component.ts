@@ -4,7 +4,7 @@ import { AnalyticsService } from '../services/analytics.service';
 
 
 @Component({
-  selector: 'ngx-chartjs-bar',
+  selector: 'pub-chartjs-bar',
   template: `
     <chart type="bar" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">

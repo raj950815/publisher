@@ -3,7 +3,7 @@ import { ProfileService } from './services/profile.service';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
-  selector: 'profile',
+  selector: 'pub-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })

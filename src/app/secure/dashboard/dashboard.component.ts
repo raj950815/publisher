@@ -5,7 +5,7 @@ import { DashboardService } from './services/dashboard.service';
 
 
 @Component({
-  selector: 'ngx-dashboard',
+  selector: 'pub-dashboard',
   styleUrls: ['./dashboard.component.scss'],
   templateUrl: './dashboard.component.html',
 })

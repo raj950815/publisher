@@ -6,7 +6,7 @@ import {SnotifyService, SnotifyPosition} from 'ng-snotify';
 import {IMyDrpOptions} from 'mydaterangepicker';
 import { AuthService } from '../service/auth.service';
 @Component({
-  selector: 'login',
+  selector: 'pub-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

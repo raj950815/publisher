@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'ngx-header',
+  selector: 'pub-header',
   styleUrls: ['./header.component.scss'],
   templateUrl: './header.component.html',
 })

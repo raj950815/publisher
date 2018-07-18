@@ -3,7 +3,7 @@ import { NbThemeService } from '@nebular/theme';
 import { AnalyticsService } from '../services/analytics.service';
 
 @Component({
-  selector: 'ngx-chartjs-pie',
+  selector: 'pub-chartjs-pie',
   template: `
     <chart type="pie" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">

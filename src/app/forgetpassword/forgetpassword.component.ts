@@ -3,7 +3,7 @@ import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { AuthService } from '../service/auth.service';
 
 @Component({
-  selector: 'forgetpassword',
+  selector: 'pub-forgetpassword',
   templateUrl: './forgetpassword.component.html',
   styleUrls: ['./forgetpassword.component.scss'],
 })

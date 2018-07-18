@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-chartjs',
+  selector: 'pub-chartjs',
   styleUrls: ['./chartjs.component.scss'],
   templateUrl: './chartjs.component.html',
 })
