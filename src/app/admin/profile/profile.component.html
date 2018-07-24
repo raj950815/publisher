@@ -1,0 +1,57 @@
+<nb-card>
+    <nb-card-header>Publisher Profile</nb-card-header>
+    <ng-snotify class="material"></ng-snotify>
+      <nb-card-body>
+        <form name="form" (ngSubmit)="f.form.valid && updateSubmit()" #f="ngForm" novalidate>
+          <div class="row">
+            <div class="col-lg-12" style="padding-top: 30px;padding-bottom: 40px;">
+                <div class="row">
+                    <div class="col-md-4 text-center" style="border-right: 2px solid #ebeef2;">
+                        <form (change)="onUpload()">
+                            <div class="publisher_profile_img">
+                              <i class="fas fa-user-circle default-icon" *ngIf="!pubisherImg"></i>
+                              <img [src]="pubisherImg" alt="pubisher_img" *ngIf="pubisherImg" class="image-style" (click)="userfile.click()"/>
+                                <div class="publisher_profile_overlay" (click)="userfile.click()">
+                                    <i class="fa fa-plus-circle fa-3x overlay-icon"></i>
+                                </div>
+                            </div>
+                          <div style="margin-top:15px;">
+                            <input type="file" accept="image/*" style="display:none;" name="userfile" (change)="onFileChange($event)" #userfile required />
+                            <!-- <button type="submit" class="btn btn-hero-success btn-sm" (click)="userfile.click()">Change Image</button> -->
+                            
+                          </div>
+                        </form>
+                      </div>
+                    <div class="col-md-6" style="margin-left: 60px;">
+                        <div class="form-group col-md-12">
+                          <label class=" control-label">Publisher Name</label>
+                          <input placeholder="Publisher Name"type="text" class="form-control" name="name"  [(ngModel)]="model.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required />
+                          <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+                            <div *ngIf="name.errors.required">* Publisher Name is required</div>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label class=" control-label">Website URL</label>
+                          <input placeholder="Website Url" type="url" class="form-control" name="asset_url"  [(ngModel)]="model.asset_url" #asset_url="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && asset_url.invalid }" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" required />
+                          <div *ngIf="f.submitted && asset_url.invalid" class="invalid-feedback">
+                            <div *ngIf="asset_url.errors.required">* Website URL is required</div>
+                            <div *ngIf="asset_url.errors?.pattern">url is not valid</div>
+                          </div>
+                        </div>  
+                        <div class="form-group text-center">
+                            <button class="btn btn-hero-success">Update</button>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+          </div>
+          <div class="pull-left">
+            <a routerLink="/tracking">Update your Tracking Scripts</a>
+          </div>
+          <div class="pull-right">
+            <a routerLink="/reset">Change Your Password</a>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
