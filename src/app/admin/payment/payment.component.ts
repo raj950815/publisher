@@ -1,57 +1,67 @@
 import { Component, OnInit } from '@angular/core';
-import { ButtonViewComponent } from '../button-view/button-view.component';
 import { PaymentService } from './service/payment.service';
+import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 
 @Component({
   selector: 'payment',
   templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.scss']
+  styleUrls: ['./payment.component.scss'],
 })
 export class PaymentComponent implements OnInit {
 
-  // settings = {
-  //   actions: false,
-  //   columns: {
-  //     id: {
-  //       title: 'ID',
-  //     },
-  //     user_id: {
-  //       title: 'User id',
-  //     },
-  //     debit: {
-  //       title: 'Ammount',
-  //     },
-  //     status: {
-  //       title: 'Payment Status'
-  //     },
-  //     statu:{
-  //       title: 'Action',
-  //       type: 'custom',
-  //       renderComponent: ButtonViewComponent,
-  //       // onComponentInitFunction:(instance)=>{
-  //       //   // alert(instance)
-  //       //   instance.save.subscribe(row => {
-  //       //     alert(`${row.name} saved!`)
-  //       //   });
-  //       // }
-  //     },
-  //   },
-  // };
-  
   paymentData: any
-  
+  snotifyConfig = {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
+  }
+
   constructor(
-    private payment: PaymentService
+    private payment: PaymentService,
+    private snotify: SnotifyService,
   ) { }
 
   ngOnInit() {
-    // this.getPaymentInfo()
+    this.getPaymentInfo()
   }
 
-  // getPaymentInfo(){
-  //   this.payment.getPayment().subscribe(data=> {
-  //     this.paymentData = data ['response']
-  //   })
-  // }
+  getPaymentInfo() {
+    this.payment.getPayment().subscribe(data => {
+      this.paymentData = data ['response']
+    })
+  }
+
+  paymentStatus(paymentId, userId, paymentStatus) {
+    const ChangeStatusData = {
+      withdrawl_id : paymentId,
+      publisher_id: userId,
+      status: paymentStatus,
+    }
+
+    this.snotify.confirm('Are you sure you want to Change Status?', 'Confirm', {
+      showProgressBar: false,
+      position: SnotifyPosition.rightTop,
+      buttons: [
+        {
+          text: 'Ok', action: () => {
+
+          // debugger
+          this.snotify.remove();
+          this.payment.ChangePaymentStatus(ChangeStatusData).subscribe(data => {
+            if (data['status']) {
+              this.getPaymentInfo()
+              this.snotify.success(data['response'], 'Success', this.snotifyConfig)
+            } else {
+              this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)
+            }
+            }, err => {
+              this.snotify.error('Something went wrong', 'failure', this.snotifyConfig)
+            })
+        },
+      },
+        {text: 'Cancel', action: () => {
+          this.snotify.remove();
+        }}],
+    })
+  }
 
 }

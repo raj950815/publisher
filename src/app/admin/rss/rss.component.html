@@ -6,32 +6,37 @@
         </nb-card-header>
         <nb-card-body>
         <div class="table-responsive">
-          <!-- <table class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th > ID</th>
-                
-                <th> RSS</th>
-                  
-                <th> Category</th>
-                
-                <th>Status</th>
-                <th>Action</th>
-                              
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let rss of rssData">
-                <td >{{rss?.link_id}}</td>
-                <td>{{rss?.link}}</td>
-
-                <td>{{rss?.category}}</td>
-                <td>{{rss?.status}}</td>
-                <td> <i class="fa fa-trash" (click)="deleteLink(link.id)"></i></td>
-              </tr>
-           
-            </tbody>
-          </table> -->
+            <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>RSS Link</th>
+                    
+                    <th>Category</th>
+                      
+                    <th>Status</th>
+                    <th>Action</th>
+                                  
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of rssData">
+                    <td >{{data?.link_id}}</td>
+                    <td><a [attr.href]="data?.link" target="_blank">{{data?.link}}</a></td>
+    
+                    <td>{{data?.category}}</td>
+                    <td>{{data?.status}}</td>
+    
+                    <td>
+                      <i class="fas fa-check fa-lg cursor-style" (click)="rssStatus(data?.link_id, status='Approved')" *ngIf="data?.status==='Pending'"></i>
+                      <i class="fas fa-times fa-lg cursor-style" (click)="rssStatus(data?.link_id, status='Rejected')" *ngIf="data?.status==='Pending'"></i>
+                      <i class="fas fa-times fa-lg cursor-style" (click)="rssStatus(data?.link_id, status='Rejected')" *ngIf="data?.status==='Approved'"></i>
+                      <i class="fas fa-check fa-lg cursor-style" (click)="rssStatus(data?.link_id, status='Approved')" *ngIf="data?.status==='Rejected'"></i>
+                    </td>
+                  </tr>
+               
+                </tbody>
+              </table>
           </div>
         </nb-card-body>
       </nb-card>

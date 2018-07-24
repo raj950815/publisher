@@ -4,8 +4,6 @@ import { NgModule } from '@angular/core';
 import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
-import { PasswordResetComponent } from './password-reset/password-reset.component';
-import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
 import { RssComponent } from './rss/rss.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -16,14 +14,6 @@ const routes: Routes = [{
   children: [{
     path: '',
     component: DashboardComponent,
-  },
-  {
-    path: 'reset',
-    component: PasswordResetComponent,
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent,
   },
   {
     path: 'users',
@@ -37,16 +27,6 @@ const routes: Routes = [{
     path: 'payment',
     component: PaymentComponent,
   },
-  // {
-  //   path: 'earnings',
-  //   loadChildren: './earnings/earnings.module#EarningsModule',
-  // },
-  
-  //  {
-  //   path: '',
-  //   redirectTo: 'dashboard',
-  //   pathMatch: 'full',
-  // },
   {
     path: '**',
     component: NotFoundComponent,

@@ -5,7 +5,43 @@
           Payment
         </nb-card-header>
         <nb-card-body>
-            <!-- <ng2-smart-table [settings]="settings" [source]="paymentData" ></ng2-smart-table> -->
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th > User Id</th>
+                
+                <th> Debit</th>
+                  
+                <th> Date</th>
+                
+                <th>Status</th>
+                <th>Action</th>
+                              
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of paymentData">
+                <td >{{data.id}}</td>
+                <td>{{data.user_id}}</td>
+
+                <td>{{data.debit}}</td>
+                <td>{{data.date}}</td>
+                <td>{{data.status}}</td>
+
+                <td>
+                  <i class="fas fa-check fa-lg cursor-style" (click)="paymentStatus(data.id, data.user_id, status='Approved')" *ngIf="data.status==='Pending'"></i>
+                  <i class="fas fa-times fa-lg cursor-style" (click)="paymentStatus(data.id, data.user_id, status='Rejected')" *ngIf="data.status==='Pending'"></i>
+                  <i class="fas fa-times fa-lg cursor-style" (click)="paymentStatus(data.id, data.user_id, status='Rejected')" *ngIf="data.status==='Approved'"></i>
+                  <i class="fas fa-check fa-lg cursor-style" (click)="paymentStatus(data.id, data.user_id, status='Approved')" *ngIf="data.status==='Rejected'"></i>
+                </td>
+              </tr>
+           
+            </tbody>
+          </table>
+          </div>
+          <!-- <ng2-smart-table [settings]="settings" [source]="paymentData" ></ng2-smart-table> -->
         </nb-card-body>
       </nb-card>
     </div>

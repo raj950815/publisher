@@ -12,6 +12,7 @@ export class DashboardService {
     private http: HttpClient,
   ) { }
   getStoryCards(): Observable<any> {
-    return this.http.get(this.baseUrl + 'fetch_stories')
+    const data = {}
+    return this.http.post(this.baseUrl + 'fetch_stories', data)
   }
 }

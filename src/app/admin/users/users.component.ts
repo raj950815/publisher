@@ -1,83 +1,65 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from './service/users.service';
-import { ViewCell } from "ng2-smart-table";
-import { ButtonViewComponent } from '../button-view/button-view.component';
+import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 
 @Component({
   selector: 'users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-  // settings = {
-  //   actions: false,
-  //   columns: {
-  //     user_id: {
-  //       title: 'ID',
-  //     },
-  //     name: {
-  //       title: 'Publisher Name',
-  //     },
-  //     email: {
-  //       title: 'Email',
-  //     },
-  //     asset_url: {
-  //       title: 'Website'
-  //     },
-  //     // contact: {
-  //     //   title: 'Contact'
-  //     // },
-  //     // address: {
-  //     //   title: 'Address'
-  //     // },
-  //     email_verified: {
-  //       title: 'Email Status',
-  //       valuePrepareFunction:(value)=>{
-  //         if(value==='1'){
-  //           return 'Verified'
-  //         } else {
-  //           return 'Not Verified'
-  //         }
-  //       }
-  //     },
-  //     acc_active:{
-  //       title: 'Account Status',
-  //       type: 'custom',
-  //       renderComponent: ButtonViewComponent,
-  //       // onComponentInitFunction:(instance)=>{
-  //       //   // alert(instance)
-  //       //   instance.save.subscribe(row => {
-  //       //     alert(`${row.name} saved!`)
-  //       //   });
-  //       // }
-  //     },
-  //   },
-  // };
-
-
-  userInfo:any
+  userInfo: any
+  snotifyConfig = {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
+  }
 
   constructor(
     private users: UsersService,
+    private snotify: SnotifyService,
   ) { }
 
   ngOnInit() {
-    // this.publisherDetails();
+    this.publisherDetails();
   }
 
-  // changeData(det){
-  //   det.save.subscribe(data=>{
-  //     console.log(data);
-      
-  //   })
-  // }
+  publisherDetails() {
+    this.users.getUsersInfo().subscribe(data => {
+      this.userInfo = data['response']
+    })
+  }
 
-  // publisherDetails(){
-  //   this.users.getUsersInfo().subscribe(data=>{
-  //     if(data['status']){
-  //       this.userInfo = data['response']
-  //     }
-  //   })
-  // }
+  AccountStatus(userId, status) {
+    const AccountStatusData = {
+      publisher_id: userId,
+      acc_status: status,
+    }
+
+    this.snotify.confirm('Are you sure you want to Change Status?', 'Confirm', {
+      showProgressBar: false,
+      position: SnotifyPosition.rightTop,
+      buttons: [
+        {
+          text: 'Ok', action: () => {
+
+          // debugger
+          this.snotify.remove();
+          this.users.changeAccStatus(AccountStatusData).subscribe(data => {
+            if (data['status']) {
+              this.publisherDetails();
+              this.snotify.success(data['response'], 'Success', this.snotifyConfig)
+            } else {
+              this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)
+            }
+            }, err => {
+              this.snotify.error('Something went wrong', 'failure', this.snotifyConfig)
+            })
+        },
+      },
+        {text: 'Cancel', action: () => {
+          this.snotify.remove();
+        }}],
+    })
+  }
 
 }

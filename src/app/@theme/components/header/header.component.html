@@ -3,9 +3,11 @@
     <a (click)="toggleSidebar()" href="#" class="navigation">
       <i class="fas fa-bars fa-xs"></i>
     </a>
-     <div class="logo" (click)="goToHome()">
+     <div class="logo">
       <!-- OneFeed -->
+      <a href="{{homeLink}}">
       <img class="logo-image" src="assets/images/logo.png" alt="OneFeed">
+      </a>
     </div>
   </div>
   <!-- <pub-theme-switcher></pub-theme-switcher>
@@ -15,7 +17,7 @@
 <nb-actions size="medium" class="header-container" [class.right]="position === 'inverse'" [class.left]="position === 'normal'">
   <!-- <nb-action icon="nb-gear" class="toggle-layout" ></nb-action> -->
   <nb-action  class="dropdown">
-    <div class= "user-container user-profile " id="dropdownMenuButton"  >
+    <div class= "user-container user-profile cursor-style" id="dropdownMenuButton"  >
       <i class="fas fa-user-circle fa-2x" *ngIf="!pubisherImg"></i>
         <div  class="user-picture image" *ngIf="pubisherImg">
         <img [attr.src]="pubisherImg" id="picture" class="profile-pic"/>
@@ -25,8 +27,8 @@
           <div class="user-name" id="name">{{profileInfo?.name}}</div>
         </div>
     </div>
-    <ul class="dropdown-menu"  style="display: block;" *ngIf="menushow">
-      <li (click)="profileNavigate()">
+    <ul class="dropdown-menu cursor-style"  style="display: block;" *ngIf="menushow">
+      <li (click)="profileNavigate()" *ngIf="key === 'qvcmjtifs'">
         <a>Profile</a>
       </li>
       <li (click)="logout()">
@@ -42,17 +44,5 @@
 <!-- <nb-action class="control-item">
   <nb-search type="rotate-layout" (click)="startSearch()"></nb-search>
 </nb-action> -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 </nb-actions>

@@ -9,13 +9,13 @@ export class AdminGuard implements CanActivate {
   constructor(
     private router: Router,
     private auth: AuthService,
-  ){ }
+  ) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       const role = this.auth.getKey()
-      if(role==='benjo'){
+      if (role === 'benjo') {
         return true
       } else {
         // this.auth.setLoggedIn(false)

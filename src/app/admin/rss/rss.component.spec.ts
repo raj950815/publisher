@@ -8,7 +8,7 @@ describe('RssComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RssComponent ]
+      declarations: [ RssComponent ],
     })
     .compileComponents();
   }));
