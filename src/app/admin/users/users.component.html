@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        Users list
+      </nb-card-header>
+      <nb-card-body>
+          <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Website</th>
+                    <th>Email Status</th>
+                    <th>Account Status</th>
+                    <th>Action</th>  
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of userInfo">
+                    <td>{{data?.user_id}}</td>
+                    <td>{{data?.name}}</td>
+                    <td>{{data?.email}}</td>
+                    <td>{{data?.asset_url}}</td>
+                    <td>
+                      <span *ngIf="data?.email_verified==='1'">Verified</span>
+                      <span *ngIf="data?.email_verified==='0'">Not Verified</span>
+                    </td>
+                    <td>
+                      <span *ngIf="data?.acc_active==='1'">Approved</span>
+                      <span *ngIf="data?.acc_active==='0'">Rejected</span>
+                    </td>
+    
+                    <td>
+                      <div class="btn-group">
+                        <button class="btn btn-hero-primary btn-sm mr-2" (click)="AccountStatus(data?.user_id, status='0')" *ngIf="data?.acc_active==='1'">
+                          <i class="fas fa-times fa-lg cursor-style"></i>
+                        </button>
+                        <button class="btn btn-hero-success btn-sm mr-2" (click)="AccountStatus(data?.user_id, status='1')" *ngIf="data?.acc_active==='0'">
+                          <i class="fas fa-check fa-lg cursor-style"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+               
+                </tbody>
+              </table>
+              </div>
+        <!-- <ng2-smart-table [settings]="settings" [source]="userInfo" ></ng2-smart-table> -->
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <ng-snotify class="material"></ng-snotify>
+</div>

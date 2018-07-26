@@ -7,6 +7,7 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { RegisterComponent } from './register/register.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { MailVerifyComponent } from './mail-verify/mail-verify.component';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
     component: MailVerifyComponent,
   },
   {
+    path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule',
+    canActivate: [AdminGuard],
+  },
+  {
     path: '', loadChildren: 'app/secure/pages.module#PagesModule',
     canActivate: [AuthGuard],
     // runGuardsAndResolvers: 'always'
@@ -50,7 +55,7 @@ const config: ExtraOptions = {
 @NgModule({
   imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule],
-  providers: [AuthGuard],
+  providers: [AuthGuard, AdminGuard],
 })
 export class AppRoutingModule {
 }

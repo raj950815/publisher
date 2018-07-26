@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NbSidebarService } from '@nebular/theme';
 import { ProfileService } from '../../../secure/profile/services/profile.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../service/auth.service';
 
 
 @Component({
@@ -18,12 +19,15 @@ export class HeaderComponent implements OnInit {
   user: any;
   profileInfo: any
   pubisherImg
+  key: any
+  homeLink: any
 
   pubisherImgUrl = 'https://s3.amazonaws.com/one-feed/publisher/profile/'
 
 
   constructor(private sidebarService: NbSidebarService,
     private profile: ProfileService,
+    private auth: AuthService,
     private router: Router,
 
   ) {
@@ -36,6 +40,7 @@ export class HeaderComponent implements OnInit {
 
     })
     this.getProfile()
+    this.getRole()
   }
 
 
@@ -68,10 +73,13 @@ export class HeaderComponent implements OnInit {
     // return true
   }
 
-
-
-  goToHome() {
-    this.router.navigate(['/']);
+  getRole() {
+    this.key = this.auth.getKey();
+    if (this.key === 'qvcmjtifs') {
+      this.homeLink = '#'
+    } else {
+      this.homeLink = '#/admin'
+    }
   }
 
   // startSearch() {

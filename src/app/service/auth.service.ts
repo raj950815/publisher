@@ -24,6 +24,9 @@ export class AuthService {
   getToken() {
     return localStorage.getItem('userToken');
   }
+  getKey() {
+    return localStorage.getItem('key');
+  }
   getauthenticatedUserId() {
     return this.http.get<any>(this.baseUrl + '/Api')
   }

@@ -11,7 +11,12 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       const token = this.auth.getToken()
-    if (!!token) {
+      const role = this.auth.getKey()
+    if (role === 'qvcmjtifs' && !!token) {
+      // if(role === 'benjo'){
+      //   return false
+      //   // this.router.navigate(['admin']);
+      // }
       // console.log("if",this.auth.isLoggedIn())
       return true
     } else {

@@ -41,8 +41,6 @@ import {
         <nb-menu [items]="subMenu"></nb-menu>
       </nb-layout-column>
 
-
-
       <nb-sidebar class="settings-sidebar"
                    tag="settings-sidebar"
                    state="collapsed"
