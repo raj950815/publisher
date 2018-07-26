@@ -1,20 +1,20 @@
 <div class="row">
   <div class=" col-md-4">
-    <ngx-status-card title="Earnings" val="${{earningObj?.total_earning}}" type="primary">
-      <i class="ion-social-usd" ></i>
-    </ngx-status-card>
+    <pub-status-card title="Earnings" val="${{earningObj?.total_earning}}" type="primary">
+      <i class="far fa-money-bill-alt fa-xs" ></i>
+    </pub-status-card>
   </div>
 
   <div class=" col-md-4">
-    <ngx-status-card title="Clicks" val="230K" type="success">
-      <i class="ion-mouse"></i>
-    </ngx-status-card>
+    <pub-status-card title="Clicks" val="230K" type="success">
+      <i class="far fa-bell fa-xs"></i>
+    </pub-status-card>
   </div>
 
   <div class=" col-md-4">
-    <ngx-status-card title="Followers" val="150K" type="info">
-      <i class="nb-audio"></i>
-    </ngx-status-card>
+    <pub-status-card title="Followers" val="150K" type="info">
+      <i class="fas fa-users fa-xs"></i>
+    </pub-status-card>
   </div>
 
 
@@ -24,7 +24,7 @@
     <div *ngFor="let card of values" class="col-md-4" style="    margin-bottom: 15px;">
        
     
-        <ngx-kitten [storyCard]='card'></ngx-kitten>
+        <pub-story-card [storyCard]='card'></pub-story-card>
       </div>
 
 </div>

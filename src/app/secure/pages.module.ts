@@ -6,10 +6,10 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
-import { ProfileService } from './profile.service';
-import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { ProfileComponent } from './profile/profile.component';
-import { CustomFormsModule } from 'ng4-validators';
+import { TrackingComponent } from './tracking/tracking.component';
+import { FormsModule } from '@angular/forms';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -19,20 +19,21 @@ const PAGES_COMPONENTS = [
   imports: [
     PagesRoutingModule,
     ThemeModule,
-    CustomFormsModule,
     DashboardModule,
     MiscellaneousModule,
-    SnotifyModule
+    SnotifyModule,
+    FormsModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,
     PasswordResetComponent,
     ProfileComponent,
+    TrackingComponent,
   ],
-  providers:[
+  providers: [
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
     SnotifyService,
-  ]
+  ],
 })
 export class PagesModule {
 }

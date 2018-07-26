@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {  Router } from '@angular/router';
-import { AuthService } from '../auth.service';
-import {SnotifyService} from 'ng-snotify';
+import {SnotifyService, SnotifyPosition} from 'ng-snotify';
 // import { ThemeModule } from '../@theme/theme.module';
 import {IMyDrpOptions} from 'mydaterangepicker';
+import { AuthService } from '../service/auth.service';
 @Component({
-  selector: 'login',
+  selector: 'pub-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+
+  snotifyConfig = {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
+  }
+
   myDateRangePickerOptions: IMyDrpOptions = {
     // other options...
     dateFormat: 'dd.mm.yyyy',
@@ -22,11 +28,11 @@ export class LoginComponent implements OnInit {
                          endDate: {year: 2018, month: 10, day: 19}};
 
   constructor(
-    private router:Router,
-    private auth:AuthService,
-    private snotifyService: SnotifyService
+    private router: Router,
+    private auth: AuthService,
+    private snotifyService: SnotifyService,
   ) { }
-  
+
   ngOnInit() {
     // const body = document.getElementsByTagName('body')[0];
     // body.classList.add('nb-theme-default');
@@ -36,22 +42,20 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
 
-    this.auth.getUserDetails(this.model).subscribe(   
-      (data)=>{
-        console.log(data);
-        
-        if (data["status"]) {
-          localStorage.setItem('userToken',data["token"])
-          this.router.navigate(['dashboard'])
-          
+    this.auth.getUserDetails(this.model).subscribe(
+      (data) => {
+        if (data['status']) {
+          localStorage.setItem('userToken', data['token'])
+          this.router.navigate(['/'])
+
         } else {
           localStorage.removeItem('userToken')
-          this.snotifyService.warning(data["message"],"Warning")
+          this.snotifyService.warning(data['message'], 'Warning', this.snotifyConfig)
         }
-      },err=>{
+      }, err => {
         localStorage.removeItem('userToken')
-        this.snotifyService.error("Something went wrong. Try again later.","Unauthorized",)
-      }
+        this.snotifyService.error('Something went wrong. Try again later.', 'Unauthorized', this.snotifyConfig)
+      },
     )
   }
 }

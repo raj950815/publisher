@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { NbMenuService, NbSidebarService } from '@nebular/theme';
-import { ProfileService } from '../../../secure/profile.service';
+import { NbSidebarService } from '@nebular/theme';
+import { ProfileService } from '../../../secure/profile/services/profile.service';
 import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'ngx-header',
+  selector: 'pub-header',
   styleUrls: ['./header.component.scss'],
   templateUrl: './header.component.html',
 })
@@ -15,18 +15,14 @@ export class HeaderComponent implements OnInit {
 
   @Input() position = 'normal';
 
-
-
   user: any;
   profileInfo: any
   pubisherImg
 
-  publisherDefaultIcon = '../../../../../assets/images/user.png'
   pubisherImgUrl = 'https://s3.amazonaws.com/one-feed/publisher/profile/'
- 
+
 
   constructor(private sidebarService: NbSidebarService,
-    private menuService: NbMenuService,
     private profile: ProfileService,
     private router: Router,
 
@@ -35,9 +31,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.profile.change.subscribe(change=>{
+    this.profile.change.subscribe(change => {
     this.getProfile()
-      
+
     })
     this.getProfile()
   }
@@ -45,12 +41,11 @@ export class HeaderComponent implements OnInit {
 
   menushow: boolean = false
   offClickHandler(a: any) {
-        a.target.id=="name"||  a.target.id=="picture" ? this.menushow=!this.menushow : this.menushow=false
+        a.target.id === 'name' ||  a.target.id === 'picture' ? this.menushow = !this.menushow : this.menushow = false
   }
   logout() {
-    localStorage.removeItem("userToken");
+    localStorage.removeItem('userToken');
     this.router.navigate(['login'])
-    console.log("logout");
   }
   profileNavigate() {
     this.menushow ? this.menushow = false : this.menushow = true
@@ -59,9 +54,9 @@ export class HeaderComponent implements OnInit {
 
   getProfile() {
     this.profile.getProfileInfo().subscribe(data => {
-      this.profileInfo = data["response"]
-      if (this.profileInfo.profile_image == "") {
-        this.pubisherImg = this.publisherDefaultIcon
+      this.profileInfo = data['response']
+      if (this.profileInfo.profile_image === '') {
+        this.pubisherImg = ''
       } else {
         this.pubisherImg = this.pubisherImgUrl + this.profileInfo.profile_image
       }
@@ -70,12 +65,13 @@ export class HeaderComponent implements OnInit {
   toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');
     return false;
+    // return true
   }
 
 
 
   goToHome() {
-    this.menuService.navigateHome();
+    this.router.navigate(['/']);
   }
 
   // startSearch() {

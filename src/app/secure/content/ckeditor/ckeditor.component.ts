@@ -4,7 +4,7 @@ import './ckeditor.loader';
 import 'ckeditor';
 
 @Component({
-  selector: 'ngx-ckeditor',
+  selector: 'pub-ckeditor',
   template: `
     <nb-card>
       <nb-card-header>
@@ -22,7 +22,7 @@ import 'ckeditor';
             <div class="col-sm-2">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-       </div>   
+       </div>
       </nb-card-body>
     </nb-card>
   `,

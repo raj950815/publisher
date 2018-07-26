@@ -20,7 +20,7 @@ const components = [
     EarningsRoutingModule,
 
     SnotifyModule,
-    MyDateRangePickerModule
+    MyDateRangePickerModule,
   ],
   declarations: [
     ...components,
@@ -28,9 +28,9 @@ const components = [
   entryComponents: [
 
   ],
-  providers:[
+  providers: [
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
     SnotifyService,
-  ]
+  ],
 })
 export class EarningsModule { }

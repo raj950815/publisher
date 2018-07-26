@@ -1,12 +1,12 @@
 @import '../../../@theme/styles/themes';
 
 @include nb-install-component() {
-  ngx-chartjs-pie,
-  ngx-chartjs-bar,
-  ngx-chartjs-line,
-  ngx-chartjs-multiple-xaxis,
-  ngx-chartjs-bar-horizontal,
-  ngx-chartjs-radar {
+  pub-chartjs-pie,
+  pub-chartjs-bar,
+  pub-chartjs-line,
+  pub-chartjs-multiple-xaxis,
+  pub-chartjs-bar-horizontal,
+  pub-chartjs-radar {
     display: block;
     height: nb-theme(card-height-medium);
     width: 100%;
@@ -18,7 +18,7 @@
     }
   }
 }
-.chart-body{
+.chart-body {
   display: block;
   height: nb-theme(card-height-medium);
   width: 100%;
@@ -32,7 +32,7 @@
 .no-data-available {
   position: absolute;
   text-align: center;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: bold;
-  padding: 150px;
+  margin: 35% 22%;
 }

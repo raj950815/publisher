@@ -6,47 +6,48 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TrackingComponent } from './tracking/tracking.component';
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [{
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent,
   },
   {
     path: 'reset',
-    component: PasswordResetComponent
+    component: PasswordResetComponent,
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
   },
+  // {
+  //   path: 'earnings',
+  //   loadChildren: './earnings/earnings.module#EarningsModule',
+  // },
   {
-    path: 'earnings',
-    loadChildren: './earnings/earnings.module#EarningsModule',
-  }, {
     path: 'content',
     loadChildren: './content/content.module#ContentModule',
-  }, {
-    path: 'components',
-    loadChildren: './components/components.module#ComponentsModule',
-  },  {
+  },
+  {
     path: 'analytics',
     loadChildren: './analytics/analytics.module#AnalyticsModule',
-  }, {
-    path: 'miscellaneous',
-    loadChildren: './miscellaneous/miscellaneous.module#MiscellaneousModule',
+  },
+  {
+    path: 'tracking',
+    component: TrackingComponent,
   },
   //  {
   //   path: '',
   //   redirectTo: 'dashboard',
   //   pathMatch: 'full',
-  // }, 
+  // },
   {
     path: '**',
     component: NotFoundComponent,
-  }
+  },
   ],
 }];
 

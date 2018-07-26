@@ -1,8 +1,12 @@
  <div class="scrollable-container login-form">
     <div class="layout">
-        <div class="layout-container">  
+        <div class="layout-container form-layout">
+                <div class="content">
+                        <div class="columns">
+                          <nb-layout-column>
                 <div class="flex-centered col-xl-4 col-lg-6 col-md-8 col-sm-12 text-center">
-                    <h2 class="title"> Onefeed </h2>
+                    <img src="assets/images/logo.png" alt="OneFeed">
+                    <!-- <h2 class="title"> Onefeed </h2> -->
                     <small class="form-text sub-title mb-3"> Sign up with your official email</small>
                     <form name="form" (ngSubmit)="f.form.valid && registerSubmit()" #f="ngForm" novalidate>
                       <div class="form-group"> 
@@ -12,18 +16,17 @@
                           </div>
                       </div>   
                       <div class="form-group">                            
-                            <input placeholder="Email"type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && email.invalid }" required email />
+                            <input placeholder="Email"type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && email.invalid }" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required />
                             <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                                <div *ngIf="email.errors.required" class="pull-left">* Email is required</div>
-                                <div *ngIf="email.errors.email" class="pull-left">Email must be a valid email address</div>
+                                <div *ngIf="email.errors?.required" class="pull-left">* Email is required</div>
+                                <div *ngIf="email.errors?.pattern" class="pull-left">Enter must be a valid email address</div>
                             </div>
                       </div>
                       <div class="form-group">                            
-                          <input placeholder="Website Url" type="url"   class="form-control" name="url" [(ngModel)]="model.url" #url="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && url.invalid }" required url   />
-                        
+                          <input placeholder="Website Url" type="url"   class="form-control" name="url" [(ngModel)]="model.url" #url="ngModel" [ngClass]="{ 'is-invalid form-control-danger': f.submitted && url.invalid }" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" required />
                           <div *ngIf="f.submitted && url.invalid" class="invalid-feedback">
                               <div *ngIf="url.errors.required" class="pull-left">* Url is required</div>
-                              <div *ngIf="url.errors.url" class="pull-left">Url is not valid</div>
+                              <div *ngIf="url.errors.pattern" class="pull-left">Url is not valid</div>
                           </div>
                       </div>
                         <div class="form-group"> 
@@ -41,9 +44,11 @@
                         <a [routerLink] ="['/login']"> Already have an account? Login now.</a>
                     </form>
                 </div>
-           
+            </nb-layout-column>
+           </div>
+           </div>
         </div>
     </div>
-  <ng-snotify class="simple"></ng-snotify>
+  <ng-snotify class="material"></ng-snotify>
 </div>   
 

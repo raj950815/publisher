@@ -2,20 +2,20 @@ import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-chartjs-line',
+  selector: 'pub-chartjs-line',
   template: `
     <chart type="line" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">
-      No Data Available
+      No Data Available.
   </div>
   `,
-  styleUrls:['./chartjs.component.scss'],
+  styleUrls: ['./chartjs.component.scss'],
 })
 export class ChartjsLineComponent implements OnDestroy {
   data: any;
   options: any;
   themeSubscription: any;
-  dataStatus:boolean=false;
+  dataStatus: boolean = false;
 
   constructor(private theme: NbThemeService) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {

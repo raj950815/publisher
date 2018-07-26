@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DashboardService {
-  baseUrl=environment.baseUrl
+  baseUrl = environment.baseUrl
 
   constructor(
-    private http:HttpClient
+    private http: HttpClient,
   ) { }
-  getStoryCards(): Observable<any>{
-    console.log("data")
-    let data={}
-    return this.http.post(this.baseUrl+"fetch_stories",data)
+  getStoryCards(): Observable<any> {
+    return this.http.get(this.baseUrl + 'fetch_stories')
   }
 }

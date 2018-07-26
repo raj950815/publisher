@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'earnings',
+  selector: 'pub-earnings',
   template: `
     <router-outlet></router-outlet>
   `,

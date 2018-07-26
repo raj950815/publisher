@@ -1,14 +1,12 @@
 .material {
-  @import "~ng-snotify/styles/material";
+  @import '~ng-snotify/styles/material';
 }
 .simple {
-  @import "~ng-snotify/styles/simple";
+  @import '~ng-snotify/styles/simple';
 }
 .dark {
-  @import "~ng-snotify/styles/dark";
+  @import '~ng-snotify/styles/dark';
 }
-
-
 
 .snotify-icon {
   object-fit: cover;
@@ -22,26 +20,27 @@
 
 // framework component themes (styles tied to theme variables)
 @import '~@nebular/theme/styles/globals';
-@import '~@nebular/auth/styles/all';
+// @import '~@nebular/auth/styles/all';
 
 // loading progress bar theme
 @import './pace.theme';
-
-@import './bootstrap-rtl';
 
 // install the framework and custom global styles
 @include nb-install() {
 
   // framework global styles
   @include nb-theme-global();
-  @include nb-auth-global();
+  // @include nb-auth-global();
 
   // loading progress bar
-  @include ngx-pace-theme();
+  @include pub-pace-theme();
 
   // fixed in rc.9 and can be removed after upgrade
   .custom-control .custom-control-indicator {
     border-radius: 50%; // TODO: quickfix for https://github.com/akveo/nebular/issues/275
   }
-  @include bootstrap-rtl();
 };
+ .form-layout {
+  min-height: 550px;
+  padding-top: 60px;
+ }

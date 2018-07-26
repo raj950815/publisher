@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ngx-ui-features',
+  selector: 'pub-content',
   template: `
     <router-outlet></router-outlet>
   `,

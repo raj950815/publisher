@@ -3,8 +3,8 @@ import { NbMenuItem } from '@nebular/theme';
 export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Home',
-    icon: 'nb-home',
-    link: '/dashboard',
+    icon: 'fa fa-home',
+    link: '/',
     home: true,
   },
   // {
@@ -13,7 +13,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   // },
   {
     title: 'Content',
-    icon: 'nb-edit',
+    icon: 'fa fa-pencil',
     link: '/content',
     children: [
       // {
@@ -22,25 +22,26 @@ export const MENU_ITEMS: NbMenuItem[] = [
       // },
       {
         title: 'Sync',
+        icon: 'fa fa-sync',
         link: '/content/sync',
       },
-      {
-        title: 'Create Manually',
-        link: '/content/manual',
-      },
- 
+      // {
+      //   title: 'Create Manually',
+      //   link: '/content/manual',
+      // },
+
     ],
   },
-  {
-    title: 'Earnings',
-    icon: 'ion-social-usd-outline',
-    link: '/earnings',
+  // {
+  //   title: 'Earnings',
+  //   icon: 'ion-social-usd-outline',
+  //   link: '/earnings',
 
-  },
+  // },
 
   {
     title: 'Analytics',
-    icon: 'nb-bar-chart',
+    icon: 'fa fa-chart-line',
     link: '/analytics/',
-  }
+  },
 ];

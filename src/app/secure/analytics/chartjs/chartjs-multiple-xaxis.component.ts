@@ -1,27 +1,27 @@
-import { Component, OnDestroy,ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { AnalyticsService } from '../services/analytics.service';
 
 
 @Component({
-  selector: 'ngx-chartjs-multiple-xaxis',
+  selector: 'pub-chartjs-multiple-xaxis',
   template: `
     <chart type="line" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">
-      No Data Available
+      No Data Available.
     </div>
   `,
-  styleUrls:['./chartjs.component.scss'],
+  styleUrls: ['./chartjs.component.scss'],
 })
-export class ChartjsMultipleXaxisComponent implements OnDestroy {
+export class ChartjsMultipleXaxisComponent implements OnInit, OnDestroy {
   data: any;
   options: any;
   themeSubscription: any;
-  dataStatus:boolean=false;
-  
+  dataStatus: boolean = false;
+
 
   constructor(private theme: NbThemeService,
-  private analyticsService:AnalyticsService
+  private analyticsService: AnalyticsService,
   ) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
@@ -119,41 +119,36 @@ export class ChartjsMultipleXaxisComponent implements OnDestroy {
     });
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getCollectiveEarning()
   }
-  getCollectiveEarning(){
-    this.analyticsService.collectiveEarning().subscribe(data=>{
-      if (data["status"]) {
-        this.dataStatus=true
-        let response=data["response"]
-        console.log(response);
-        let dateCollectionLabels=[]
-        let earningCollectionData=[]
+  getCollectiveEarning() {
+    this.analyticsService.collectiveEarning().subscribe(data => {
+      if (data['status']) {
+        this.dataStatus = true
+        const response = data['response']
+        const dateCollectionLabels = []
+        const earningCollectionData = []
         response.forEach(obj => {
         dateCollectionLabels.push(obj.credit)
         earningCollectionData.push(obj.date)
-        
-  
+
+
         });
-        console.log("colllectionLabels",dateCollectionLabels);
-        console.log("earningCollectionData",earningCollectionData);
-  
-        
-        this.data.labels=earningCollectionData
-        this.data.datasets[0].data= dateCollectionLabels
-        
+        this.data.labels = earningCollectionData
+        this.data.datasets[0].data = dateCollectionLabels
+
         // debugger
       } else {
-        this.dataStatus=false
+        this.dataStatus = false
       }
-    },err=>{
-  
+    }, err => {
+
     })
   }
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
   }
 
-  
+
 }

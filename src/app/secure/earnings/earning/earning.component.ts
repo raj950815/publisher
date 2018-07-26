@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
-import { SnotifyService } from 'ng-snotify';
+import { Component, OnInit } from '@angular/core';
+import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { EarningService } from '../services/earning.service';
 import { IMyDrpOptions, IMyDateRangeModel } from 'mydaterangepicker';
 
 @Component({
-  selector: 'earning-tabs',
+  selector: 'pub-earning-tabs',
   styleUrls: ['./earning.component.scss'],
   templateUrl: './earning.component.html',
 })
-export class EarningComponent {
+export class EarningComponent implements OnInit {
+  snotifyConfig = {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
+  }
 
   myDateRangePickerOptions: IMyDrpOptions = {
     // other options...
@@ -21,7 +25,7 @@ export class EarningComponent {
   end = new Date()
   dateModel: any = {
     beginDate: { year: this.begin.getFullYear(), month: this.begin.getMonth() + 1, day: this.begin.getDate() },
-    endDate: { year: this.end.getFullYear(), month: this.end.getMonth() + 1, day: this.end.getDate() }
+    endDate: { year: this.end.getFullYear(), month: this.end.getMonth() + 1, day: this.end.getDate() },
   };
   agreement: any = Object
   bInfo: any
@@ -31,31 +35,31 @@ export class EarningComponent {
   withdrawEarnings: any = []
   dateWiseEarnings: any = []
   model: any = {}
-  pytInfoButtonText: string = "Submit"
+  pytInfoButtonText: string = 'Submit'
   constructor(
     private earning: EarningService,
-    private snotify: SnotifyService
+    private snotify: SnotifyService,
   ) {
 
   }
   onDateRangeChanged(event: IMyDateRangeModel) {
-    let beginDay = event.beginDate.day < 10 ? "0" + event.beginDate.day : event.beginDate.day;
-    let beginMonth = event.beginDate.month < 10 ? "0" + event.beginDate.month : event.beginDate.month;
-    let beginYear = event.beginDate.year
+    const beginDay = event.beginDate.day < 10 ? '0' + event.beginDate.day : event.beginDate.day;
+    const beginMonth = event.beginDate.month < 10 ? '0' + event.beginDate.month : event.beginDate.month;
+    const beginYear = event.beginDate.year
 
-    let endDay = event.endDate.day < 10 ? "0" + event.endDate.day : event.endDate.day;
-    let endMonth = event.endDate.month < 10 ? "0" + event.endDate.month : event.endDate.month;
-    let endYear = event.endDate.year
+    const endDay = event.endDate.day < 10 ? '0' + event.endDate.day : event.endDate.day;
+    const endMonth = event.endDate.month < 10 ? '0' + event.endDate.month : event.endDate.month;
+    const endYear = event.endDate.year
 
-    let date_range = {
-      "from": beginYear + "-" + beginMonth + "-" + beginDay,
-      "to": endYear + "-" + endMonth + "-" + endDay
+    const date_range = {
+      'from': beginYear + '-' + beginMonth + '-' + beginDay,
+      'to': endYear + '-' + endMonth + '-' + endDay,
     }
     this.dateWiseEarning(date_range)
 
   }
-  dateWiseEarning(data: any) {
-    this.earning.dateWiseEarning(data).subscribe(data => {
+  dateWiseEarning(dateWiseEarningData: any) {
+    this.earning.dateWiseEarning(dateWiseEarningData).subscribe(data => {
       if (data['status']) {
         // debugger
         this.dateWiseEarnings = data['response']
@@ -78,72 +82,68 @@ export class EarningComponent {
   }
   getpaymentDetails() {
     this.earning.getPaymentDetails().subscribe(data => {
-      console.log(data);
-      // debugger
-
-      if (data["status"]) {
+      if (data['status']) {
         this.bInfo = data['response']
         this.model = { ...this.bInfo }
-        this.pytInfoButtonText = "UPDATE"
+        this.pytInfoButtonText = 'UPDATE'
       } else {
-        this.pytInfoButtonText = "SUBMIT"
-        this.model.payment_method = "paypal"
+        this.pytInfoButtonText = 'SUBMIT'
+        this.model.payment_method = 'paypal'
       }
     }, err => {
       // this.model.payment_method="paypal"
     })
   }
   updateSubmit() {
-    console.log("this.model", this.model)
-    // debugger
     this.earning.updateBank(this.model).subscribe(data => {
-      if (data["status"]) {
-        this.snotify.success(data["message"], "Success")
+      if (data['status']) {
+        this.snotify.success(data['message'], 'Success', this.snotifyConfig)
       } else {
-        this.snotify.warning(data["message"], "Warning")
+        this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
       }
     }, err => {
-      this.snotify.error("Something Went to Wrong", "Error")
+      this.snotify.error('Something went wrong. Try again later.', 'Error', this.snotifyConfig)
     })
   }
-  withdrawAmount: string = ""
+  withdrawAmount: string = ''
   withdrawAmountRequest() {
     // alert(this.withdrawAmount)
-    this.snotify.confirm("Are you want to withdraw ", "Confirm",
+    this.snotify.confirm('Are you want to withdraw ', 'Confirm',
   {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
     buttons: [
       {
         text: 'Ok', action: () => {
-        let data = {
-          amount: this.withdrawAmount
+        const withdrawData = {
+          amount: this.withdrawAmount,
         }
         // debugger
-        this.snotify.remove(); 
-        this.earning.requestWithdrawAmount(data).subscribe(data => {
+        this.snotify.remove();
+        this.earning.requestWithdrawAmount(withdrawData).subscribe(data => {
           // alert(data["status"])
-          if (data["status"]) {
+          if (data['status']) {
             // debugger
             this.withdrawEarningStats();
             this.getEarnings();
-            this.withdrawAmount=''
-            this.snotify.success(data["message"], "Success")
+            this.withdrawAmount = ''
+            this.snotify.success(data['message'], 'Success', this.snotifyConfig)
             // this.
-    
+
           } else {
             alert()
-            this.snotify.warning(data["message"], "Warning")
+            this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
           }
         }, err => {
-          this.snotify.error("something went wrong", "Error")
+          this.snotify.error('something went wrong', 'Error', this.snotifyConfig)
         })
-      }
+      },
     },
       {text: 'Cancel', action: () => {
-        console.log('Clicked: Cancel')
-        this.snotify.remove(); 
-      }},]
-  }
-  
+        this.snotify.remove();
+      }}],
+  },
+
   )
 
 
@@ -169,15 +169,12 @@ export class EarningComponent {
 
 
     this.earning.geAgreementDetails().subscribe(data => {
-      if (data["status"]) {
+      if (data['status']) {
         this.agreement = data['response']
       } else {
-        this.agreement = " "
+        this.agreement = ' '
       }
     });
 
   }
-
-
-
 }

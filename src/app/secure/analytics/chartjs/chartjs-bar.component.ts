@@ -1,29 +1,29 @@
-import { Component, OnDestroy,ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
 import { AnalyticsService } from '../services/analytics.service';
 
 
 @Component({
-  selector: 'ngx-chartjs-bar',
+  selector: 'pub-chartjs-bar',
   template: `
     <chart type="bar" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">
       No Data Available
     </div>
   `,
-  styleUrls:['./chartjs.component.scss'],
+  styleUrls: ['./chartjs.component.scss'],
 })
-export class ChartjsBarComponent implements OnDestroy {
+export class ChartjsBarComponent implements OnInit, OnDestroy {
 
- 
+
   data: any;
   options: any;
   themeSubscription: any;
-  dataStatus:boolean= false;
+  dataStatus: boolean = false;
 
   constructor(
     private theme: NbThemeService,
-    private analyticsService:AnalyticsService
+    private analyticsService: AnalyticsService,
   ) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
@@ -43,11 +43,11 @@ export class ChartjsBarComponent implements OnDestroy {
         }],
       };
 
-      this.options = {        
+      this.options = {
         maintainAspectRatio: false,
         responsive: true,
         legend: {
-          position:"bottom",
+          position: 'bottom',
           labels: {
             fontColor: chartjs.textColor,
           },
@@ -55,7 +55,7 @@ export class ChartjsBarComponent implements OnDestroy {
         scales: {
           xAxes: [
             {
-            
+
               gridLines: {
                 display: false,
                 color: chartjs.axisLineColor,
@@ -80,41 +80,39 @@ export class ChartjsBarComponent implements OnDestroy {
       };
     });
   }
-ngOnInit(){
+ngOnInit() {
 this.getStoryStatus()
 }
-getStoryStatus(){
-  this.analyticsService.storyStatus().subscribe(data=>{
-    console.log("data",data);
-    
-    if (data["status"]) {
-      this.dataStatus=true
-      let rejected=[]
-      let approved=[]
-      let response=data["response"]
-      Object.keys(response).forEach(key=>{
-        
+getStoryStatus() {
+  this.analyticsService.storyStatus().subscribe(data => {
+    if (data['status']) {
+      this.dataStatus = true
+      const rejected = []
+      const approved = []
+      const response = data['response']
+      Object.keys(response).forEach(key => {
+
         // console.log("keys",response[key]);
-        response[key]["approved"]?approved.push(response[key]["approved"]):approved.push(0)
-        response[key]["rejected"]?rejected.push(response[key]["rejected"]):rejected.push(0)
-        
-        
+        response[key]['approved'] ? approved.push(response[key]['approved']) : approved.push(0)
+        response[key]['rejected'] ? rejected.push(response[key]['rejected']) : rejected.push(0)
+
+
       })
       // console.log("keys",Object.keys(response));
-      
-      this.data.labels          =Object.keys(response)
-      this.data.datasets[0].data=approved
-      this.data.datasets[1].data=rejected
-     
-      
+
+      this.data.labels          = Object.keys(response)
+      this.data.datasets[0].data = approved
+      this.data.datasets[1].data = rejected
+
+
       // this.chart.chart
     } else {
-      this.dataStatus=false
+      this.dataStatus = false
     }
 
     // debugger
-    
-  },err=>{
+
+  }, err => {
 
   })
 }
