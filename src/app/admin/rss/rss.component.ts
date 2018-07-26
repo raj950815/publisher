@@ -3,7 +3,7 @@ import { RssService } from './service/rss.service';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 
 @Component({
-  selector: 'rss',
+  selector: 'pub-rss',
   templateUrl: './rss.component.html',
   styleUrls: ['./rss.component.scss'],
 })

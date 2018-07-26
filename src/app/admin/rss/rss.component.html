@@ -10,6 +10,7 @@
                 <thead>
                   <tr>
                     <th>ID</th>
+                    <th>Publisher</th>
                     <th>RSS Link</th>
                     
                     <th>Category</th>
@@ -22,16 +23,27 @@
                 <tbody>
                   <tr *ngFor="let data of rssData">
                     <td >{{data?.link_id}}</td>
+                    <td>{{data?.publisher}}</td>
                     <td><a [attr.href]="data?.link" target="_blank">{{data?.link}}</a></td>
     
                     <td>{{data?.category}}</td>
                     <td>{{data?.status}}</td>
     
                     <td>
-                      <i class="fas fa-check fa-lg cursor-style" (click)="rssStatus(data?.link_id, status='Approved')" *ngIf="data?.status==='Pending'"></i>
-                      <i class="fas fa-times fa-lg cursor-style" (click)="rssStatus(data?.link_id, status='Rejected')" *ngIf="data?.status==='Pending'"></i>
-                      <i class="fas fa-times fa-lg cursor-style" (click)="rssStatus(data?.link_id, status='Rejected')" *ngIf="data?.status==='Approved'"></i>
-                      <i class="fas fa-check fa-lg cursor-style" (click)="rssStatus(data?.link_id, status='Approved')" *ngIf="data?.status==='Rejected'"></i>
+                      <div class="btn-group">
+                        <button class="btn btn-hero-success btn-sm mr-2" (click)="rssStatus(data?.link_id, status='Approved')" *ngIf="data?.status==='Pending'">
+                          <i class="fas fa-check fa-lg cursor-style"></i>
+                        </button>
+                        <button class="btn btn-hero-primary btn-sm mr-2" (click)="rssStatus(data?.link_id, status='Rejected')" *ngIf="data?.status==='Pending'">
+                          <i class="fas fa-times fa-lg cursor-style"></i>
+                        </button>
+                        <button class="btn btn-hero-primary btn-sm mr-2" (click)="rssStatus(data?.link_id, status='Rejected')" *ngIf="data?.status==='Approved'">
+                          <i class="fas fa-times fa-lg cursor-style"></i>
+                        </button>
+                        <button class="btn btn-hero-success btn-sm mr-2" (click)="rssStatus(data?.link_id, status='Approved')" *ngIf="data?.status==='Rejected'">
+                          <i class="fas fa-check fa-lg cursor-style"></i>
+                        </button>
+                      </div>
                     </td>
                   </tr>
                

@@ -3,7 +3,7 @@ import { PaymentService } from './service/payment.service';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 
 @Component({
-  selector: 'payment',
+  selector: 'pub-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss'],
 })

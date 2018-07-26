@@ -15,7 +15,8 @@ export class AdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       const role = this.auth.getKey()
-      if (role === 'benjo') {
+      const token = this.auth.getToken()
+      if (role === 'benjo' && !!token) {
         return true
       } else {
         // this.auth.setLoggedIn(false)

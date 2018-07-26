@@ -13,6 +13,6 @@ export class DashboardService {
   ) { }
   getStoryCards(): Observable<any> {
     const data = {}
-    return this.http.post(this.baseUrl + 'fetch_stories', data)
+    return this.http.post(this.baseUrl + 'admin/admin_content/recent_stories', data)
   }
 }
