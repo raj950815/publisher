@@ -6,7 +6,7 @@ import { ProfileService } from '../../../secure/profile/profile-service/profile.
 
 
 @Component({
-  selector: 'pub-header',
+  selector: 'of-header',
   styleUrls: ['./header.component.scss'],
   templateUrl: './header.component.html',
 })

@@ -104,13 +104,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "pub",
+      "of",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "pub",
+      "of",
       "kebab-case"
     ],
     "ban": [

@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProfileService } from './profile-service/profile.service';
 
 @Component({
-  selector: 'pub-profile',
+  selector: 'of-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })

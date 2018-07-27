@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardService } from './admin-dashboard-service/dashboard.service';
 
 @Component({
-  selector: 'pub-dashboard',
+  selector: 'of-dashboard',
   styleUrls: ['./dashboard.component.scss'],
   templateUrl: './dashboard.component.html',
 })

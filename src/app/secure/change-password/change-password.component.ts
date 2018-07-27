@@ -4,7 +4,7 @@ import {SnotifyService, SnotifyPosition} from 'ng-snotify';
 import { ProfileService } from '../profile/profile-service/profile.service';
 
 @Component({
-  selector: 'pub-change-password',
+  selector: 'of-change-password',
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.scss'],
 })

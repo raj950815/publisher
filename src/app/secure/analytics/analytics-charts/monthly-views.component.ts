@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
-  selector: 'pub-monthly-views',
+  selector: 'of-monthly-views',
   template: `
     <chart type="horizontalBar" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">

@@ -4,7 +4,7 @@ import { AnalyticsService } from '../analytics-service/analytics.service';
 
 
 @Component({
-  selector: 'pub-weekly-earning',
+  selector: 'of-weekly-earning',
   template: `
     <chart type="line" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">

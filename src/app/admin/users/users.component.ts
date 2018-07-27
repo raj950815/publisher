@@ -3,7 +3,7 @@ import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { UsersService } from './admin-users-service/users.service';
 
 @Component({
-  selector: 'pub-users',
+  selector: 'of-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
 })

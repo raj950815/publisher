@@ -9,7 +9,7 @@
   }
 
   @include media-breakpoint-down(sm) {
-    pub-traffic {
+    of-traffic {
       display: none;
     }
   }

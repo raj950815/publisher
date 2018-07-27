@@ -5,7 +5,7 @@ import { EarningService } from '../earnings/earning-service/earning.service';
 
 
 @Component({
-  selector: 'pub-dashboard',
+  selector: 'of-dashboard',
   styleUrls: ['./dashboard.component.scss'],
   templateUrl: './dashboard.component.html',
 })

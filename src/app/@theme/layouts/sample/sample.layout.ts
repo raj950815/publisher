@@ -13,12 +13,12 @@ import {
 
 // TODO: move layouts into the framework
 @Component({
-  selector: 'pub-sample-layout',
+  selector: 'of-sample-layout',
   styleUrls: ['./sample.layout.scss'],
   template: `
     <nb-layout [center]="layout.id === 'center-column'" windowMode>
       <nb-layout-header fixed>
-        <pub-header [position]="sidebar.id === 'start' ? 'normal': 'inverse'"></pub-header>
+        <of-header [position]="sidebar.id === 'start' ? 'normal': 'inverse'"></of-header>
       </nb-layout-header>
 
       <nb-sidebar class="menu-sidebar"

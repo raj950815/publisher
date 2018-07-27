@@ -4,7 +4,7 @@ import { IMyDrpOptions, IMyDateRangeModel } from 'mydaterangepicker';
 import { EarningService } from '../earning-service/earning.service';
 
 @Component({
-  selector: 'pub-earning-tabs',
+  selector: 'of-earning-tabs',
   styleUrls: ['./earning.component.scss'],
   templateUrl: './earning.component.html',
 })

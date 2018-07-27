@@ -1,11 +1,11 @@
 @import '../../../@theme/styles/themes';
 
 @include nb-install-component() {
-  pub-weekly-earning,
-  pub-story-status,
-  pub-country-readers,
-  pub-monthly-views,
-  pub-chartjs-line {
+  of-weekly-earning,
+  of-story-status,
+  of-country-readers,
+  of-monthly-views,
+  of-chartjs-line {
     display: block;
     height: nb-theme(card-height-medium);
     width: 100%;

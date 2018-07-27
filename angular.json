@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pub-admin-demo": {
+    "of-admin-demo": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -54,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pub-admin-demo:build"
+            "browserTarget": "of-admin-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pub-admin-demo:build:production"
+              "browserTarget": "of-admin-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pub-admin-demo:build"
+            "browserTarget": "of-admin-demo:build"
           }
         },
         "lint": {
@@ -81,7 +81,7 @@
         }
       }
     },
-    "pub-admin-demo-e2e": {
+    "of-admin-demo-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -90,7 +90,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "pub-admin-demo:serve"
+            "devServerTarget": "of-admin-demo:serve"
           }
         },
         "lint": {

@@ -4,7 +4,7 @@ import './ckeditor.loader';
 import 'ckeditor';
 
 @Component({
-  selector: 'pub-ckeditor',
+  selector: 'of-ckeditor',
   template: `
     <nb-card>
       <nb-card-header>

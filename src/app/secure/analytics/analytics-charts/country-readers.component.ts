@@ -3,7 +3,7 @@ import { NbThemeService } from '@nebular/theme';
 import { AnalyticsService } from '../analytics-service/analytics.service';
 
 @Component({
-  selector: 'pub-country-readers',
+  selector: 'of-country-readers',
   template: `
     <chart type="pie" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">

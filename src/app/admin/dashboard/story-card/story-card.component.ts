@@ -2,7 +2,7 @@ import { Component, OnDestroy, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'pub-story-card',
+  selector: 'of-story-card',
   styleUrls: ['./story-card.component.scss'],
   templateUrl: './story-card.component.html',
 })

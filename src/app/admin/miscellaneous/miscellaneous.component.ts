@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pub-miscellaneous',
+  selector: 'of-miscellaneous',
   template: `
     <router-outlet></router-outlet>
   `,

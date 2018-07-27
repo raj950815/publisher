@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth-service/auth.service';
 
 @Component({
-  selector: 'pub-mail-verify',
+  selector: 'of-mail-verify',
   templateUrl: './mail-verify.component.html',
   styleUrls: ['./mail-verify.component.scss'],
 })

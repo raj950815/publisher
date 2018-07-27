@@ -1,23 +1,23 @@
 <div class="row">
   <div class="col-md-4">
-    <pub-stats-card title="Earnings" val="${{earningObj?.total_earning}}" type="primary">
-      <i class="far fa-money-bill-alt fa-xs"></i>
-    </pub-stats-card>
+    <of-stats-card title="Publishers" val="${{earningObj?.total_earning}}" type="primary">
+      <i class="fas fa-users fa-xs"></i>
+    </of-stats-card>
   </div>
   <div class=" col-md-4">
-    <pub-stats-card title="Views" val="230K" type="success">
-      <i class="far fa-eye fa-xs"></i>
-    </pub-stats-card>
+    <of-stats-card title="RSS" val="230K" type="success">
+      <i class="fa fa-rss-square fa-xs"></i>
+    </of-stats-card>
   </div>
 
   <div class=" col-md-4">
-    <pub-stats-card title="Followers" val="150K" type="info">
-      <i class="fas fa-users fa-xs"></i>
-    </pub-stats-card>
+    <of-stats-card title="Stories" val="150K" type="info">
+      <i class="fas fa-newspaper fa-xs"></i>
+    </of-stats-card>
   </div>
 </div>
 <div class="row">
   <div *ngFor="let card of values" class="col-md-4" style="margin-bottom: 15px;">
-    <pub-story-card [storyCard]='card'></pub-story-card>
+    <of-story-card [storyCard]='card'></of-story-card>
   </div>
 </div>

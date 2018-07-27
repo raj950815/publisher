@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'pub-stats-card',
+  selector: 'of-stats-card',
   styleUrls: ['./stats-card.component.scss'],
   template: `
     <nb-card (click)="on = on" [ngClass]="{'off': !on}">

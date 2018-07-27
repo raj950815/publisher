@@ -4,7 +4,7 @@ import { AnalyticsService } from '../analytics-service/analytics.service';
 
 
 @Component({
-  selector: 'pub-story-status',
+  selector: 'of-story-status',
   template: `
     <chart type="bar" [data]="data" [options]="options" *ngIf="dataStatus==true"></chart>
     <div class="no-data-available" *ngIf="dataStatus==false">

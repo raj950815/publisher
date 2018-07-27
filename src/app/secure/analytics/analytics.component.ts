@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pub-charts',
+  selector: 'of-charts',
   template: `
     <router-outlet></router-outlet>
   `,

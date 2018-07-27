@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pub-content',
+  selector: 'of-content',
   template: `
     <router-outlet></router-outlet>
   `,

@@ -4,7 +4,7 @@ import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { AuthService } from '../auth-service/auth.service';
 
 @Component({
-  selector: 'pub-password-reset',
+  selector: 'of-password-reset',
   templateUrl: './password-reset.component.html',
   styleUrls: ['./password-reset.component.scss'],
 })

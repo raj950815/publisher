@@ -64,13 +64,13 @@
         }
     }
 
-    pub-layout-direction-switcher,
-    pub-theme-switcher {
+    of-layout-direction-switcher,
+    of-theme-switcher {
         margin: 0 1em;
     }
 
     @include media-breakpoint-down(xl) {
-        pub-layout-direction-switcher {
+        of-layout-direction-switcher {
             display: none;
         }
     }
@@ -153,8 +153,8 @@
             padding: 0;
         }
 
-        pub-layout-direction-switcher,
-        pub-theme-switcher {
+        of-layout-direction-switcher,
+        of-theme-switcher {
             display: none;
         }
     }

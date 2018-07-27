@@ -4,7 +4,7 @@ import { SnotifyService, SnotifyPosition} from 'ng-snotify';
 import { AuthService } from '../auth-service/auth.service';
 
 @Component({
-  selector: 'pub-register',
+  selector: 'of-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })

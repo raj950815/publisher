@@ -3,7 +3,7 @@ import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { AnalyticsService } from '../analytics/analytics-service/analytics.service';
 
 @Component({
-  selector: 'pub-tracking',
+  selector: 'of-tracking',
   templateUrl: './tracking.component.html',
   styleUrls: ['./tracking.component.scss'],
 })
