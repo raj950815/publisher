@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { ChartsComponent } from './charts.component';
-// import { EchartsComponent } from './echarts/echarts.component';
-// import { D3Component } from './d3/d3.component';
-import { ChartjsComponent } from './chartjs/chartjs.component';
+import { AnalyticsComponent } from './analytics.component';
+import { AnalyticsChartsComponent } from './analytics-charts/analytics-charts.component';
 
 const routes: Routes = [{
   path: '',
-  component: ChartsComponent,
+  component: AnalyticsComponent,
   children: [
    {
     path: '',
-    component: ChartjsComponent,
+    component: AnalyticsChartsComponent,
   }],
 }];
 
@@ -23,7 +20,6 @@ const routes: Routes = [{
 export class AnalyticsRoutingModule { }
 
 export const routedComponents = [
-  ChartsComponent,
-
-  ChartjsComponent,
+  AnalyticsComponent,
+  AnalyticsChartsComponent,
 ];

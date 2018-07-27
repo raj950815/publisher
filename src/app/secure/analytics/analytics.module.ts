@@ -4,21 +4,18 @@ import { ChartModule } from 'angular2-chartjs';
 import { ThemeModule } from '../../@theme/theme.module';
 
 import { AnalyticsRoutingModule, routedComponents } from './analytics-routing.module';
-import { ChartjsBarComponent } from './chartjs/chartjs-bar.component';
-import { ChartjsLineComponent } from './chartjs/chartjs-line.component';
-import { ChartjsPieComponent } from './chartjs/chartjs-pie.component';
-import { ChartjsMultipleXaxisComponent } from './chartjs/chartjs-multiple-xaxis.component';
-import { ChartjsBarHorizontalComponent } from './chartjs/chartjs-bar-horizontal.component';
-import { ChartjsRadarComponent } from './chartjs/chartjs-radar.component';
+import { StoryStatusComponent } from './analytics-charts/story-status.component';
+import { WeeklyEarningComponent } from './analytics-charts/weekly-earning.component';
+import { CountryReadersComponent } from './analytics-charts/country-readers.component';
+import { MonthlyViewsComponent } from './analytics-charts/monthly-views.component';
+import { ChartjsLineComponent } from './analytics-charts/chartjs-line.component';
 
 const components = [
-  ChartjsBarComponent,
+  WeeklyEarningComponent,
+  StoryStatusComponent,
+  CountryReadersComponent,
+  MonthlyViewsComponent,
   ChartjsLineComponent,
-  ChartjsPieComponent,
-  ChartjsMultipleXaxisComponent,
-  ChartjsBarHorizontalComponent,
-  ChartjsRadarComponent,
-
 ];
 
 @NgModule({

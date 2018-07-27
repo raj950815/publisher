@@ -1,6 +1,5 @@
 import { Component, OnDestroy, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-// import { NbThemeService } from '@nebular/theme';
 
 @Component({
   selector: 'pub-story-card',
@@ -9,22 +8,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class StoryCardComponent implements OnInit, OnDestroy {
 
-  // currentTheme: string;
-  // themeSubscription: any;
-
   constructor(
     private _sanitizer: DomSanitizer,
-    // private themeService: NbThemeService
-  ) {
-    // this.themeSubscription = this.themeService.getJsTheme().subscribe(theme => {
-    //   this.currentTheme = theme.name;
-    // });
-  }
+  ) { }
   @Input() storyCard: any;
   image: any
-  ngOnDestroy() {
-    // this.themeSubscription.unsubscribe();
-  }
+  ngOnDestroy() { }
   ngOnInit() {
     this.storyCard['likes'] = 0,
     this.storyCard['dislikes'] = 0,

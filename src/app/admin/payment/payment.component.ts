@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PaymentService } from './service/payment.service';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
+import { PaymentService } from './admin-payment-service/payment.service';
 
 @Component({
   selector: 'pub-payment',
@@ -43,8 +43,6 @@ export class PaymentComponent implements OnInit {
       buttons: [
         {
           text: 'Ok', action: () => {
-
-          // debugger
           this.snotify.remove();
           this.payment.ChangePaymentStatus(ChangeStatusData).subscribe(data => {
             if (data['status']) {

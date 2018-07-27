@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EarningService } from '../earnings/services/earning.service';
-import { DashboardService } from './services/dashboard.service';
+import { DashboardService } from './dashboard-service/dashboard.service';
+import { EarningService } from '../earnings/earning-service/earning.service';
 
 
 

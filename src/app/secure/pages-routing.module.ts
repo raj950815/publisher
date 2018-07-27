@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
-import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TrackingComponent } from './tracking/tracking.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [{
   path: '',
@@ -17,7 +17,7 @@ const routes: Routes = [{
   },
   {
     path: 'reset',
-    component: PasswordResetComponent,
+    component: ChangePasswordComponent,
   },
   {
     path: 'profile',

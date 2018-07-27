@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {  Router } from '@angular/router';
-import {SnotifyService, SnotifyPosition} from 'ng-snotify';
-// import { ThemeModule } from '../@theme/theme.module';
-import {IMyDrpOptions} from 'mydaterangepicker';
-import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
+import { SnotifyService, SnotifyPosition} from 'ng-snotify';
+import { AuthService } from '../auth-service/auth.service';
+
 @Component({
   selector: 'pub-login',
   templateUrl: './login.component.html',
@@ -17,16 +15,6 @@ export class LoginComponent implements OnInit {
     position: SnotifyPosition.rightTop,
   }
 
-  myDateRangePickerOptions: IMyDrpOptions = {
-    // other options...
-    dateFormat: 'dd.mm.yyyy',
-};
-
-// For example initialize to specific date (09.10.2018 - 19.10.2018). It is also possible
-// to set initial date range value using the selDateRange attribute.
- modal: any = {beginDate: {year: 2018, month: 10, day: 9},
-                         endDate: {year: 2018, month: 10, day: 19}};
-
   constructor(
     private router: Router,
     private auth: AuthService,
@@ -34,16 +22,13 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // const body = document.getElementsByTagName('body')[0];
-    // body.classList.add('nb-theme-default');
   }
 
   model: any = {};
 
-  onSubmit() {
-
+  Login() {
     this.auth.getUserDetails(this.model).subscribe(
-      (data) => {
+      data => {
         if (data['status']) {
           localStorage.setItem('userToken', data['token'])
           localStorage.setItem('key', data['key'])

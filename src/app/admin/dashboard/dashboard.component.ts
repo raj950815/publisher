@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { EarningService } from '../earnings/services/earning.service';
-import { DashboardService } from './services/dashboard.service';
-
-
+import { DashboardService } from './admin-dashboard-service/dashboard.service';
 
 @Component({
   selector: 'pub-dashboard',
@@ -11,37 +8,21 @@ import { DashboardService } from './services/dashboard.service';
 })
 export class DashboardComponent implements OnInit {
   earningObj: any
-  constructor(
 
-    // private earning: EarningService,
+  constructor(
     private dashboardService: DashboardService,
   ) { }
 
-
-
-
-
   ngOnInit() {
     this.getcards()
-    // this.earning.getEarningStats().subscribe(data => {
-    //   if (data['status']) {
-    //     this.earningObj = data['response']
-
-    //   } else {
-    //     this.earningObj = {}
-    //   }
-    // })
   }
-  values = [
-  ];
+  values = [ ];
 
   getcards() {
     this.dashboardService.getStoryCards().subscribe(data => {
       if (data['status']) {
         this.values = data['response']
-      } else {
       }
-    }, err => {
     })
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
-import { EarningService } from '../services/earning.service';
 import { IMyDrpOptions, IMyDateRangeModel } from 'mydaterangepicker';
+import { EarningService } from '../earning-service/earning.service';
 
 @Component({
   selector: 'pub-earning-tabs',
@@ -15,7 +15,6 @@ export class EarningComponent implements OnInit {
   }
 
   myDateRangePickerOptions: IMyDrpOptions = {
-    // other options...
     dateFormat: 'dd-mm-yyyy',
   };
 

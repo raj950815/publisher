@@ -3,15 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ContentComponent } from './content.component';
 import { CKEditorComponent } from './ckeditor/ckeditor.component';
-import { SyncComponent } from './sync/sync.component';
+import { RssComponent } from './rss/rss.component';
 
 
 const routes: Routes = [{
   path: '',
   component: ContentComponent,
   children: [ {
-    path: 'sync',
-    component: SyncComponent,
+    path: 'rss',
+    component: RssComponent,
   },
    {
     path: 'manual',

@@ -1,8 +1,3 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,19 +12,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './auth-interceptor';
 import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
-import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { RegisterComponent } from './register/register.component';
-
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { MailVerifyComponent } from './mail-verify/mail-verify.component';
-
 import { MyDateRangePickerModule } from 'mydaterangepicker';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ForgetpasswordComponent,
+    ForgotpasswordComponent,
     RegisterComponent,
     PasswordResetComponent,
     MailVerifyComponent,

@@ -8,12 +8,12 @@ import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
 import { MyDateRangePickerModule } from 'mydaterangepicker';
 import { CKEditorComponent } from './ckeditor/ckeditor.component';
 import { CKEditorModule } from 'ng2-ckeditor';
-import { SyncComponent } from './sync/sync.component';
+import { RssComponent } from './rss/rss.component';
 
 const components = [
   ContentComponent,
   CKEditorComponent,
-  SyncComponent,
+  RssComponent,
 ];
 
 @NgModule({

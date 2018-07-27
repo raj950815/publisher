@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RssService } from './service/rss.service';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
+import { RssService } from './admin-rss-service/rss.service';
 
 @Component({
   selector: 'pub-rss',
@@ -42,8 +42,6 @@ export class RssComponent implements OnInit {
       buttons: [
         {
           text: 'Ok', action: () => {
-
-          // debugger
           this.snotify.remove();
           this.rss.ChangeRssStatus(rssLinkChnagedData).subscribe(data => {
             if (data['status']) {

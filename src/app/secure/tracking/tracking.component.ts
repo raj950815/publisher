@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AnalyticsService } from '../analytics/services/analytics.service';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
+import { AnalyticsService } from '../analytics/analytics-service/analytics.service';
 
 @Component({
   selector: 'pub-tracking',

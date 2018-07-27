@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from './service/users.service';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
+import { UsersService } from './admin-users-service/users.service';
 
 @Component({
   selector: 'pub-users',
@@ -41,8 +41,6 @@ export class UsersComponent implements OnInit {
       buttons: [
         {
           text: 'Ok', action: () => {
-
-          // debugger
           this.snotify.remove();
           this.users.changeAccStatus(AccountStatusData).subscribe(data => {
             if (data['status']) {

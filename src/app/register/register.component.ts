@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {SnotifyService, SnotifyPosition} from 'ng-snotify';
-import { AuthService } from '../service/auth.service';
+import { SnotifyService, SnotifyPosition} from 'ng-snotify';
+import { AuthService } from '../auth-service/auth.service';
 
 @Component({
   selector: 'pub-register',
@@ -20,29 +20,23 @@ export class RegisterComponent implements OnInit {
     private snotifyService: SnotifyService,
   ) { }
 
-  ngOnInit() {
-    // const body = document.getElementsByTagName('body')[0];
-    // body.classList.add('nb-theme-default');
+  ngOnInit() { }
 
-  }
-model: any = {}
-registerSubmit() {
+  model: any = {}
+
+  register() {
     this.auth.registerUser(this.model).subscribe(
-      (data) => {
+      data => {
         if (data['status']) {
           this.snotifyService.info(data['message'], 'Success', this.snotifyConfig)
           setTimeout(() => {
-
             this.router.navigate(['/login'])
           }, 5000);
-
         } else {
           this.snotifyService.warning(data['message'], 'Warning', this.snotifyConfig)
         }
       }
       , err => {
-        // console.log("err",err);
-
         this.snotifyService.error('Something went wrong. Try again later.', 'Failure', this.snotifyConfig)
       },
     )

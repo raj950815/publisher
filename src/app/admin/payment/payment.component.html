@@ -1,23 +1,23 @@
 <div class="row">
-    <div class="col-md-12">
-      <nb-card>
-        <nb-card-header>
-          Payment
-        </nb-card-header>
-        <nb-card-body>
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        Payment
+      </nb-card-header>
+      <nb-card-body>
         <div class="table-responsive">
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th>S.No.</th>
                 <th>Publisher ID</th>
-                <th >Publisher Name</th>
+                <th>Publisher Name</th>
                 <th>Email</th>
                 <th>Debit</th>
                 <th>Date</th>
                 <th>Status</th>
                 <th>Action</th>
-                              
+
               </tr>
             </thead>
             <tbody>
@@ -44,16 +44,16 @@
                     <button class="btn btn-hero-success btn-icon mr-2" (click)="paymentStatus(data?.id, data?.user_id, status='Approved')" *ngIf="data?.status==='Rejected'">
                       <i class="fas fa-check fa-sm cursor-style"></i>
                     </button>
-                </div>
+                  </div>
                 </td>
               </tr>
-           
+
             </tbody>
           </table>
-          </div>
-          <!-- <ng2-smart-table [settings]="settings" [source]="paymentData" ></ng2-smart-table> -->
-        </nb-card-body>
-      </nb-card>
-    </div>
-    <ng-snotify class="material"></ng-snotify>
+        </div>
+        <!-- <ng2-smart-table [settings]="settings" [source]="paymentData" ></ng2-smart-table> -->
+      </nb-card-body>
+    </nb-card>
   </div>
+  <ng-snotify class="material"></ng-snotify>
+</div>

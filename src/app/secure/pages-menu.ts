@@ -7,38 +7,18 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/',
     home: true,
   },
-  // {
-  //   title: 'FEATURES',
-  //   group: true,
-  // },
   {
     title: 'Content',
     icon: 'fa fa-pencil',
     link: '/content',
     children: [
-      // {
-      //   title: 'RSS Feed',
-      //   link: '/ui-features/buttons',
-      // },
       {
-        title: 'Sync',
-        icon: 'fa fa-sync',
-        link: '/content/sync',
+        title: 'Rss',
+        icon: 'fa fa-rss-square',
+        link: '/content/rss',
       },
-      // {
-      //   title: 'Create Manually',
-      //   link: '/content/manual',
-      // },
-
     ],
   },
-  // {
-  //   title: 'Earnings',
-  //   icon: 'ion-social-usd-outline',
-  //   link: '/earnings',
-
-  // },
-
   {
     title: 'Analytics',
     icon: 'fa fa-chart-line',

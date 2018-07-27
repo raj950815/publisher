@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from './services/profile.service';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ProfileService } from './profile-service/profile.service';
+
 @Component({
   selector: 'pub-profile',
   templateUrl: './profile.component.html',
@@ -22,6 +23,7 @@ export class ProfileComponent implements OnInit {
     position: SnotifyPosition.rightTop,
   }
 
+  defaultImg = '../../assets/images/default.png'
   pubisherImgUrl = 'https://s3.amazonaws.com/one-feed/publisher/profile/'
   constructor(
     private profile: ProfileService,
@@ -39,8 +41,7 @@ export class ProfileComponent implements OnInit {
         this.profileInfo = data['response']
         this.model = { ...this.profileInfo }
         if (this.model.profile_image === '') {
-          // this.pubisherImg = this.publisherDefaultIcon
-          this.pubisherImg = ''
+          this.pubisherImg = this.defaultImg
         } else {
           this.pubisherImg = this.pubisherImgUrl + this.model.profile_image
         }

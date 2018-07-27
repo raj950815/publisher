@@ -2,13 +2,12 @@ import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
 import { NgModule } from '@angular/core';
 import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './auth.guard';
-import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { RegisterComponent } from './register/register.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { MailVerifyComponent } from './mail-verify/mail-verify.component';
-import { AdminGuard } from './admin.guard';
-
+import { AuthGuard } from './auth-guard/auth.guard';
+import { AdminGuard } from './admin-guard/admin.guard';
 const routes: Routes = [
   {
     path: 'login',
@@ -17,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'forgot',
-    component: ForgetpasswordComponent,
+    component: ForgotpasswordComponent,
 
   },
   {
