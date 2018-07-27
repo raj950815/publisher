@@ -9,7 +9,8 @@
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>ID</th>
+                <th>S.No.</th>
+                <th>Publisher ID</th>
                 <th >Publisher Name</th>
                 <th>Email</th>
                 <th>Debit</th>
@@ -20,7 +21,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let data of paymentData">
+              <tr *ngFor="let data of paymentData;let i = index">
+                <td>{{i+1}}</td>
                 <td>{{data?.id}}</td>
                 <td>{{data?.name}}</td>
                 <td>{{data?.email}}</td>

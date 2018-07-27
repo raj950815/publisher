@@ -9,12 +9,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Users',
-    icon: 'fas fa-user-plus',
+    icon: 'fa fa-user',
     link: 'users',
   },
   {
     title: 'RSS',
-    icon: 'fas fa-rss-square',
+    icon: 'fa fa-rss-square',
     link: 'rss',
   },
   {

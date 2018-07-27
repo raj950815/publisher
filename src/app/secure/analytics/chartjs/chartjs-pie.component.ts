@@ -30,7 +30,7 @@ export class ChartjsPieComponent implements OnInit, OnDestroy {
   labels: [],
   datasets: [{
     data: [],
-    backgroundColor: ['#67b7dc', '#fdd400', '#84b761', '#cc4748', '#cd82ad', '#2f4074', '#448e4d', '#b7b83f'],
+    backgroundColor: ['#7CB5EC', '#F15C80', '#8085E9', '#F7A35C', '#90ED7D', '#adafbc'],
   }],
 };
 
