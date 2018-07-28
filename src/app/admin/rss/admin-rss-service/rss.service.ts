@@ -15,10 +15,10 @@ export class RssService {
 
   rssLinks(): Observable <any> {
     const data = {}
-    return this.http.post(this.baseUrl + 'admin/admin_content/all_rss_links', data)
+    return this.http.post(this.baseUrl + 'admin/rss_links', data)
   }
 
   ChangeRssStatus(data: any): Observable <any> {
-    return this.http.post(this.baseUrl + 'admin/admin_content/approve_reject_rsslink', data)
+    return this.http.post(this.baseUrl + 'admin/approve_reject_rsslink', data)
   }
 }

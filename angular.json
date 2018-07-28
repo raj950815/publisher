@@ -25,9 +25,11 @@
               "src/style-app-loading.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
               "src/app/@theme/styles/styles.scss"
             ],
             "scripts": [
+              "node_modules/pace-js/pace.min.js",
               "node_modules/chart.js/dist/Chart.min.js"
             ]
           },

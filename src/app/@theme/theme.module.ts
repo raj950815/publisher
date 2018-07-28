@@ -28,6 +28,7 @@ import {
   SampleLayoutComponent,
 } from './layouts';
 import { DEFAULT_THEME } from './styles/theme.default';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
@@ -65,7 +66,7 @@ const NB_THEME_PROVIDERS = [
 ];
 
 @NgModule({
-  imports: [...BASE_MODULES, ...NB_MODULES],
+  imports: [...BASE_MODULES, ...NB_MODULES, NgxSpinnerModule],
   exports: [...BASE_MODULES, ...NB_MODULES, ...COMPONENTS],
   declarations: [...COMPONENTS],
 })

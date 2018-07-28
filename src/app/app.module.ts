@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { MailVerifyComponent } from './mail-verify/mail-verify.component';
 import { MyDateRangePickerModule } from 'mydaterangepicker';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MyDateRangePickerModule } from 'mydaterangepicker';
     ThemeModule.forRoot(),
     SnotifyModule,
     MyDateRangePickerModule,
+    NgxSpinnerModule,
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },

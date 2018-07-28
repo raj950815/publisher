@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProfileService } from './profile-service/profile.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'of-profile',
@@ -29,12 +30,15 @@ export class ProfileComponent implements OnInit {
     private profile: ProfileService,
     private snotify: SnotifyService,
     private fb: FormBuilder,
+    private spinner: NgxSpinnerService
   ) {
     this.createForm();
   }
-
+  
   ngOnInit() {
+    this.spinner.show()
     this.getProfile()
+    this.pubisherImg = this.defaultImg
   }
   getProfile() {
     this.profile.getProfileInfo().subscribe(data => {
@@ -45,6 +49,7 @@ export class ProfileComponent implements OnInit {
         } else {
           this.pubisherImg = this.pubisherImgUrl + this.model.profile_image
         }
+        this.spinner.hide()
       },
     )
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { PaymentService } from './admin-payment-service/payment.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'of-payment',
@@ -18,15 +19,20 @@ export class PaymentComponent implements OnInit {
   constructor(
     private payment: PaymentService,
     private snotify: SnotifyService,
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit() {
+    this.spinner.show()
     this.getPaymentInfo()
   }
 
   getPaymentInfo() {
     this.payment.getPayment().subscribe(data => {
       this.paymentData = data ['response']
+      this.spinner.hide()
+    }, err=> {
+      this.spinner.hide()
     })
   }
 

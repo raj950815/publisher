@@ -6,11 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './analytics-charts.component.html',
 })
 export class AnalyticsChartsComponent implements OnInit {
-    constructor(
+  constructor( ) { }
 
-  ) { }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 }

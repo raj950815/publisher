@@ -1,4 +1,4 @@
-<div class="header-container" [class.left]="position === 'inverse'" [class.right]="position === 'normal'">
+<div class="header-container">
   <div class="logo-containter">
     <a (click)="toggleSidebar()" href="#" class="navigation">
       <i class="fas fa-bars fa-xs"></i>
@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<nb-actions size="medium" class="header-container" [class.right]="position === 'inverse'" [class.left]="position === 'normal'">
+<nb-actions size="medium" class="header-container" [class.right]="position === 'inverse'">
   <nb-action class="dropdown">
     <div class="user-container user-profile cursor-style" id="dropdownMenuButton">
       <div class="user-picture image">

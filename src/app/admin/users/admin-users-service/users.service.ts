@@ -15,12 +15,10 @@ export class UsersService {
 
   getUsersInfo(): Observable <any> {
     const data = {}
-    return this.http.post(this.baseUrl + 'admin/admin_accounts/publisher_accounts', data)
+    return this.http.post(this.baseUrl + 'admin/accounts', data)
   }
 
   changeAccStatus(data): Observable <any> {
-    return this.http.post(this.baseUrl + 'admin/admin_accounts/approve_reject_publisher', data)
+    return this.http.post(this.baseUrl + 'admin/approve_reject_publisher', data)
   }
-
-
 }

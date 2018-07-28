@@ -13,7 +13,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/content',
     children: [
       {
-        title: 'Rss',
+        title: 'RSS',
         icon: 'fa fa-rss-square',
         link: '/content/rss',
       },

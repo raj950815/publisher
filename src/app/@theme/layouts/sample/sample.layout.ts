@@ -9,44 +9,30 @@ import {
   NbThemeService,
 } from '@nebular/theme';
 
-// import { StateService } from '../../../@core/data/state.service';
-
-// TODO: move layouts into the framework
 @Component({
   selector: 'of-sample-layout',
   styleUrls: ['./sample.layout.scss'],
   template: `
-    <nb-layout [center]="layout.id === 'center-column'" windowMode>
+    <nb-layout>
       <nb-layout-header fixed>
         <of-header [position]="sidebar.id === 'start' ? 'normal': 'inverse'"></of-header>
       </nb-layout-header>
 
-      <nb-sidebar class="menu-sidebar"
-                   tag="menu-sidebar"
-                   responsive
-                   [end]="sidebar.id === 'end'">
+      <nb-sidebar class="menu-sidebar">
 
         <ng-content select="nb-menu"></ng-content>
       </nb-sidebar>
 
-      <nb-layout-column class="main-content">
+      <nb-layout-column>
+      <ngx-spinner
+      bdColor = "rgba(255,255,255,0)"
+      size = "default"
+      color = "#40dcb2"
+      type = "ball-spin-clockwise"
+      ></ngx-spinner>
         <ng-content select="router-outlet"></ng-content>
       </nb-layout-column>
 
-      <nb-layout-column start class="small" *ngIf="layout.id === 'two-column' || layout.id === 'three-column'">
-        <nb-menu [items]="subMenu"></nb-menu>
-      </nb-layout-column>
-
-      <nb-layout-column class="small" *ngIf="layout.id === 'three-column'">
-        <nb-menu [items]="subMenu"></nb-menu>
-      </nb-layout-column>
-
-      <nb-sidebar class="settings-sidebar"
-                   tag="settings-sidebar"
-                   state="collapsed"
-                   fixed
-                   [end]="sidebar.id !== 'end'">
-      </nb-sidebar>
     </nb-layout>
   `,
 })
@@ -60,10 +46,10 @@ export class SampleLayoutComponent implements OnDestroy {
   protected menuClick$: Subscription;
 
   constructor(
-              protected menuService: NbMenuService,
-              protected themeService: NbThemeService,
-              protected bpService: NbMediaBreakpointsService,
-              protected sidebarService: NbSidebarService) {
+    protected menuService: NbMenuService,
+    protected themeService: NbThemeService,
+    protected bpService: NbMediaBreakpointsService,
+    protected sidebarService: NbSidebarService) {
     // this.layoutState$ = this.stateService.onLayoutState()
     //   .subscribe((layout: string) => this.layout = layout);
 
@@ -77,7 +63,7 @@ export class SampleLayoutComponent implements OnDestroy {
       .pipe(
         withLatestFrom(this.themeService.onMediaQueryChange()),
         delay(20),
-      )
+    )
       .subscribe(([item, [bpFrom, bpTo]]: [any, [NbMediaBreakpoint, NbMediaBreakpoint]]) => {
 
         if (bpTo.width <= isBp.width) {

@@ -14,10 +14,10 @@ export class PaymentService {
 
   getPayment(): Observable <any> {
     const data = {}
-    return this.http.post(this.baseUrl + 'admin/admin_earning/all_withdrawl_requests', data)
+    return this.http.post(this.baseUrl + 'admin/withdrawl_requests', data)
   }
 
   ChangePaymentStatus(data: any): Observable <any> {
-    return this.http.post(this.baseUrl + 'admin/admin_earning/approve_reject_withdrawl', data)
+    return this.http.post(this.baseUrl + 'admin/approve_reject_withdrawl', data)
   }
 }

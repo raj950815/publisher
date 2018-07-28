@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { UsersService } from './admin-users-service/users.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'of-users',
@@ -17,15 +18,20 @@ export class UsersComponent implements OnInit {
   constructor(
     private users: UsersService,
     private snotify: SnotifyService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
+    this.spinner.show()
     this.publisherDetails();
   }
 
   publisherDetails() {
     this.users.getUsersInfo().subscribe(data => {
       this.userInfo = data['response']
+      this.spinner.hide()
+    }, err => {
+      this.spinner.hide()
     })
   }
 

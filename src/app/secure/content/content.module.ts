@@ -9,6 +9,7 @@ import { MyDateRangePickerModule } from 'mydaterangepicker';
 import { CKEditorComponent } from './ckeditor/ckeditor.component';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { RssComponent } from './rss/rss.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 const components = [
   ContentComponent,
@@ -23,6 +24,7 @@ const components = [
     CKEditorModule,
     SnotifyModule,
     MyDateRangePickerModule,
+    NgxSpinnerModule
   ],
   declarations: [
     ...components,

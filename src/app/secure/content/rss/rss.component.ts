@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { ContentService } from '../content-service/content.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'of-rss',
@@ -18,25 +19,27 @@ export class RssComponent implements OnInit {
 constructor(
   private content: ContentService,
   private snotify: SnotifyService,
+  private spinner: NgxSpinnerService
 ) {}
 ngOnInit() {
+  this.spinner.show();
   this.model.category = null
-
   this.getFeedLinks()
 }
 onSubmit() {
   this.content.addRss(this.model).subscribe(data => {
     if (data['status']) {
-      // this.model.category = 'Select Category'
-      // this.model.feed_link = ''
       this.getFeedLinks();
       this.snotify.success(data['message'], 'Success', this.snotifyConfig)
+      this.spinner.hide()
     } else {
       this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
+      this.spinner.hide()
 
     }
   }, err => {
     this.snotify.error('Something went wrong', 'failure', this.snotifyConfig)
+    this.spinner.hide()
   })
 }
 listRss = []
@@ -45,11 +48,14 @@ getFeedLinks() {
     data => {
       if (data['status']) {
        this.listRss = data['response']
+      //  this.spinner.hide()
       } else {
         this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
+        // this.spinner.hide()
       }
     }, err => {
       this.snotify.error('Something went wrong', 'failure', this.snotifyConfig)
+      // this.spinner.hide()
     },
   )
 }

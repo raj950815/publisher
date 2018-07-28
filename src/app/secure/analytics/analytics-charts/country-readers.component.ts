@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { AnalyticsService } from '../analytics-service/analytics.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'of-country-readers',
@@ -13,13 +14,13 @@ import { AnalyticsService } from '../analytics-service/analytics.service';
   styleUrls: ['./analytics-charts.component.scss'],
 })
 export class CountryReadersComponent implements OnInit, OnDestroy {
-  // data: any;
-  // options: any;
   dataStatus: boolean = false
   themeSubscription: any;
 
-  constructor(private theme: NbThemeService,
-  private analyticsService: AnalyticsService,
+  constructor(
+    private theme: NbThemeService,
+    private analyticsService: AnalyticsService,
+    private spinner: NgxSpinnerService,
   ) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
@@ -57,13 +58,11 @@ options = {
   },
 };
   ngOnInit() {
+    this.spinner.show()
     this.getCountrywiseUniqueVistors()
-}
+  }
 getCountrywiseUniqueVistors() {
-
   this.analyticsService.countryWiseUniqueVisitors().subscribe(data => {
-    // console.log("data",data);
-    // debugger
     if (data['status']) {
       this.dataStatus = true
       const response = data['response']
@@ -77,13 +76,13 @@ getCountrywiseUniqueVistors() {
 
       this.data.datasets[0].data = unique_count
       this.data.labels = labels
-
-      // debugger
+      this.spinner.hide()
     } else {
       this.dataStatus = false
+      this.spinner.hide()
     }
   }, err => {
-
+      this.spinner.hide()
   })
 }
 

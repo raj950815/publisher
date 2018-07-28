@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { FormsModule } from '@angular/forms';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -23,6 +24,7 @@ const PAGES_COMPONENTS = [
     MiscellaneousModule,
     SnotifyModule,
     FormsModule,
+    NgxSpinnerModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,

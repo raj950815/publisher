@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { RssService } from './admin-rss-service/rss.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'of-rss',
@@ -18,15 +19,20 @@ export class RssComponent implements OnInit {
   constructor(
     private rss: RssService,
     private snotify: SnotifyService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
+    this.spinner.show()
     this.getRssLinks()
   }
 
   getRssLinks() {
     this.rss.rssLinks().subscribe(data => {
       this.rssData = data['response']
+      this.spinner.hide()
+    }, err => {
+      this.spinner.hide()
     })
   }
 

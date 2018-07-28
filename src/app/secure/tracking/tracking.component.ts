@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 import { AnalyticsService } from '../analytics/analytics-service/analytics.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'of-tracking',
@@ -20,9 +21,11 @@ export class TrackingComponent implements OnInit {
   constructor(
     private analytic: AnalyticsService,
     private snotify: SnotifyService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
+    this.spinner.show()
     this.getTrackDetails()
   }
 
@@ -44,8 +47,10 @@ export class TrackingComponent implements OnInit {
         this.trackingData = data['response']
         this.model = { ...this.trackingData }
         this.addButton = 'Update'
+        this.spinner.hide()
       } else {
         this.addButton = 'Add'
+        this.spinner.hide()
       }
     })
   }
