@@ -24,7 +24,7 @@ const PAGES_COMPONENTS = [
     MiscellaneousModule,
     SnotifyModule,
     FormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,

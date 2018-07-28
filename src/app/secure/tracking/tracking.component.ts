@@ -21,7 +21,7 @@ export class TrackingComponent implements OnInit {
   constructor(
     private analytic: AnalyticsService,
     private snotify: SnotifyService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit() {

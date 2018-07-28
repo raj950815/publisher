@@ -31,7 +31,7 @@ export class PaymentComponent implements OnInit {
     this.payment.getPayment().subscribe(data => {
       this.paymentData = data ['response']
       this.spinner.hide()
-    }, err=> {
+    }, err => {
       this.spinner.hide()
     })
   }

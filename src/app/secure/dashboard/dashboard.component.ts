@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   }
   values = [ ];
 
-  getEarning(){
+  getEarning() {
     this.earning.getEarningStats().subscribe(data => {
       if (data['status']) {
         this.earningObj = data['response']

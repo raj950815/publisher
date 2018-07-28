@@ -19,7 +19,7 @@ export class RssComponent implements OnInit {
 constructor(
   private content: ContentService,
   private snotify: SnotifyService,
-  private spinner: NgxSpinnerService
+  private spinner: NgxSpinnerService,
 ) {}
 ngOnInit() {
   this.spinner.show();

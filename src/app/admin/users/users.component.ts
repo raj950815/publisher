@@ -18,7 +18,7 @@ export class UsersComponent implements OnInit {
   constructor(
     private users: UsersService,
     private snotify: SnotifyService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit() {

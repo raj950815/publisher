@@ -17,7 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { MailVerifyComponent } from './mail-verify/mail-verify.component';
 import { MyDateRangePickerModule } from 'mydaterangepicker';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [

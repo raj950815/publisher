@@ -24,7 +24,7 @@ const components = [
     CKEditorModule,
     SnotifyModule,
     MyDateRangePickerModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ],
   declarations: [
     ...components,

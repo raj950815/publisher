@@ -30,11 +30,11 @@ export class ProfileComponent implements OnInit {
     private profile: ProfileService,
     private snotify: SnotifyService,
     private fb: FormBuilder,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
   ) {
     this.createForm();
   }
-  
+
   ngOnInit() {
     this.spinner.show()
     this.getProfile()
