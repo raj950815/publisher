@@ -31,7 +31,7 @@ export class CountryReadersComponent implements OnInit, OnDestroy {
   labels: [],
   datasets: [{
     data: [],
-    backgroundColor: ['#7CB5EC', '#F15C80', '#8085E9', '#F7A35C', '#90ED7D', '#adafbc'],
+    backgroundColor: ['#7CB5EC', '#F15C80', '#8085E9', '#712F79', '#90ED7D', '#ADAFBC'],
   }],
 };
 
