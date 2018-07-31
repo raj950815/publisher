@@ -70,7 +70,6 @@ export class HeaderComponent implements OnInit {
   toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');
     return false;
-    // return true
   }
 
   getRole() {
@@ -82,7 +81,4 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  // startSearch() {
-  //   // this.analyticsService.trackEvent('startSearch');
-  // }
 }

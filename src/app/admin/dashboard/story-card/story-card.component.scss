@@ -1,6 +1,30 @@
 @import '../../../@theme/styles/themes';
 
 @include nb-install-component {
+    nb-card {
+        .story-status {
+            display: none;
+            position: absolute;
+            padding: 5px;
+            font-weight: 500;
+            color: white;
+            right: 0;
+        }
+        &:hover {
+            .story-status {
+                display: block;
+            }
+            .bg-status-accept {
+                background-color: green;
+            }
+            .bg-status-reject {
+                background-color: red;
+            }
+            .bg-status-pending {
+                background-color: #ffa100;
+            }
+        }
+    }
     nb-card-body {
         display: flex;
         flex-direction: column;
@@ -61,3 +85,19 @@
     }
 }
 
+.story-status {
+    position: absolute;
+    padding: 5px;
+    font-weight: 500;
+    color: white;
+    right: 0;
+}
+.bg-status-pending {
+    background-color: #ffa100;
+}
+.bg-status-accept {
+    background-color: green;
+}
+.bg-status-reject {
+    background-color: red;
+}

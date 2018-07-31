@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-4">
-    <of-stats-card title="Publishers" val="${{earningObj?.total_earning}}" type="primary">
+    <of-stats-card title="Publishers" val="{{earningObj?.total_earning}}" type="primary">
       <i class="fas fa-users fa-xs"></i>
     </of-stats-card>
   </div>
@@ -21,3 +21,4 @@
     <of-story-card [storyCard]='card'></of-story-card>
   </div>
 </div>
+<ng-snotify class="material"></ng-snotify>

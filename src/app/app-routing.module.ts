@@ -44,7 +44,7 @@ const routes: Routes = [
   },
 
   // { path: '', redirectTo: '/pages/dashboard', pathMatch: 'full' },
-  // { path: '**', redirectTo: 'login' },
+  { path: '**', redirectTo: 'login' },
 ];
 
 const config: ExtraOptions = {

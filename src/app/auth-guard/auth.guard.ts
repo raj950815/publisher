@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate {
     if (role === 'qvcmjtifs' && !!token) {
       return true
     } else {
-      this.auth.setLoggedIn(false)
+      // this.auth.setLoggedIn(false)
       this.router.navigate(['login']);
       return false
     }

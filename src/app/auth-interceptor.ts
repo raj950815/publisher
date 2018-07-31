@@ -8,7 +8,10 @@ import { AuthService } from './auth-service/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-    constructor(private auth: AuthService, private route: Router) { }
+    constructor(
+        private auth: AuthService,
+        private route: Router,
+    ) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const token = this.auth.getToken()
@@ -19,13 +22,17 @@ export class AuthInterceptor implements HttpInterceptor {
                 },
             });
         }
+        
         return next.handle(req).catch(errorResponse => {
             if (errorResponse.status === 401 || errorResponse.status === 403) {
                 this.route.navigate(['/login'])
             }
+            // if (errorResponse.status === 0) {
+            //     alert(errorResponse.message)
+            //     return
+            // }
              return _throw(errorResponse.message);
         },
-
         );
     }
 }

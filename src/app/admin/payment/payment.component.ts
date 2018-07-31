@@ -44,8 +44,7 @@ export class PaymentComponent implements OnInit {
     }
 
     this.snotify.confirm('Are you sure you want to Change Status?', 'Confirm', {
-      showProgressBar: false,
-      position: SnotifyPosition.rightTop,
+      ...this.snotifyConfig,
       buttons: [
         {
           text: 'Ok', action: () => {

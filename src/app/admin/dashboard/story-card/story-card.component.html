@@ -1,6 +1,13 @@
 <nb-card size="medium">
   <nb-card-body>
     <div class="picture" [style.background-image]="image"></div>
+    <span class="story-status bg-status-pending cursor-style"
+    [ngClass]="{
+      'bg-status-pending':storyCard?.story_status === 'pending',
+      'bg-status-accept':storyCard?.story_status === 'approved',
+      'bg-status-reject':storyCard?.story_status === 'rejected'
+    }"
+    (click)="storyStatus(storyCard?.story_id,storyCard?.story_status)">{{storyCard?.story_status}}</span>
     <div class="details">
       <div class="title">
         {{storyCard?.story_title}}

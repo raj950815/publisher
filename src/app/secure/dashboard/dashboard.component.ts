@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardService } from './dashboard-service/dashboard.service';
 import { EarningService } from '../earnings/earning-service/earning.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { SnotifyService, SnotifyPosition } from 'ng-snotify';
 
 @Component({
   selector: 'of-dashboard',
@@ -10,11 +11,16 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class DashboardComponent implements OnInit {
   earningObj: any
+  snotifyConfig = {
+    showProgressBar: false,
+    position: SnotifyPosition.rightTop,
+  }
 
   constructor(
     private earning: EarningService,
     private dashboardService: DashboardService,
     private spinner: NgxSpinnerService,
+    private snotify: SnotifyService
   ) { }
 
   ngOnInit() {
@@ -42,6 +48,9 @@ export class DashboardComponent implements OnInit {
         this.values = data['response']
         this.spinner.hide();
       }
+    }, err => {
+      this.spinner.hide()
+      this.snotify.error('Something went wrong. Try again later.', 'Error', this.snotifyConfig)
     })
   }
 }
