@@ -4,6 +4,7 @@
       <i class="fas fa-users fa-xs"></i>
     </of-stats-card>
   </div>
+
   <div class=" col-md-4">
     <of-stats-card title="RSS" val="{{statsCardData?.total_rss}}" type="success">
       <i class="fa fa-rss-square fa-xs"></i>
@@ -17,21 +18,24 @@
   </div>
 </div>
 
-<div *ngIf="values!=''" style="background-color: #ffffff;padding: 12px 12px 7px 11px;margin-bottom: 15px;border-radius: 5px;    margin-left: -5px;
-margin-right: -5px;">
-  <div style="display: flex;">
-    <select style="margin-right: 15px;border-radius: 3px;border-color: #cccccc;height: 36px;" class="col-md-3" name="status" [(ngModel)]="model.status" #status="ngModel" (change)="statusWiseStories(model.status)">
+<div *ngIf="storyCardData" class="filter-body">
+  <div class="filter-view">
+    <select class="col-md-3" name="status" [(ngModel)]="model.status" #status="ngModel" (change)="statusWiseStories(model.status)">
       <option [ngValue]="null">Select Status</option>
       <option>Pending</option>
       <option>Approved</option>
       <option>Rejected</option>
     </select>
-    <my-date-range-picker style="margin-right: 15px;" name="mydaterange" [options]="myDateRangePickerOptions" [(ngModel)]="dateModel" (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
-    <button class="btn btn-hero-primary btn-sm" style="padding: 0 15px;line-height: 0px;height: 35px;border-radius: 3px;" (click)="getcards()">Clear</button>
+    <my-date-range-picker style="margin-right: 15px;" name="mydaterange" [options]="myDateRangePickerOptions" [(ngModel)]="dateModel"
+      (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+    <button class="btn btn-hero-primary btn-sm button-view" (click)="getcards()">Clear</button>
   </div>
 </div>
 
-<div class="row">
+<div class="no-data-available" *ngIf="dataStatus === false">
+  No Data Found
+</div>
+<div class="row" *ngIf="dataStatus === true">
   <div *ngFor="let card of storyCardData" class="col-md-4" style="margin-bottom: 15px;">
     <of-story-card [storyCard]='card'></of-story-card>
   </div>

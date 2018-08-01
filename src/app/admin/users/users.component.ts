@@ -10,6 +10,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class UsersComponent implements OnInit {
   userInfo: any
+  model: any = {}
+  filterData: any
   snotifyConfig = {
     showProgressBar: false,
     position: SnotifyPosition.rightTop,
@@ -22,12 +24,27 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.model.status = null
     this.spinner.show()
-    this.publisherDetails();
+    this.publisherDetails(this.filterData);
   }
 
-  publisherDetails() {
-    this.users.getUsersInfo().subscribe(data => {
+  statusWiseUsers(status) {
+    this.filterData = {
+      status: status,
+    }
+    this.publisherDetails(this.filterData)
+  }
+
+  search(searchData) {
+    this.filterData = {
+      status: searchData,
+    }
+    this.publisherDetails(this.filterData)
+  }
+
+  publisherDetails(filterData) {
+    this.users.getUsersInfo(filterData).subscribe(data => {
       this.userInfo = data['response']
       this.spinner.hide()
     }, err => {
@@ -50,7 +67,7 @@ export class UsersComponent implements OnInit {
           this.snotify.remove();
           this.users.changeAccStatus(AccountStatusData).subscribe(data => {
             if (data['status']) {
-              this.publisherDetails();
+              this.publisherDetails(this.filterData);
               this.snotify.success(data['response'], 'Success', this.snotifyConfig)
             } else {
               this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)

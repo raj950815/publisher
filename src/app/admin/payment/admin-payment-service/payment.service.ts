@@ -12,8 +12,7 @@ export class PaymentService {
     private http: HttpClient,
   ) { }
 
-  getPayment(): Observable <any> {
-    const data = {}
+  getPayment(data: any): Observable <any> {
     return this.http.post(this.baseUrl + 'admin/withdrawl_requests', data)
   }
 

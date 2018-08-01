@@ -32,10 +32,10 @@ export class TrackingComponent implements OnInit {
   trackUpdate() {
     this.analytic.updateTrack(this.model).subscribe(data => {
       if (data['status']) {
-        this.snotify.success(data['message'], 'Success', this.snotifyConfig)
+        this.snotify.success(data['response'], 'Success', this.snotifyConfig)
         this.getTrackDetails();
       } else {
-        this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
+        this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)
       }
     }, err => {
       this.snotify.error('Something went wrong. Try again later.', 'Error', this.snotifyConfig)

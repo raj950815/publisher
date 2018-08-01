@@ -27,7 +27,7 @@ export class MailVerifyComponent implements OnInit {
   mailConfirmMessage() {
     this.auth.mailConfirm(this.h).subscribe(
       data => {
-        this.message = data['message']
+        this.message = data['response']
       }, err => {
         this.message = 'Something went wrong. Try again later.'
       },

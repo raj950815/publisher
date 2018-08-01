@@ -5,18 +5,21 @@
         RSS
       </nb-card-header>
       <nb-card-body>
-        <!-- <nb-card *ngIf="values!=''">
-          <div class="row">
-            <select class=" col-md-3" name="status" [(ngModel)]="model.status" #status="ngModel" (change)="statusWiseStories(model.status)">
+        <div *ngIf="rssData" class="filter-body">
+          <div class="filter-view">
+            <select class="col-md-3" name="status" [(ngModel)]="model.status" #status="ngModel" (change)="statusWiseRss(model.status)">
               <option [ngValue]="null">Select Status</option>
               <option>Pending</option>
               <option>Approved</option>
               <option>Rejected</option>
             </select>
-            <my-date-range-picker name="mydaterange" [options]="myDateRangePickerOptions" [(ngModel)]="dateModel" (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
-            <button class="btn btn-hero-primary btn-sm" (click)="getcards()">Clear</button>
+            <input type="text" class="" placeholder="Publisher Name" #searchData (keyup.enter)="search(searchData.value)">
+            <div class="input-group-append">
+              <button class="btn btn-hero-success button-view" type="submit" (click)="search(searchData.value)">Go</button>
+            </div>
+            <button class="btn btn-hero-primary btn-sm button-view" (click)="getcards()">Clear</button>
           </div>
-        </nb-card> -->
+        </div>
         <div class="table-responsive">
           <table class="table table-bordered table-striped">
             <thead>

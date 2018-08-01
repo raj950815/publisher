@@ -28,12 +28,12 @@ export class RegisterComponent implements OnInit {
     this.auth.registerUser(this.model).subscribe(
       data => {
         if (data['status']) {
-          this.snotifyService.info(data['message'], 'Success', this.snotifyConfig)
+          this.snotifyService.info(data['response'], 'Success', this.snotifyConfig)
           setTimeout(() => {
             this.router.navigate(['/login'])
           }, 5000);
         } else {
-          this.snotifyService.warning(data['message'], 'Warning', this.snotifyConfig)
+          this.snotifyService.warning(data['response'], 'Warning', this.snotifyConfig)
         }
       }
       , err => {

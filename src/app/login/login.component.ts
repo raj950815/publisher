@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
         } else {
           localStorage.removeItem('userToken')
-          this.snotifyService.warning(data['message'], 'Warning', this.snotifyConfig)
+          this.snotifyService.warning(data['response'], 'Warning', this.snotifyConfig)
         }
       }, err => {
         localStorage.removeItem('userToken')

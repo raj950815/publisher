@@ -13,8 +13,7 @@ export class RssService {
     private http: HttpClient,
   ) { }
 
-  rssLinks(): Observable <any> {
-    const data = {}
+  rssLinks(data: any): Observable <any> {
     return this.http.post(this.baseUrl + 'admin/rss_links', data)
   }
 

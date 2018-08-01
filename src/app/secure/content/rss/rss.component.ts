@@ -30,10 +30,10 @@ onSubmit() {
   this.content.addRss(this.model).subscribe(data => {
     if (data['status']) {
       this.getFeedLinks();
-      this.snotify.success(data['message'], 'Success', this.snotifyConfig)
+      this.snotify.success(data['response'], 'Success', this.snotifyConfig)
       this.spinner.hide()
     } else {
-      this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
+      this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)
       this.spinner.hide()
 
     }
@@ -50,7 +50,7 @@ getFeedLinks() {
        this.listRss = data['response']
       //  this.spinner.hide()
       } else {
-        this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
+        this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)
         // this.spinner.hide()
       }
     }, err => {
@@ -75,9 +75,9 @@ deleteLink(linkId) {
         this.content.deleteRssLink(deleteLinkData).subscribe(data => {
           if (data['status']) {
             this.getFeedLinks()
-            this.snotify.success(data['message'], 'Success', this.snotifyConfig)
+            this.snotify.success(data['response'], 'Success', this.snotifyConfig)
           } else {
-            this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
+            this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)
           }
           }, err => {
             this.snotify.error('Something went wrong', 'failure', this.snotifyConfig)

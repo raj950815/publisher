@@ -96,9 +96,9 @@ export class EarningComponent implements OnInit {
   updateSubmit() {
     this.earning.updateBank(this.model).subscribe(data => {
       if (data['status']) {
-        this.snotify.success(data['message'], 'Success', this.snotifyConfig)
+        this.snotify.success(data['response'], 'Success', this.snotifyConfig)
       } else {
-        this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
+        this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)
       }
     }, err => {
       this.snotify.error('Something went wrong. Try again later.', 'Error', this.snotifyConfig)
@@ -126,12 +126,12 @@ export class EarningComponent implements OnInit {
             this.withdrawEarningStats();
             this.getEarnings();
             this.withdrawAmount = ''
-            this.snotify.success(data['message'], 'Success', this.snotifyConfig)
+            this.snotify.success(data['response'], 'Success', this.snotifyConfig)
             // this.
 
           } else {
             alert()
-            this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
+            this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)
           }
         }, err => {
           this.snotify.error('something went wrong', 'Error', this.snotifyConfig)

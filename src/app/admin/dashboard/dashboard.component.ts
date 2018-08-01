@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   model: any = {}
   statsCardData: any
   storyCardData: any
+  dataStatus: boolean
   snotifyConfig = {
     showProgressBar: false,
     position: SnotifyPosition.rightTop,
@@ -41,6 +42,10 @@ export class DashboardComponent implements OnInit {
     this.spinner.show()
     this.getcards(this.filterData)
     this.getStatsCards()
+    this.dashboardService.change.subscribe(change => {
+      this.getcards(this.filterData)
+
+      })
   }
 
   onDateRangeChanged(event: IMyDateRangeModel) {
@@ -68,18 +73,24 @@ export class DashboardComponent implements OnInit {
 
   getcards(filterData) {
     this.dashboardService.getStoryCards(filterData).subscribe(data => {
-      this.storyCardData = data['response']
-      this.spinner.hide()
+      if (data['status']) {
+        this.storyCardData = data['response']
+        this.dataStatus = true
+        this.spinner.hide()
+      } else {
+        this.dataStatus = false
+        this.spinner.hide()
+      }
     }, err => {
       this.spinner.hide()
       this.snotify.error('Something went wrong. Try again later.', 'Error', this.snotifyConfig)
     })
   }
 
-  getStatsCards(){
+  getStatsCards() {
     this.dashboardService.statsCards().subscribe(data => {
-      this.statsCardData = data['response']
-      this.spinner.hide()
+        this.statsCardData = data['response']
+        this.spinner.hide()
     }, err => {
       this.spinner.hide()
     })

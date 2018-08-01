@@ -1,12 +1,12 @@
 <nb-card size="medium">
   <nb-card-body>
     <div class="picture" [style.background-image]="image"></div>
-    <span class="story-status cursor-style" 
+    <span class="story-status bg-status-reject" nbPopover="{{storyCard?.reason}}" nbPopoverMode="hover" *ngIf="storyCard?.story_status === 'Rejected'">{{storyCard?.story_status}}</span>
+    <span class="story-status" 
     [ngClass]="{
       'bg-status-pending':storyCard?.story_status === 'Pending',
-      'bg-status-accept':storyCard?.story_status === 'Approved',
-      'bg-status-reject':storyCard?.story_status === 'Rejected'
-    }" nbPopover="{{storyCard?.reason}}" nbPopoverMode="hover">{{storyCard?.story_status}}</span>
+      'bg-status-accept':storyCard?.story_status === 'Approved'
+    }" *ngIf="storyCard?.story_status != 'Rejected'">{{storyCard?.story_status}}</span>
     <div class="details">
       <div class="title">
         {{storyCard?.story_title}}

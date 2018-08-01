@@ -46,7 +46,7 @@ export class StoryCardComponent implements OnInit, OnDestroy {
               // reason: ''
             }
             this.snotify.remove()
-            this.chnageDataFun(changeData)
+            this.changeStoryStatus(changeData)
           },
         },
         {
@@ -65,7 +65,7 @@ export class StoryCardComponent implements OnInit, OnDestroy {
                       reason: message.value,
                     }
                     this.snotify.remove()
-                    this.chnageDataFun(changeData)
+                    this.changeStoryStatus(changeData)
                   },
                 },
                 {
@@ -101,7 +101,7 @@ export class StoryCardComponent implements OnInit, OnDestroy {
                       reason: message.value,
                     }
                     this.snotify.remove()
-                    this.chnageDataFun(changeData)
+                    this.changeStoryStatus(changeData)
                   },
                 },
                 {
@@ -136,7 +136,7 @@ export class StoryCardComponent implements OnInit, OnDestroy {
               reason: '',
             }
             this.snotify.remove()
-            this.chnageDataFun(changeData)
+            this.changeStoryStatus(changeData)
           },
         },
         {
@@ -150,9 +150,10 @@ export class StoryCardComponent implements OnInit, OnDestroy {
     }
   }
 
-  chnageDataFun(changeData) {
+  changeStoryStatus(changeData) {
     this.dashboardService.changeStatus(changeData).subscribe(data => {
       if (data['status']) {
+        this.dashboardService.change.emit(true)
         this.snotify.confirm(data['response'], 'Success', this.snotifyConfig)
       } else {
         this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)

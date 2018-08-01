@@ -5,6 +5,21 @@
         Users list
       </nb-card-header>
       <nb-card-body>
+          <div *ngIf="userInfo" class="filter-body">
+              <div class="filter-view">
+                <select class="col-md-3" name="status" [(ngModel)]="model.status" #status="ngModel" (change)="statusWiseUsers(model.status)">
+                  <option [ngValue]="null">Select Status</option>
+                  <option>Pending</option>
+                  <option>Approved</option>
+                  <option>Rejected</option>
+                </select>
+                <input type="text" class="" placeholder="Publisher Name or Email" #searchData (keyup.enter)="search(searchData.value)">
+                <div class="input-group-append">
+                  <button class="btn btn-hero-success button-view" type="submit" (click)="search(searchData.value)">Go</button>
+                </div>
+                <button class="btn btn-hero-primary btn-sm button-view" (click)="getcards()">Clear</button>
+              </div>
+            </div>
         <div class="table-responsive">
           <table class="table table-bordered table-striped">
             <thead>

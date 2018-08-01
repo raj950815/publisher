@@ -28,7 +28,7 @@ export class ChangePasswordComponent implements OnInit {
 
     this.profile.resetPassword(this.model).subscribe(data => {
       if (data['status']) {
-        this.snotifyService.success(data['message'], 'Success', this.snotifyConfig)
+        this.snotifyService.success(data['response'], 'Success', this.snotifyConfig)
         // this.model={}
         // this.f.submitted=false
         setTimeout(() => {
@@ -36,7 +36,7 @@ export class ChangePasswordComponent implements OnInit {
           this.router.navigate(['/profile']);
         }, 3000);
         } else {
-          this.snotifyService.warning(data['message'], 'Warning', this.snotifyConfig)
+          this.snotifyService.warning(data['response'], 'Warning', this.snotifyConfig)
         }
       }, err => {
         this.snotifyService.error('Something went wrong. Try again later.', this.snotifyConfig)

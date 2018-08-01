@@ -58,9 +58,9 @@ export class ProfileComponent implements OnInit {
     this.profile.updateProfile(this.model).subscribe(data => {
       if (data['status']) {
         this.profile.change.emit(true)
-        this.snotify.success(data['message'], 'Success', this.snotifyConfig)
+        this.snotify.success(data['response'], 'Success', this.snotifyConfig)
       } else {
-        this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
+        this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)
       }
     }, err => {
       this.snotify.error('Something went wrong. Try again later.', 'Error', this.snotifyConfig)
@@ -91,11 +91,9 @@ export class ProfileComponent implements OnInit {
       if (data['status']) {
         this.getProfile()
         this.profile.change.emit(true)
-
-        this.snotify.success(data['message'], 'Success', this.snotifyConfig)
-
+        this.snotify.success(data['response'], 'Success', this.snotifyConfig)
       } else {
-        this.snotify.warning(data['message'], 'Warning', this.snotifyConfig)
+        this.snotify.warning(data['response'], 'Warning', this.snotifyConfig)
       }
     }, err => {
       this.snotify.error('Something went wrong. Try again later.', 'Error', this.snotifyConfig)

@@ -12,7 +12,9 @@ import { IMyDrpOptions, IMyDateRangeModel } from 'mydaterangepicker';
 })
 export class DashboardComponent implements OnInit {
   earningObj: any
-  filterData
+  filterData: any
+  storyCardData: any
+  dataStatus: boolean
   model: any = {}
   snotifyConfig = {
     showProgressBar: false,
@@ -43,7 +45,6 @@ export class DashboardComponent implements OnInit {
     this.getcards(this.filterData)
     this.getEarning()
   }
-  values = [ ];
 
   onDateRangeChanged(event: IMyDateRangeModel) {
     const beginDay = event.beginDate.day < 10 ? '0' + event.beginDate.day : event.beginDate.day;
@@ -83,8 +84,12 @@ export class DashboardComponent implements OnInit {
   getcards(filterData) {
     this.dashboardService.getStoryCards(filterData).subscribe(data => {
       if (data['status']) {
-        this.values = data['response']
+        this.storyCardData = data['response']
+        this.dataStatus = true
         this.spinner.hide();
+      } else {
+        this.dataStatus = false
+        this.spinner.hide()
       }
     }, err => {
       this.spinner.hide()

@@ -18,21 +18,25 @@
   </div>
 </div>
 
-<nb-card *ngIf="values!=''">
-    <div class="row">
-      <select class="col-md-3" name="status" [(ngModel)]="model.status" #status="ngModel" (change)="statusWiseStories(model.status)">
+<div *ngIf="storyCardData" class="filter-body">
+  <div class="filter-view">
+    <select class="col-md-3" name="status" [(ngModel)]="model.status" #status="ngModel" (change)="statusWiseStories(model.status)">
       <option [ngValue]="null">Select Status</option>
       <option>Pending</option>
       <option>Approved</option>
       <option>Rejected</option>
     </select>
-    <my-date-range-picker name="mydaterange" [options]="myDateRangePickerOptions" [(ngModel)]="dateModel" (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
-    <button class="btn btn-hero-primary btn-sm" (click)="getcards()">Clear</button>
+    <my-date-range-picker style="margin-right: 15px;" name="mydaterange" [options]="myDateRangePickerOptions" [(ngModel)]="dateModel"
+      (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+    <button class="btn btn-hero-primary btn-sm button-view" (click)="getcards()">Clear</button>
   </div>
-</nb-card>
+</div>
 
-<div class="row">
-  <div *ngFor="let card of values" class="col-md-4" style="margin-bottom: 15px;">
+<div class="no-data-available" *ngIf="dataStatus === false">
+  No Data Found
+</div>
+<div class="row" *ngIf="dataStatus === true">
+  <div *ngFor="let card of storyCardData" class="col-md-4" style="margin-bottom: 15px;">
     <of-story-card [storyCard]='card'></of-story-card>
   </div>
 </div>

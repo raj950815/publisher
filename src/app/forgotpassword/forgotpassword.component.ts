@@ -30,11 +30,11 @@ export class ForgotpasswordComponent implements OnInit {
 forgot() {
     this.auth.forgotPasswordRequest(this.model).subscribe(data => {
       if (data['status']) {
-        this.message = data['message']
+        this.message = data['response']
         this.response = true
       } else {
         this.response = false
-        this.snotifyService.warning(data['message'], 'warning', this.snotifyConfig);
+        this.snotifyService.warning(data['response'], 'warning', this.snotifyConfig);
       }
     }, err => {
       this.snotifyService.error('Something went wrong. Try again later.', 'error', this.snotifyConfig);

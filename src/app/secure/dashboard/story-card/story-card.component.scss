@@ -3,25 +3,33 @@
 @include nb-install-component {
     nb-card {
         .story-status {
-            display: none;
+            // display: none;
             position: absolute;
             padding: 5px;
-            font-weight: 500;
             color: white;
-            right: 0;
+            border-radius: 3px;
+            top: 5px;
+            right: 5px !important;
+            font-weight: 400 !important;
+            font-size: 14px !important;
+            line-height: 18px !important;
+            opacity: 0;
+            transition: opacity linear 0.3s;
+            
         }
         &:hover {
             .story-status {
-                display: block;
-            }
-            .bg-status-accept {
-                background-color: green;
-            }
-            .bg-status-reject {
-                background-color: red;
+                opacity: 1;
             }
             .bg-status-pending {
-                background-color: #ffa100;
+                background-color: rgba(255, 174, 36, 1);
+            }
+            .bg-status-accept {
+                background-color:rgba(0, 128, 0, 0.82);
+            }
+            .bg-status-reject {
+                // background-color: red;
+                background-color: rgba(255, 71, 0, 0.82);
             }
         }
     }

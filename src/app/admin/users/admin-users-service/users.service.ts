@@ -13,12 +13,11 @@ export class UsersService {
     private http: HttpClient,
   ) { }
 
-  getUsersInfo(): Observable <any> {
-    const data = {}
+  getUsersInfo(data: any): Observable <any> {
     return this.http.post(this.baseUrl + 'admin/accounts', data)
   }
 
-  changeAccStatus(data): Observable <any> {
+  changeAccStatus(data: any): Observable <any> {
     return this.http.post(this.baseUrl + 'admin/approve_reject_publisher', data)
   }
 }

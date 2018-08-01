@@ -1,15 +1,48 @@
 @import '../../@theme/styles/themes';
 @import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/bootstrap/breakpoints';
-.mydrp .selbtngroup{
+
+.mydrp .selbtngroup {
   height: 36px;
     left: -1px;
     top: 1px;
 }
-.mydrp .selection{
-  border-radius: 0px;
+.mydrp .selection {
+  border-radius: 0;
   border-color: #aaaaaa;
   padding: 4px;
+}
+.filter-body {
+  background-color: #ffffff;
+  padding: 12px 12px 7px 11px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  margin-left: -5px;
+  margin-right: -5px;
+  .filter-view {
+    display: flex;
+    select {
+      margin-right: 15px;
+      border-radius: 3px;
+      border-color: #cccccc;
+      height: 36px;
+    }
+    .button-view {
+      padding: 0 15px;
+      line-height: 0;
+      height: 35px;
+      border-radius: 3px;
+    }
+  }
+}
+.no-data-available {
+  width: 100%;
+    background-color: white;
+    font-size: 45px;
+    font-weight: 600;
+    color: black;
+    padding: 20px;
+    text-align: center;
 }
 @include nb-install-component() {
   .solar-card nb-card-header {

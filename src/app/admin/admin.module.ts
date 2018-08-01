@@ -24,7 +24,7 @@ const PAGES_COMPONENTS = [
     MiscellaneousModule,
     SnotifyModule,
     FormsModule,
-    MyDateRangePickerModule
+    MyDateRangePickerModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,
