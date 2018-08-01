@@ -22,7 +22,7 @@ export class AuthInterceptor implements HttpInterceptor {
                 },
             });
         }
-        
+
         return next.handle(req).catch(errorResponse => {
             if (errorResponse.status === 401 || errorResponse.status === 403) {
                 this.route.navigate(['/login'])

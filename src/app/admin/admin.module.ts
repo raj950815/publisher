@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { UsersComponent } from './users/users.component';
 import { RssComponent } from './rss/rss.component';
 import { PaymentComponent } from './payment/payment.component';
+import { MyDateRangePickerModule } from 'mydaterangepicker';
 
 const PAGES_COMPONENTS = [
   AdminComponent,
@@ -23,6 +24,7 @@ const PAGES_COMPONENTS = [
     MiscellaneousModule,
     SnotifyModule,
     FormsModule,
+    MyDateRangePickerModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,

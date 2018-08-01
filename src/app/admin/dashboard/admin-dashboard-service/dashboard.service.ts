@@ -11,13 +11,16 @@ export class DashboardService {
   constructor(
     private http: HttpClient,
   ) { }
-  
-  getStoryCards(): Observable<any> {
-    const data = {}
+
+  getStoryCards(data: any): Observable<any> {
     return this.http.post(this.baseUrl + 'admin/recent_stories', data)
   }
 
   changeStatus(data: any): Observable <any> {
-    return this.http.post(this.baseUrl + '', data)
+    return this.http.post(this.baseUrl + 'admin/approve_reject_story', data)
+  }
+
+  statsCards(): Observable <any> {
+    return this.http.get(this.baseUrl + 'admin/total_stats')
   }
 }

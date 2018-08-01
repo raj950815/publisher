@@ -11,19 +11,12 @@ export class AuthService {
 
   LoggedInStatus = false
   constructor(private http: HttpClient) { }
-  // setLoggedIn(value: boolean) {
-  //   this.LoggedInStatus = value
-  // }
-
-  // isLoggedIn() {
-  //   return this.LoggedInStatus
-  // }
   getToken() {
     return localStorage.getItem('userToken');
   }
   getKey() {
     return localStorage.getItem('key');
-  } 
+  }
   forgotPasswordRequest(data: any): Observable<any> {
     return this.http.post(this.baseUrl + 'forgot_password', data)
   }

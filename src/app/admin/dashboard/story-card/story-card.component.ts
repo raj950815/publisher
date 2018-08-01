@@ -33,123 +33,125 @@ export class StoryCardComponent implements OnInit, OnDestroy {
   }
 
   storyStatus(storyId, status) {
-    if (status === 'pending') {
-      this.snotify.confirm('Are you sure you want to Change Status?', 'Confirm',{
+    if (status === 'Pending') {
+      this.snotify.confirm('Are you sure you want to Change Status?', 'Confirm', {
         ...this.snotifyConfig,
         buttons: [
         {
           text: 'Approved',
           action: () => {
             const changeData = {
-              story_status: storyId,
-              status: 'Approved'
+              story_id: storyId,
+              status: 'Approved',
+              // reason: ''
             }
             this.snotify.remove()
             this.chnageDataFun(changeData)
-          }
+          },
         },
         {
           text: 'Rejected',
           action: () => {
             this.snotify.remove()
-            this.snotify.prompt('Enter Rejection Message','Message',{
+            this.snotify.prompt('Enter Rejection Message', 'Message', {
               ...this.snotifyConfig,
               buttons: [
                 {
                   text: 'Rejected',
                   action: (message) => {
                     const changeData = {
-                      story_status: storyId,
+                      story_id: storyId,
                       status: 'Rejected',
-                      message: message.value
+                      reason: message.value,
                     }
                     this.snotify.remove()
                     this.chnageDataFun(changeData)
-                  }
+                  },
                 },
                 {
                   text: 'Cancel',
                   action: () => {
                     this.snotify.remove()
-                  }
-                }
+                  },
+                },
               ],
-              placeholder: 'Enter Message.'
+              placeholder: 'Enter Message.',
             })
-          }
-        }
-        ]
+          },
+        },
+        ],
       })
-    } else if (status === 'approved'){
-      this.snotify.confirm('Are you sure you want to Reject?', 'Confirm',{
+    } else if (status === 'Approved') {
+      this.snotify.confirm('Are you sure you want to Reject?', 'Confirm', {
         ...this.snotifyConfig,
         buttons: [
         {
           text: 'Reject',
           action: () => {
             this.snotify.remove()
-            this.snotify.prompt('Enter Rejection Message','Message',{
+            this.snotify.prompt('Enter Rejection Message', 'Message', {
               ...this.snotifyConfig,
               buttons: [
                 {
                   text: 'Rejected',
                   action: (message) => {
                     const changeData = {
-                      story_status: storyId,
+                      story_id: storyId,
                       status: 'Rejected',
-                      message: message.value
+                      reason: message.value,
                     }
                     this.snotify.remove()
                     this.chnageDataFun(changeData)
-                  }
+                  },
                 },
                 {
                   text: 'Cancel',
                   action: () => {
                     this.snotify.remove()
-                  }
-                }
+                  },
+                },
               ],
-              placeholder: 'Enter Message.'
+              placeholder: 'Enter Message.',
             })
-          }
+          },
         },
         {
           text: 'Cancel',
           action: () => {
             this.snotify.remove()
-          }
-        }
-        ]
+          },
+        },
+        ],
       })
-    } else if (status === 'rejected') {
-      this.snotify.confirm('Are you sure you want to Approve?', 'Confirm',{
+    } else if (status === 'Rejected') {
+      this.snotify.confirm('Are you sure you want to Approve?', 'Confirm', {
         ...this.snotifyConfig,
         buttons: [
         {
           text: 'Approved',
           action: () => {
             const changeData = {
-              story_status: storyId,
-              status: 'Approved'
+              story_id: storyId,
+              status: 'Approved',
+              reason: '',
             }
             this.snotify.remove()
             this.chnageDataFun(changeData)
-          }
+          },
         },
         {
           text: 'Cancel',
           action: () => {
             this.snotify.remove()
-          }
-        }
-        ]
+          },
+        },
+        ],
       })
     }
   }
-  
-  chnageDataFun(changeData){    
-    this.dashboardService.changeStatus(changeData).subscribe(data=>{
+
+  chnageDataFun(changeData) {
+    this.dashboardService.changeStatus(changeData).subscribe(data => {
       if (data['status']) {
         this.snotify.confirm(data['response'], 'Success', this.snotifyConfig)
       } else {

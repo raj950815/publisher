@@ -16,8 +16,20 @@
       <i class="fas fa-users fa-xs"></i>
     </of-stats-card>
   </div>
-
 </div>
+
+<nb-card *ngIf="values!=''">
+    <div class="row">
+      <select class="col-md-3" name="status" [(ngModel)]="model.status" #status="ngModel" (change)="statusWiseStories(model.status)">
+      <option [ngValue]="null">Select Status</option>
+      <option>Pending</option>
+      <option>Approved</option>
+      <option>Rejected</option>
+    </select>
+    <my-date-range-picker name="mydaterange" [options]="myDateRangePickerOptions" [(ngModel)]="dateModel" (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+    <button class="btn btn-hero-primary btn-sm" (click)="getcards()">Clear</button>
+  </div>
+</nb-card>
 
 <div class="row">
   <div *ngFor="let card of values" class="col-md-4" style="margin-bottom: 15px;">

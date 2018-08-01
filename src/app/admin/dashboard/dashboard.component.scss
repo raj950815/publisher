@@ -1,7 +1,16 @@
 @import '../../@theme/styles/themes';
 @import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/bootstrap/breakpoints';
-
+.mydrp .selbtngroup{
+  height: 36px;
+    left: -1px;
+    top: 1px;
+}
+.mydrp .selection{
+  border-radius: 0px;
+  border-color: #aaaaaa;
+  padding: 4px;
+}
 @include nb-install-component() {
   .solar-card nb-card-header {
     border: none;
